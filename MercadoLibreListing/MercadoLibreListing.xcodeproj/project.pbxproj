@@ -17,10 +17,10 @@
 		FB2222842491918A007FF2E8 /* SearchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2222832491918A007FF2E8 /* SearchTask.swift */; };
 		FB99915E2491AC5E00F83DFB /* SearcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99915D2491AC5E00F83DFB /* SearcherProtocol.swift */; };
 		FB9991602491ACB100F83DFB /* ItemSearcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99915F2491ACB100F83DFB /* ItemSearcherService.swift */; };
-		FB9991632491AEDA00F83DFB /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9991622491AEDA00F83DFB /* Item.swift */; };
 		FB9991652491AEFA00F83DFB /* ItemHolderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9991642491AEFA00F83DFB /* ItemHolderProtocol.swift */; };
 		FB9991672491AF0E00F83DFB /* SearcherTermDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9991662491AF0E00F83DFB /* SearcherTermDelegate.swift */; };
 		FB9991692491AF1D00F83DFB /* SearcherTermError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9991682491AF1D00F83DFB /* SearcherTermError.swift */; };
+		FB99916C2491C3FB00F83DFB /* SearchBarResultsUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99916B2491C3FB00F83DFB /* SearchBarResultsUpdating.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,10 +48,10 @@
 		FB2222832491918A007FF2E8 /* SearchTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTask.swift; sourceTree = "<group>"; };
 		FB99915D2491AC5E00F83DFB /* SearcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcherProtocol.swift; sourceTree = "<group>"; };
 		FB99915F2491ACB100F83DFB /* ItemSearcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearcherService.swift; sourceTree = "<group>"; };
-		FB9991622491AEDA00F83DFB /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FB9991642491AEFA00F83DFB /* ItemHolderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemHolderProtocol.swift; sourceTree = "<group>"; };
 		FB9991662491AF0E00F83DFB /* SearcherTermDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcherTermDelegate.swift; sourceTree = "<group>"; };
 		FB9991682491AF1D00F83DFB /* SearcherTermError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcherTermError.swift; sourceTree = "<group>"; };
+		FB99916B2491C3FB00F83DFB /* SearchBarResultsUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarResultsUpdating.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +93,7 @@
 		FB22225E24918F18007FF2E8 /* MercadoLibreListing */ = {
 			isa = PBXGroup;
 			children = (
-				FB9991612491AEBF00F83DFB /* ItemRepresentation */,
-				FB99915B2491AC2F00F83DFB /* UINeedsASearcherPassingATerm */,
+				FB99915B2491AC2F00F83DFB /* ControlsChangesInSarchbarsTextAndDelegatesTheSearch */,
 				FB2222852491918D007FF2E8 /* SearchesItemsFromAGivenService */,
 				FB22225F24918F18007FF2E8 /* AppDelegate.swift */,
 				FB22226124918F18007FF2E8 /* SceneDelegate.swift */,
@@ -144,12 +143,13 @@
 			path = OpenApis;
 			sourceTree = "<group>";
 		};
-		FB99915B2491AC2F00F83DFB /* UINeedsASearcherPassingATerm */ = {
+		FB99915B2491AC2F00F83DFB /* ControlsChangesInSarchbarsTextAndDelegatesTheSearch */ = {
 			isa = PBXGroup;
 			children = (
 				FB99915C2491AC5000F83DFB /* OpenApis */,
+				FB99916A2491C3CF00F83DFB /* Internals */,
 			);
-			path = UINeedsASearcherPassingATerm;
+			path = ControlsChangesInSarchbarsTextAndDelegatesTheSearch;
 			sourceTree = "<group>";
 		};
 		FB99915C2491AC5000F83DFB /* OpenApis */ = {
@@ -160,12 +160,12 @@
 			path = OpenApis;
 			sourceTree = "<group>";
 		};
-		FB9991612491AEBF00F83DFB /* ItemRepresentation */ = {
+		FB99916A2491C3CF00F83DFB /* Internals */ = {
 			isa = PBXGroup;
 			children = (
-				FB9991622491AEDA00F83DFB /* Item.swift */,
+				FB99916B2491C3FB00F83DFB /* SearchBarResultsUpdating.swift */,
 			);
-			path = ItemRepresentation;
+			path = Internals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,10 +274,10 @@
 				FB2222842491918A007FF2E8 /* SearchTask.swift in Sources */,
 				FB9991602491ACB100F83DFB /* ItemSearcherService.swift in Sources */,
 				FB9991652491AEFA00F83DFB /* ItemHolderProtocol.swift in Sources */,
+				FB99916C2491C3FB00F83DFB /* SearchBarResultsUpdating.swift in Sources */,
 				FB99915E2491AC5E00F83DFB /* SearcherProtocol.swift in Sources */,
 				FB9991692491AF1D00F83DFB /* SearcherTermError.swift in Sources */,
 				FB22226424918F18007FF2E8 /* ViewController.swift in Sources */,
-				FB9991632491AEDA00F83DFB /* Item.swift in Sources */,
 				FB22226024918F18007FF2E8 /* AppDelegate.swift in Sources */,
 				FB22226224918F18007FF2E8 /* SceneDelegate.swift in Sources */,
 			);
