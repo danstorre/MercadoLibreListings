@@ -8,18 +8,18 @@
 
 import Foundation
 
-class ProductHolder: ItemHolder{
-    var products: [ProductProtocol]
+class ProductHolder<T: ProductProtocol>: ItemHolder{
+    var products: [T]
     
-    init(products: [ProductProtocol]) {
+    init(products: [T]) {
         self.products = products
     }
     
-    func getItems() -> [ProductProtocol] {
+    func getItems() -> [T] {
         return products
     }
     
-    func save(items: [ProductProtocol]) {
+    func save(items: [T]) {
         self.products = items
     }
 }

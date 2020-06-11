@@ -10,9 +10,6 @@ import Foundation
 
 //create model mercadolibre product.
 
-
 struct MercadoLibreListingProduct {
-    
-    
+    var title: String
 }
-

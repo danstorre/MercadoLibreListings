@@ -31,9 +31,13 @@ fileprivate struct SearchViewControllerMaker: ViewControllerMaker {
             let vc = nav.topViewController as? SearchBarEmbededViewController else {
                 return UIViewController()
         }
+        nav.navigationBar.prefersLargeTitles = true
+        nav.navigationItem.hidesSearchBarWhenScrolling = false
+        vc.navigationItem.largeTitleDisplayMode = .always
+        vc.navigationItem.title = "Discover"
         vc.navigationItem.searchController = searchController
-        
-        return vc
+        vc.definesPresentationContext = true
+        return nav
     }
 }
 
