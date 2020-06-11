@@ -39,6 +39,9 @@
 		FBDCB91E2491E3CE00A9B85B /* MercadoLibreListingProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB91D2491E3CE00A9B85B /* MercadoLibreListingProduct.swift */; };
 		FBDCB92224926CF400A9B85B /* MercadoLibreListingProduct+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB92124926CF400A9B85B /* MercadoLibreListingProduct+Decodable.swift */; };
 		FBDCB92424926E4300A9B85B /* MercadoLibreListingProduct+ProductProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB92324926E4300A9B85B /* MercadoLibreListingProduct+ProductProtocol.swift */; };
+		FBDCB92824927ED300A9B85B /* MercadolibreGetParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB92724927ED300A9B85B /* MercadolibreGetParser.swift */; };
+		FBDCB92A24927FB800A9B85B /* MercadoLibreGetServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB92924927FB800A9B85B /* MercadoLibreGetServiceModel.swift */; };
+		FBDCB92C2492800200A9B85B /* MercadoLibreGetServiceModel+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB92B2492800200A9B85B /* MercadoLibreGetServiceModel+Decodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		FBDCB91D2491E3CE00A9B85B /* MercadoLibreListingProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLibreListingProduct.swift; sourceTree = "<group>"; };
 		FBDCB92124926CF400A9B85B /* MercadoLibreListingProduct+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MercadoLibreListingProduct+Decodable.swift"; sourceTree = "<group>"; };
 		FBDCB92324926E4300A9B85B /* MercadoLibreListingProduct+ProductProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MercadoLibreListingProduct+ProductProtocol.swift"; sourceTree = "<group>"; };
+		FBDCB92724927ED300A9B85B /* MercadolibreGetParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadolibreGetParser.swift; sourceTree = "<group>"; };
+		FBDCB92924927FB800A9B85B /* MercadoLibreGetServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLibreGetServiceModel.swift; sourceTree = "<group>"; };
+		FBDCB92B2492800200A9B85B /* MercadoLibreGetServiceModel+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MercadoLibreGetServiceModel+Decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,7 @@
 		FB22225E24918F18007FF2E8 /* MercadoLibreListing */ = {
 			isa = PBXGroup;
 			children = (
+				FBDCB92524927A5A00A9B85B /* ParsesDataFromMercadoLibreServiceToAnArrayOfMercadoLibreListingProduct */,
 				FBDCB9192491DF0E00A9B85B /* RepresentsAMercadoLibreProduct */,
 				FBDCB9152491DE9100A9B85B /* CreatesMercadoLibreUrls */,
 				FB9991912491D40400F83DFB /* ParsersAnyObjectToJsonIfDecodable */,
@@ -390,6 +397,24 @@
 			path = OpenApis;
 			sourceTree = "<group>";
 		};
+		FBDCB92524927A5A00A9B85B /* ParsesDataFromMercadoLibreServiceToAnArrayOfMercadoLibreListingProduct */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB92624927AEC00A9B85B /* Internals */,
+			);
+			path = ParsesDataFromMercadoLibreServiceToAnArrayOfMercadoLibreListingProduct;
+			sourceTree = "<group>";
+		};
+		FBDCB92624927AEC00A9B85B /* Internals */ = {
+			isa = PBXGroup;
+			children = (
+				FBDCB92724927ED300A9B85B /* MercadolibreGetParser.swift */,
+				FBDCB92924927FB800A9B85B /* MercadoLibreGetServiceModel.swift */,
+				FBDCB92B2492800200A9B85B /* MercadoLibreGetServiceModel+Decodable.swift */,
+			);
+			path = Internals;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -492,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBDCB92C2492800200A9B85B /* MercadoLibreGetServiceModel+Decodable.swift in Sources */,
 				FB99918F2491D0EE00F83DFB /* GetProductsUrlMaker.swift in Sources */,
 				FB9991892491CED000F83DFB /* SearchBarEmbededViewController+SearcherTermDelegate.swift in Sources */,
 				FB99918D2491D05A00F83DFB /* SearchItemsGivenAUrl.swift in Sources */,
@@ -507,6 +533,7 @@
 				FBDCB91E2491E3CE00A9B85B /* MercadoLibreListingProduct.swift in Sources */,
 				FB9991602491ACB100F83DFB /* ItemSearcherService.swift in Sources */,
 				FB9991972491D40500F83DFB /* ParserProtocol.swift in Sources */,
+				FBDCB92824927ED300A9B85B /* MercadolibreGetParser.swift in Sources */,
 				FBDCB92224926CF400A9B85B /* MercadoLibreListingProduct+Decodable.swift in Sources */,
 				FB9991652491AEFA00F83DFB /* ItemHolderProtocol.swift in Sources */,
 				FB99916C2491C3FB00F83DFB /* SearchBarResultsUpdating.swift in Sources */,
@@ -514,6 +541,7 @@
 				FB9991742491C56800F83DFB /* SearchControllerFactory.swift in Sources */,
 				FB9991862491CD7700F83DFB /* ProductManager.swift in Sources */,
 				FB9991692491AF1D00F83DFB /* SearcherTermError.swift in Sources */,
+				FBDCB92A24927FB800A9B85B /* MercadoLibreGetServiceModel.swift in Sources */,
 				FB22226424918F18007FF2E8 /* SearchBarEmbededViewController.swift in Sources */,
 				FB9991722491C54D00F83DFB /* SearchControllerFactoryOptions.swift in Sources */,
 				FBDCB9182491DED700A9B85B /* MercadoLibreURLFactory.swift in Sources */,
