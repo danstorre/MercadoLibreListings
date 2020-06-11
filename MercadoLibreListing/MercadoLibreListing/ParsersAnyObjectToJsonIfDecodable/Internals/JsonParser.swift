@@ -8,7 +8,7 @@
 
 import Foundation
 
-class JsonParser<DecodableType: Decodable>{
+class JsonParser<DecodableType: Decodable>: ParserProtocol{
     typealias T = DecodableType
     
     func decode(data: Data) throws -> T {

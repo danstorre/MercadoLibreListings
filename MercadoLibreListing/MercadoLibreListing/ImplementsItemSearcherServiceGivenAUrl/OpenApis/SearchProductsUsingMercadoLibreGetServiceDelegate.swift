@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SearchProductsUsingMercadoLibreGetServiceDelegate: class {
-    
+    func errorWhenMakingANetworkRequest(_: Error)
 }

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SearchProductMercadoLibreServiceProtocol {
-    func makeGetProductsUrl() -> URL
+    func makeGetProductsUrl(searchterm: String) -> URL
 }
