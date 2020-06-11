@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol SearchProductMercadoLibreServiceProtocol {
+protocol GetProductsUrlMaker {
     func makeGetProductsUrl(searchterm: String) -> URL
 }

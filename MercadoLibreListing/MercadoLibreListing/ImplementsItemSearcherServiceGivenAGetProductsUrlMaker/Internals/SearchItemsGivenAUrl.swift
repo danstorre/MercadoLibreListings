@@ -8,16 +8,16 @@
 
 import Foundation
 
-class SearchProductsUsingMercadoLibreGetService<ProductType, ParserType: ParserProtocol>: ItemSearcherService where ParserType.T ==  [ProductType]{
+class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProtocol>: ItemSearcherService where ParserType.T ==  [ProductType]{
     typealias T = ProductType
     
     lazy var session: URLSession = URLSession.shared
-    var urlMaker: SearchProductMercadoLibreServiceProtocol
+    var urlMaker: GetProductsUrlMaker
     var parser: ParserType?
     
-    weak var delegate: SearchProductsUsingMercadoLibreGetServiceDelegate?
+    weak var delegate: SearchItemsFromNetworkGivenASearchTermDelegate?
     
-    init(urlMaker: SearchProductMercadoLibreServiceProtocol) {
+    init(urlMaker: GetProductsUrlMaker) {
         self.urlMaker = urlMaker
     }
     

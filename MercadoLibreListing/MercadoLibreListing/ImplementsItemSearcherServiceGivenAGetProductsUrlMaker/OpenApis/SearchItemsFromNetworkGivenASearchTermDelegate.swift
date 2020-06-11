@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol SearchProductsUsingMercadoLibreGetServiceDelegate: class {
+protocol SearchItemsFromNetworkGivenASearchTermDelegate: class {
     func errorWhenMakingANetworkRequest(_: Error)
 }
