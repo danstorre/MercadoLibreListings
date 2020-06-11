@@ -10,7 +10,9 @@ import XCTest
 @testable import MercadoLibreListing
 
 class TextSearcherTests: XCTestCase {
-
+    
+    typealias TypeTest = Int
+    
     func testSearchTerm_GivenAText_ShouldLookOutForItems(){
         //given
         let itemsSeachCatcher = createItemsHolder()
@@ -30,7 +32,7 @@ class TextSearcherTests: XCTestCase {
     func testSearchTerm_GivenAText_WhenServiceIsDown_ShouldSendErrorToDelegate(){
         //given
         let searcherDelegate = createSearcerDelegate()
-        let itemsSeachCatcher = createItemsHolder()
+        let itemsSeachCatcher: MockItemHolder = createItemsHolder()
         let brokenService = createABrokenServiceItem()
         let searcher = createAsearcher(with: itemsSeachCatcher,
                                        and: brokenService,
@@ -46,7 +48,7 @@ class TextSearcherTests: XCTestCase {
     func testSearchTerm_GivenAText_WhenServiceReturns_ShouldNotifyDelegate(){
         //given
         let searcherDelegate = createSearcerDelegate()
-        let itemsSeachCatcher = createItemsHolder()
+        let itemsSeachCatcher: MockItemHolder = createItemsHolder()
         let itemService = createAServiceItem()
         let searcher = createAsearcher(with: itemsSeachCatcher,
                                        and: itemService,
@@ -79,7 +81,7 @@ class TextSearcherTests: XCTestCase {
         XCTAssertEqual(expectedError as! SearcherTermError, error)
     }
     
-    func createABrokenServiceItem() -> ItemSearcherService {
+    func createABrokenServiceItem() -> MockService {
         var mock = MockService()
         mock.fails = true
         return mock
@@ -90,24 +92,24 @@ class TextSearcherTests: XCTestCase {
         return mock
     }
     
-    func createAsearcher(with itemHolder: ItemHolder,
-                         and service: ItemSearcherService,
+    func createAsearcher(with itemHolder: MockItemHolder,
+                         and service: MockService,
                          delegate: SearcherTermDelegate) -> SearcherProtocol {
         return SearcherTerm(repository: itemHolder,
                             service: service,
                             delegate: delegate)
     }
-    
-    func createAsearcher(with itemHolder: ItemHolder,
-        and service: ItemSearcherService) -> SearcherProtocol {
+
+    func createAsearcher(with itemHolder: MockItemHolder,
+        and service: MockService) -> SearcherProtocol {
         return SearcherTerm(repository: itemHolder, service: service)
     }
-    
-    func createItemsHolder() -> ItemHolder {
+
+    func createItemsHolder() -> MockItemHolder {
         return MockItemHolder()
     }
-    
-    func createAServiceItem() -> ItemSearcherService {
+
+    func createAServiceItem() -> MockService {
         return MockService()
     }
     
@@ -125,22 +127,19 @@ class TextSearcherTests: XCTestCase {
     
     struct MockService: ItemSearcherService {
         var fails: Bool = false
-        func getItems(with: String, completion: @escaping (([Item]?) -> ())) {
-            fails ? completion(nil) : completion([MockItem()])
+        func getItems(with: String, completion: @escaping (([TypeTest]?) -> ())) {
+            fails ? completion(nil) : completion([TypeTest()])
         }
-    }
-    
-    struct MockItem: Item {
     }
     
     class MockItemHolder: ItemHolder {
-        var items: [Item] = []
+        var items: [TypeTest] = []
         
-        func getItems() -> [Item] {
+        func getItems() -> [TypeTest] {
             return items
         }
         
-        func save(items: [Item]) {
+        func save(items: [TypeTest]) {
             self.items = items
         }
     }

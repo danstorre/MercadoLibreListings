@@ -9,18 +9,18 @@
 import Foundation
 
 //search term internals
-class SearcherTerm: SearcherProtocol{
-    var repository: ItemHolder
-    var service: ItemSearcherService
+class SearcherTerm<RepoType: ItemHolder, ItemSearcherType: ItemSearcherService>: SearcherProtocol where ItemSearcherType.T == RepoType.T{
+    var repository: RepoType
+    var service: ItemSearcherType
     weak var delegate: SearcherTermDelegate?
     
-    init(repository: ItemHolder, service: ItemSearcherService){
+    init(repository: RepoType, service: ItemSearcherType){
         self.repository = repository
         self.service = service
     }
     
-    convenience init(repository: ItemHolder,
-                     service: ItemSearcherService,
+    convenience init(repository: RepoType,
+                     service: ItemSearcherType,
                      delegate: SearcherTermDelegate) {
         self.init(repository: repository, service: service)
         self.delegate = delegate

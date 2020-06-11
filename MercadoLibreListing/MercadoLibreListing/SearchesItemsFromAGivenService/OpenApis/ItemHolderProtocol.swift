@@ -10,6 +10,7 @@ import Foundation
 
 //Repository
 protocol ItemHolder: class {
-    func getItems()-> [Item]
-    func save(items: [Item])
+    associatedtype T
+    func getItems()-> [T]
+    func save(items: [T])
 }
