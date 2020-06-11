@@ -15,6 +15,8 @@
 		FB22226C24918F22007FF2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB22226A24918F22007FF2E8 /* LaunchScreen.storyboard */; };
 		FB22228224919099007FF2E8 /* TextSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22228124919099007FF2E8 /* TextSearcherTests.swift */; };
 		FB2222842491918A007FF2E8 /* SearchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2222832491918A007FF2E8 /* SearchTask.swift */; };
+		FB99915E2491AC5E00F83DFB /* SearcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99915D2491AC5E00F83DFB /* SearcherProtocol.swift */; };
+		FB9991602491ACB100F83DFB /* ItemSearcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99915F2491ACB100F83DFB /* ItemSearcherService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		FB22227824918F22007FF2E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB22228124919099007FF2E8 /* TextSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSearcherTests.swift; sourceTree = "<group>"; };
 		FB2222832491918A007FF2E8 /* SearchTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTask.swift; sourceTree = "<group>"; };
+		FB99915D2491AC5E00F83DFB /* SearcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcherProtocol.swift; sourceTree = "<group>"; };
+		FB99915F2491ACB100F83DFB /* ItemSearcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearcherService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +85,8 @@
 		FB22225E24918F18007FF2E8 /* MercadoLibreListing */ = {
 			isa = PBXGroup;
 			children = (
-				FB2222852491918D007FF2E8 /* SearchesForAText */,
+				FB99915B2491AC2F00F83DFB /* UINeedsASearcherPassingATerm */,
+				FB2222852491918D007FF2E8 /* SearchesItemsFromAGivenService */,
 				FB22225F24918F18007FF2E8 /* AppDelegate.swift */,
 				FB22226124918F18007FF2E8 /* SceneDelegate.swift */,
 				FB22226324918F18007FF2E8 /* ViewController.swift */,
@@ -102,18 +107,19 @@
 			path = MercadoLibreListingTests;
 			sourceTree = "<group>";
 		};
-		FB2222852491918D007FF2E8 /* SearchesForAText */ = {
+		FB2222852491918D007FF2E8 /* SearchesItemsFromAGivenService */ = {
 			isa = PBXGroup;
 			children = (
 				FB222287249191A0007FF2E8 /* OpenApis */,
 				FB2222862491919B007FF2E8 /* Internals */,
 			);
-			path = SearchesForAText;
+			path = SearchesItemsFromAGivenService;
 			sourceTree = "<group>";
 		};
 		FB2222862491919B007FF2E8 /* Internals */ = {
 			isa = PBXGroup;
 			children = (
+				FB2222832491918A007FF2E8 /* SearchTask.swift */,
 			);
 			path = Internals;
 			sourceTree = "<group>";
@@ -121,7 +127,23 @@
 		FB222287249191A0007FF2E8 /* OpenApis */ = {
 			isa = PBXGroup;
 			children = (
-				FB2222832491918A007FF2E8 /* SearchTask.swift */,
+				FB99915F2491ACB100F83DFB /* ItemSearcherService.swift */,
+			);
+			path = OpenApis;
+			sourceTree = "<group>";
+		};
+		FB99915B2491AC2F00F83DFB /* UINeedsASearcherPassingATerm */ = {
+			isa = PBXGroup;
+			children = (
+				FB99915C2491AC5000F83DFB /* OpenApis */,
+			);
+			path = UINeedsASearcherPassingATerm;
+			sourceTree = "<group>";
+		};
+		FB99915C2491AC5000F83DFB /* OpenApis */ = {
+			isa = PBXGroup;
+			children = (
+				FB99915D2491AC5E00F83DFB /* SearcherProtocol.swift */,
 			);
 			path = OpenApis;
 			sourceTree = "<group>";
@@ -229,6 +251,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB2222842491918A007FF2E8 /* SearchTask.swift in Sources */,
+				FB9991602491ACB100F83DFB /* ItemSearcherService.swift in Sources */,
+				FB99915E2491AC5E00F83DFB /* SearcherProtocol.swift in Sources */,
 				FB22226424918F18007FF2E8 /* ViewController.swift in Sources */,
 				FB22226024918F18007FF2E8 /* AppDelegate.swift in Sources */,
 				FB22226224918F18007FF2E8 /* SceneDelegate.swift in Sources */,

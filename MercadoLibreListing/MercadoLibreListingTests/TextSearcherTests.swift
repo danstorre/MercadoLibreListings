@@ -43,6 +43,31 @@ class TextSearcherTests: XCTestCase {
         check(searcherDelegate, gets: SearcherTermError.serviceReturnNilItems)
     }
     
+    func testSearchTerm_GivenAText_WhenServiceReturns_ShouldNotifyDelegate(){
+        //given
+        let searcherDelegate = createSearcerDelegate()
+        let itemsSeachCatcher = createItemsHolder()
+        let itemService = createAServiceItem()
+        let searcher = createAsearcher(with: itemsSeachCatcher,
+                                       and: itemService,
+                                       delegate: searcherDelegate)
+        
+        //when
+        searcher.search(term: "cama")
+        
+        //delegate gets an error that service is down.
+        checkDelegateIsNotify(searcherDelegate)
+    }
+    
+    func checkDelegateIsNotify(_ searcherDelegate: SearcherTermDelegate,
+                                   line: UInt = #line) {
+        guard let mock = searcherDelegate as? MockerSearchDelegate else {
+               XCTFail("searcherDelegate should get notify.", line: line)
+           return
+       }
+        XCTAssertTrue(mock.didFinishGetsCalled)
+    }
+    
     func check(_ searcherDelegate: SearcherTermDelegate,
                gets expectedError: Error,
                line: UInt = #line) {
@@ -88,11 +113,13 @@ class TextSearcherTests: XCTestCase {
     
     //SearcherTermDelegate
     class MockerSearchDelegate: SearcherTermDelegate{
+        var didFinishGetsCalled: Bool = false
         var errorReceived: Error?
-        var expectation: XCTestExpectation?
         func didFinish(with error: SearcherTermError) {
             errorReceived = error
-            expectation?.fulfill()
+        }
+        func didFinish() {
+            didFinishGetsCalled = true
         }
     }
     

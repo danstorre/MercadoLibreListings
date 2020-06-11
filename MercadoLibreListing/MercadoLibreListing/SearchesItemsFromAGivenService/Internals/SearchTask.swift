@@ -8,10 +8,6 @@
 
 import Foundation
 
-//UI Delegate object
-protocol SearcherProtocol{
-    func search(term: String)
-}
 
 //ModelRepresentation
 protocol Item {}
@@ -22,13 +18,9 @@ protocol ItemHolder: class {
     func save(items: [Item])
 }
 
-//Public apis form SearcherTerm
-protocol ItemSearcherService{
-    func getItems(with: String, completion: @escaping(([Item]?) -> ()))
-}
-
 protocol SearcherTermDelegate: class{
     func didFinish(with: SearcherTermError)
+    func didFinish()
 }
 
 enum SearcherTermError: Error {
@@ -41,6 +33,11 @@ class SearcherTerm: SearcherProtocol{
     var service: ItemSearcherService
     weak var delegate: SearcherTermDelegate?
     
+    init(repository: ItemHolder, service: ItemSearcherService){
+        self.repository = repository
+        self.service = service
+    }
+    
     convenience init(repository: ItemHolder,
                      service: ItemSearcherService,
                      delegate: SearcherTermDelegate) {
@@ -48,18 +45,14 @@ class SearcherTerm: SearcherProtocol{
         self.delegate = delegate
     }
     
-    init(repository: ItemHolder, service: ItemSearcherService){
-        self.repository = repository
-        self.service = service
-    }
-    
     func search(term: String) {
         service.getItems(with: term) {[weak self] (items) in
-            guard let items = items else {
+            guard let items = items, !items.isEmpty else {
                 self?.delegate?.didFinish(with: SearcherTermError.serviceReturnNilItems)
                 return
             }
             self?.repository.save(items: items)
+            self?.delegate?.didFinish()
         }
     }
 }
