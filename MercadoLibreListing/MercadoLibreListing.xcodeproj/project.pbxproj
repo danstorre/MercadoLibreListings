@@ -136,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				FBDCB92524927A5A00A9B85B /* ParsesDataFromMercadoLibreServiceToAnArrayOfMercadoLibreListingProduct */,
-				FBDCB9192491DF0E00A9B85B /* RepresentsAMercadoLibreProduct */,
+				FBDCB9192491DF0E00A9B85B /* RepresentsAMercadoLibreListingProduct */,
 				FBDCB9152491DE9100A9B85B /* CreatesMercadoLibreUrls */,
 				FB9991912491D40400F83DFB /* ParsersAnyObjectToJsonIfDecodable */,
 				FB9991872491CE7B00F83DFB /* ImplementsItemSearcherServiceGivenAGetProductsUrlMaker */,
@@ -363,13 +363,13 @@
 			path = Internals;
 			sourceTree = "<group>";
 		};
-		FBDCB9192491DF0E00A9B85B /* RepresentsAMercadoLibreProduct */ = {
+		FBDCB9192491DF0E00A9B85B /* RepresentsAMercadoLibreListingProduct */ = {
 			isa = PBXGroup;
 			children = (
 				FBDCB9202491E3DD00A9B85B /* OpenApis */,
 				FBDCB91F2491E3D100A9B85B /* Internals */,
 			);
-			path = RepresentsAMercadoLibreProduct;
+			path = RepresentsAMercadoLibreListingProduct;
 			sourceTree = "<group>";
 		};
 		FBDCB91A2491E2C400A9B85B /* OpenApis */ = {
