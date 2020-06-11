@@ -13,7 +13,8 @@
 		FB22226724918F19007FF2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB22226524918F19007FF2E8 /* Main.storyboard */; };
 		FB22226924918F22007FF2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB22226824918F22007FF2E8 /* Assets.xcassets */; };
 		FB22226C24918F22007FF2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB22226A24918F22007FF2E8 /* LaunchScreen.storyboard */; };
-		FB22227724918F22007FF2E8 /* MercadoLibreListingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22227624918F22007FF2E8 /* MercadoLibreListingTests.swift */; };
+		FB22228224919099007FF2E8 /* TextSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22228124919099007FF2E8 /* TextSearcherTests.swift */; };
+		FB2222842491918A007FF2E8 /* SearchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2222832491918A007FF2E8 /* SearchTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +37,9 @@
 		FB22226B24918F22007FF2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB22226D24918F22007FF2E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB22227224918F22007FF2E8 /* MercadoLibreListingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MercadoLibreListingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB22227624918F22007FF2E8 /* MercadoLibreListingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLibreListingTests.swift; sourceTree = "<group>"; };
 		FB22227824918F22007FF2E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB22228124919099007FF2E8 /* TextSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSearcherTests.swift; sourceTree = "<group>"; };
+		FB2222832491918A007FF2E8 /* SearchTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		FB22225E24918F18007FF2E8 /* MercadoLibreListing */ = {
 			isa = PBXGroup;
 			children = (
+				FB2222852491918D007FF2E8 /* SearchesForAText */,
 				FB22225F24918F18007FF2E8 /* AppDelegate.swift */,
 				FB22226124918F18007FF2E8 /* SceneDelegate.swift */,
 				FB22226324918F18007FF2E8 /* ViewController.swift */,
@@ -93,10 +96,34 @@
 		FB22227524918F22007FF2E8 /* MercadoLibreListingTests */ = {
 			isa = PBXGroup;
 			children = (
-				FB22227624918F22007FF2E8 /* MercadoLibreListingTests.swift */,
 				FB22227824918F22007FF2E8 /* Info.plist */,
+				FB22228124919099007FF2E8 /* TextSearcherTests.swift */,
 			);
 			path = MercadoLibreListingTests;
+			sourceTree = "<group>";
+		};
+		FB2222852491918D007FF2E8 /* SearchesForAText */ = {
+			isa = PBXGroup;
+			children = (
+				FB222287249191A0007FF2E8 /* OpenApis */,
+				FB2222862491919B007FF2E8 /* Internals */,
+			);
+			path = SearchesForAText;
+			sourceTree = "<group>";
+		};
+		FB2222862491919B007FF2E8 /* Internals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Internals;
+			sourceTree = "<group>";
+		};
+		FB222287249191A0007FF2E8 /* OpenApis */ = {
+			isa = PBXGroup;
+			children = (
+				FB2222832491918A007FF2E8 /* SearchTask.swift */,
+			);
+			path = OpenApis;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +179,7 @@
 					};
 					FB22227124918F22007FF2E8 = {
 						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
 						TestTargetID = FB22225B24918F18007FF2E8;
 					};
 				};
@@ -200,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB2222842491918A007FF2E8 /* SearchTask.swift in Sources */,
 				FB22226424918F18007FF2E8 /* ViewController.swift in Sources */,
 				FB22226024918F18007FF2E8 /* AppDelegate.swift in Sources */,
 				FB22226224918F18007FF2E8 /* SceneDelegate.swift in Sources */,
@@ -210,7 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB22227724918F22007FF2E8 /* MercadoLibreListingTests.swift in Sources */,
+				FB22228224919099007FF2E8 /* TextSearcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +428,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AEWQUX8MPM;
 				INFOPLIST_FILE = MercadoLibreListingTests/Info.plist;
@@ -410,6 +440,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dansTeam.MercadoLibreListingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MercadoLibreListing.app/MercadoLibreListing";
@@ -421,6 +452,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AEWQUX8MPM;
 				INFOPLIST_FILE = MercadoLibreListingTests/Info.plist;
