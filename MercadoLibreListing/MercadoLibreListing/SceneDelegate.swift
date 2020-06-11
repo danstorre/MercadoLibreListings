@@ -12,35 +12,64 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     var productListHolder: ProductHolder<MercadoLibreListingProduct>?
-    
+    var searchResultsUpdatingDelegate: UISearchResultsUpdating?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        
-        productListHolder = ProductHolder(products: [MercadoLibreListingProduct]())
+        // create a product holder
+        productListHolder = createAMercadoLibreListingProductHolder()
       
-        let searcherNetworkService = SearchItemsFromNetworkGivenASearchTerm<MercadoLibreListingProduct, JsonParser>(urlMaker: MercadoLibreURLFactory())
-        searcherNetworkService.parser = JsonParser()
+        //create a network service that conforms to search ItemSearcherType.
+        let searcherNetworkService = createATermSearcherMercadoLibreNeworkService()
         
-        let searcherService = SearcherTerm(repository: productListHolder!,
-                                           service: searcherNetworkService)
-        let searchController = SearchControllerFactory
-            .searchController(for: .normalWith(text: nil,
-                andDelegate: SearchBarResultsUpdating(searcher: searcherService)))
+        //create a searcher service with a repo and service object.
+        let searcherService = createASearcherObject(with: searcherNetworkService, and: productListHolder!)
+
+        //create a SeachBar updating delegate given a term searcher
+        searchResultsUpdatingDelegate = createASearchBarUpdatingDelegate(with: searcherService)
         
-        let searchScreen = ViewControllerWithSearchFactory
-            .viewController(for:
-                .viewcontroller(withSearchController: searchController))
+        //create a seachController with a UISearchResultsUpdating object
+        let searchController = createASearchcontroller(with: searchResultsUpdatingDelegate!)
         
+        //create a Search Screen with a searchController
+        let searchScreen = createASearchScreenWith(with: searchController)
+        
+        //present a Search screen to the device window.
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = searchScreen
         window?.makeKeyAndVisible()
     }
     
+    func createASearchcontroller(with delegate: UISearchResultsUpdating) -> UISearchController {
+        return SearchControllerFactory
+        .searchController(for: .normalWith(text: nil, andDelegate: searchResultsUpdatingDelegate!))
+    }
     
+    func createASearchScreenWith(with searchController: UISearchController) -> UIViewController {
+        return ViewControllerWithSearchFactory
+        .viewController(for:
+            .viewcontroller(withSearchController: searchController))
+    }
+    
+    func createASearchBarUpdatingDelegate(with searcherService: SearcherProtocol) -> UISearchResultsUpdating {
+        return SearchBarResultsUpdating(searcher: searcherService)
+    }
+    
+    func createASearcherObject<T: ItemSearcherService, E: ItemHolder>
+        (with service: T, and repo: E) -> SearcherProtocol where E.T == T.T{
+
+        return SearcherTerm(repository: repo, service: service)
+    }
+    
+    func createATermSearcherMercadoLibreNeworkService() -> SearchItemsFromNetworkGivenASearchTerm<MercadoLibreListingProduct, MercadolibreGetParser> {
+        let searcherNetworkService = SearchItemsFromNetworkGivenASearchTerm<MercadoLibreListingProduct, MercadolibreGetParser>(urlMaker: MercadoLibreURLFactory())
+        searcherNetworkService.parser = MercadolibreGetParser()
+        return searcherNetworkService
+    }
+    
+    func createAMercadoLibreListingProductHolder() -> ProductHolder<MercadoLibreListingProduct>{
+        return ProductHolder(products: [MercadoLibreListingProduct]())
+    }
     
 }
 
