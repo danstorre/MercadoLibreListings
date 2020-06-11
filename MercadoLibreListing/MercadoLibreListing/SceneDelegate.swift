@@ -15,25 +15,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var searchResultsUpdatingDelegate: UISearchResultsUpdating?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // create a product holder
         productListHolder = createAMercadoLibreListingProductHolder()
-      
-        //create a network service that conforms to search ItemSearcherType.
+    
         let searcherNetworkService = createATermSearcherMercadoLibreNeworkService()
+        //TODO:- Assign searcherNetworkService delegate
         
-        //create a searcher service with a repo and service object.
         let searcherService = createASearcherObject(with: searcherNetworkService, and: productListHolder!)
-
-        //create a SeachBar updating delegate given a term searcher
+        //TODO:- Assign searcherService delegate
+        
         searchResultsUpdatingDelegate = createASearchBarUpdatingDelegate(with: searcherService)
         
-        //create a seachController with a UISearchResultsUpdating object
         let searchController = createASearchcontroller(with: searchResultsUpdatingDelegate!)
         
-        //create a Search Screen with a searchController
         let searchScreen = createASearchScreenWith(with: searchController)
         
-        //present a Search screen to the device window.
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = searchScreen
