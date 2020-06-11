@@ -239,7 +239,6 @@
 		FB99917C2491CCDD00F83DFB /* RepresentsAProduct */ = {
 			isa = PBXGroup;
 			children = (
-				FB99917F2491CD0900F83DFB /* OpenApis */,
 				FB9991802491CD3000F83DFB /* Internals */,
 			);
 			path = RepresentsAProduct;
@@ -264,6 +263,7 @@
 		FB9991832491CD5C00F83DFB /* ManagesAListOfProduct */ = {
 			isa = PBXGroup;
 			children = (
+				FB99917F2491CD0900F83DFB /* OpenApis */,
 				FB9991842491CD6B00F83DFB /* Internals */,
 			);
 			path = ManagesAListOfProduct;
