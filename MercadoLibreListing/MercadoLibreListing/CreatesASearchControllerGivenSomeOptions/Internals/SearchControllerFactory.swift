@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 enum SearchControllerFactory {
     static func searchController(for option: SearchControllerFactoryOptions) -> UISearchController {
         switch option {
@@ -26,7 +25,7 @@ fileprivate protocol SearchControlerMaker {
     func makeSearchControler() -> UISearchController
 }
 
-struct NormalSearchControlerMaker: SearchControlerMaker {
+fileprivate struct NormalSearchControlerMaker: SearchControlerMaker {
     let text: String
 
     func makeSearchControler() -> UISearchController {
@@ -41,7 +40,7 @@ struct NormalSearchControlerMaker: SearchControlerMaker {
     }
 }
 
-struct SearchControlerWithDelegateEmbedded: SearchControlerMaker {
+fileprivate struct SearchControlerWithDelegateEmbedded: SearchControlerMaker {
     let text: String
     let delegate: UISearchResultsUpdating
 
