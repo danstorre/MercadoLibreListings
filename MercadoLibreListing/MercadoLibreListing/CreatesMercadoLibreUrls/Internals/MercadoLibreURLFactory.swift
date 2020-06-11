@@ -9,8 +9,20 @@
 import Foundation
 
 struct MercadoLibreURLFactory: GetProductsUrlMaker{
-    func makeGetProductsUrl(searchterm: String) -> URL {
+    func makeGetProductsUrl(searchterm: String) throws -> URL {
         //TODO:- make url to search products.
-        return URL(string: "htt")!
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "api.mercadolibre.com"
+        components.path = "/sites/MLA/search"
+        
+        let queryItem = URLQueryItem(name: "q", value: searchterm)
+        
+        components.queryItems = [queryItem]
+        guard let url = components.url else {
+            throw MercadoLibreUrlError.GetUrlInvalid
+        }
+        
+        return url
     }
 }

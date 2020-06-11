@@ -9,5 +9,5 @@
 import Foundation
 
 protocol GetProductsUrlMaker {
-    func makeGetProductsUrl(searchterm: String) -> URL
+    func makeGetProductsUrl(searchterm: String) throws -> URL
 }

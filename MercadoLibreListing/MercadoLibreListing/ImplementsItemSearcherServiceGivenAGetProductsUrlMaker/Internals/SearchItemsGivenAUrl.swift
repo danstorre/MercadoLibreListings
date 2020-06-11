@@ -22,7 +22,14 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
     }
     
     func getItems(with term: String, completion: @escaping (([ProductType]?) -> ())) {
-        let url = urlMaker.makeGetProductsUrl(searchterm: term)
+        let url: URL!
+        do {
+            url = try urlMaker.makeGetProductsUrl(searchterm: term)
+        } catch let error{
+            delegate?.errorWhenMakingANetworkRequest(error)
+            completion(nil)
+            return
+        }
         
         let task = session.dataTask(with: url) {[weak self] (data, response, error) in
             
