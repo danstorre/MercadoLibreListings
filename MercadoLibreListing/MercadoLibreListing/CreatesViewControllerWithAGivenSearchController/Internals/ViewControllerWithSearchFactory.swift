@@ -22,7 +22,6 @@ fileprivate protocol ViewControllerMaker {
     func makeViewController() -> UIViewController
 }
 
-
 fileprivate struct SearchViewControllerMaker: ViewControllerMaker {
     let searchController: UISearchController
 
