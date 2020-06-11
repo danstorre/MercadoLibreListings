@@ -8,25 +8,6 @@
 
 import Foundation
 
-
-//ModelRepresentation
-protocol Item {}
-
-//Repository
-protocol ItemHolder: class {
-    func getItems()-> [Item]
-    func save(items: [Item])
-}
-
-protocol SearcherTermDelegate: class{
-    func didFinish(with: SearcherTermError)
-    func didFinish()
-}
-
-enum SearcherTermError: Error {
-    case serviceReturnNilItems
-}
-
 //search term internals
 class SearcherTerm: SearcherProtocol{
     var repository: ItemHolder
