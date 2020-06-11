@@ -14,6 +14,10 @@ enum SearchControllerFactory {
         switch option {
         case .normal(let text):
             return NormalSearchControlerMaker(text: text ?? "").makeSearchControler()
+        case .normalWith(let text, let delegate):
+            return SearchControlerWithDelegateEmbedded(text: text ?? "",
+                                                       delegate: delegate)
+                .makeSearchControler()
         }
     }
 }
@@ -33,6 +37,18 @@ struct NormalSearchControlerMaker: SearchControlerMaker {
         searchController.searchBar.searchBarStyle = .minimal
         searchController.searchBar.text = text
         searchController.showsSearchResultsController = true
+        return searchController
+    }
+}
+
+struct SearchControlerWithDelegateEmbedded: SearchControlerMaker {
+    let text: String
+    let delegate: UISearchResultsUpdating
+
+    func makeSearchControler() -> UISearchController {
+        let searchController = NormalSearchControlerMaker(text: text).makeSearchControler()
+        searchController.searchResultsUpdater = delegate
+        
         return searchController
     }
 }

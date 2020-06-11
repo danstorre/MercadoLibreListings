@@ -6,8 +6,9 @@
 //  Copyright © 2020 dansTeam. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum SearchControllerFactoryOptions {
     case normal(withText: String?)
+    case normalWith(text: String?, andDelegate: UISearchResultsUpdating)
 }
