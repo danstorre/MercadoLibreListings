@@ -9,4 +9,6 @@
 import Foundation
 
 protocol ProductProtocol{
+    var imagetThumbnailUrl: URL? { get set }
+    var title: String {get set}
 }

@@ -8,4 +8,14 @@
 
 import Foundation
 
-extension MercadoLibreListingProduct: ProductProtocol {}
+extension MercadoLibreListingProduct: ProductProtocol {
+    
+    var imagetThumbnailUrl: URL? {
+        get {
+            return nil
+        }
+        set {
+            
+        }
+    }
+}

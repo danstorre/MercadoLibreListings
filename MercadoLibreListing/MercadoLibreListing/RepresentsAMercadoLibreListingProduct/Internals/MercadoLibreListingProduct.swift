@@ -12,4 +12,5 @@ import Foundation
 
 struct MercadoLibreListingProduct {
     var title: String
+    var thumbnailURL: URL?
 }
