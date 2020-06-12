@@ -39,18 +39,21 @@ class ListOfProductsPrensenter: ListOfProductsPrensenterProtocol{
                 self?.presentableView.prensent(viewData: viewDataProducts)
                 
                 //search for images if needed
+                self?.cancelAnyimagetasks()
                 self?.getImages(with: dataProducts)
             }
         }
     }
     
-    private func getImages(with products: [ProductProtocol]) {
+    private func cancelAnyimagetasks(){
         for imagetask in imagetasks {
             imagetask.suspend()
             imagetask.cancel()
         }
         imagetasks.removeAll()
-        
+    }
+    
+    private func getImages(with products: [ProductProtocol]) {
         var newImagetasks = [URLSessionDataTask]()
         for (index, product) in products.enumerated() {
             guard let url = product.imagetThumbnailUrl else {return }
