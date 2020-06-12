@@ -115,6 +115,10 @@ class TextSearcherTests: XCTestCase {
     
     //SearcherTermDelegate
     class MockerSearchDelegate: SearcherTermDelegate{
+        func willSearch() {
+            
+        }
+        
         var didFinishGetsCalled: Bool = false
         var errorReceived: Error?
         func didFinish(with error: SearcherTermError) {
