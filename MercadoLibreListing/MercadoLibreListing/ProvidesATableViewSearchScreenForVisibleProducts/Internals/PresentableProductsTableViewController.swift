@@ -13,6 +13,7 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     // MARK: - Table view data source
@@ -35,7 +36,8 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
 
         cell.titleLabel.attributedText = productViewData.attributeTitleProduct
         cell.thumbnailImageView.image = productViewData.imageThumnail
-
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
         return cell
     }
     
