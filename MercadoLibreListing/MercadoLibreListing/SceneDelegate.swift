@@ -39,7 +39,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                      and: viewWithPresentableListOfProducts!)
         productListHolder!.observer = presenterProductList
         
-        searcherService.delegate = viewWithPresentableListOfProducts
+        let searchBroadcast = BroadcastSearcherTermDelegateMessages()
+        searchBroadcast.recipients.append(viewWithPresentableListOfProducts!)
+        searchBroadcast.recipients.append(presenterProductList!)
+        
+        searcherService.delegate = searchBroadcast
         
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
