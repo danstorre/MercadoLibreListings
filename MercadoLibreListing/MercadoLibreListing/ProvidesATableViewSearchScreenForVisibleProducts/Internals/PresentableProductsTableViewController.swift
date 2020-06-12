@@ -11,9 +11,7 @@ import UIKit
 class PresentableProductsTableViewController: UITableViewController, ListsOfViewDataProducts {
     var arrayOfViewDataProducts: [ViewDataProductProtocol] = [] 
     
-    func prensent(viewData: [ViewDataProductProtocol]) {
-        
-    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,5 +89,8 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+     func prensent(viewData: [ViewDataProductProtocol]) {
+           
+     }
 }
