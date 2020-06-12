@@ -9,6 +9,10 @@
 import Foundation
 
 extension ProductHolder: ListOfProductsPrensenterModelProtocol where T == MercadoLibreListingProduct {
+    func getArrayOfProducts() -> [ProductProtocol] {
+        return products
+    }
+    
     func getArrayOfProducts(with presenter: ListOfProductsPrensenterProtocol) {
         presenter.prepareListOfProductsViewData(with: products)
     }

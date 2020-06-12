@@ -82,6 +82,10 @@ class MockProductProtocol: ProductProtocol {
 }
 
 extension MockObservableModel: ListOfProductsPrensenterModelProtocol {
+    func getArrayOfProducts() -> [ProductProtocol] {
+        return [ProductProtocol]()
+    }
+    
     func getArrayOfProducts(with presenter: ListOfProductsPrensenterProtocol) {
         presenter.prepareListOfProductsViewData(with: [MockProductProtocol()])
     }

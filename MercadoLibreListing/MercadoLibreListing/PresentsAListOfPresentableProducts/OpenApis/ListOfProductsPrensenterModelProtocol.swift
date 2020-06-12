@@ -11,4 +11,5 @@ import Foundation
 //MODEL PRODUCT PRESENTER PROTOCOL
 protocol ListOfProductsPrensenterModelProtocol {
     func getArrayOfProducts(with: ListOfProductsPrensenterProtocol)
+    func getArrayOfProducts() -> [ProductProtocol]
 }
