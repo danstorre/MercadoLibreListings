@@ -11,7 +11,7 @@ import XCTest
 
 class ItemsPresenterTests: XCTestCase {
     
-    typealias ExpectableListsOfViewProducts = ListsOfViewProducts & NeedsExcpectation
+    typealias ExpectableListsOfViewProducts = ListsOfViewDataProducts & NeedsExcpectation
     
     typealias ObservableListOfProductsPrensenterModelProtocol = ListOfProductsPrensenterModelProtocol & Observable
 
@@ -46,7 +46,7 @@ class ItemsPresenterTests: XCTestCase {
     
     func createAListOfProductsPrensenterProtocol(with
         prensentableModel: ListOfProductsPrensenterModelProtocol,
-        and presentableView: ListsOfViewProducts) -> ObserverListOfProductsPrensenterProtocol{
+        and presentableView: ListsOfViewDataProducts) -> ObserverListOfProductsPrensenterProtocol{
         return ListOfProductsPrensenter(with: prensentableModel, and: presentableView)
     }
     
@@ -59,7 +59,7 @@ protocol NeedsExcpectation {
     var expectation: XCTestExpectation? {get set}
 }
 
-class MockListsOfViewProducts: ListsOfViewProducts, NeedsExcpectation {
+class MockListsOfViewProducts: ListsOfViewDataProducts, NeedsExcpectation {
     var arrayOfViewDataProducts: [ViewDataProductProtocol] = []
     var expectation: XCTestExpectation?
     

@@ -10,10 +10,10 @@ import UIKit
 
 class ListOfProductsPrensenter: ListOfProductsPrensenterProtocol{
     var modelList: ListOfProductsPrensenterModelProtocol
-    var presentableView: ListsOfViewProducts
+    var presentableView: ListsOfViewDataProducts
     
     init(with prensentableModel: ListOfProductsPrensenterModelProtocol,
-         and presentableView: ListsOfViewProducts){
+         and presentableView: ListsOfViewDataProducts){
         self.modelList = prensentableModel
         self.presentableView = presentableView
     }
