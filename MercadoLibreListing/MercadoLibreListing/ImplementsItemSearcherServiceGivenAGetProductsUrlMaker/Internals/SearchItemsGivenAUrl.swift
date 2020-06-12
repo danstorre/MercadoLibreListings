@@ -14,6 +14,7 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
     lazy var session: URLSession = URLSession.shared
     var urlMaker: GetProductsUrlMaker
     var parser: ParserType?
+    var currentTasks: [URLSessionDataTask] = []
     
     weak var delegate: SearchItemsFromNetworkGivenASearchTermDelegate?
     
@@ -53,6 +54,7 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
                 self?.delegate?.errorWhenMakingANetworkRequest(error)
             }
         }
+        currentTasks.append(task)
         task.resume()
     }
 }

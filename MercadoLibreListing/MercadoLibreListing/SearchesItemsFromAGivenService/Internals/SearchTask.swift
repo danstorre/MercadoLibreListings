@@ -12,6 +12,7 @@ import Foundation
 class SearcherTerm<RepoType: ItemHolder, ItemSearcherType: ItemSearcherService>: SearcherProtocol where ItemSearcherType.T == RepoType.T{
     var repository: RepoType
     var service: ItemSearcherType
+    
     weak var delegate: SearcherTermDelegate?
     
     init(repository: RepoType, service: ItemSearcherType){
