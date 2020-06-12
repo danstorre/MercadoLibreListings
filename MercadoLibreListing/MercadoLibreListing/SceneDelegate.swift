@@ -25,7 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //TODO:- Assign searcherNetworkService delegate
         
         let searcherService: MercadoLibreSearcher = createASearcherObject(with: searcherNetworkService, and: productListHolder!) as! SceneDelegate.MercadoLibreSearcher
-        //TODO:- Assign searcherService delegate
         
         searchResultsUpdatingDelegate = createASearchBarUpdatingDelegate(with: searcherService)
         
@@ -34,11 +33,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let searchScreen = createASearchScreenWith(with: searchController)
         
         //create a presenter
+        let viewWithPresentableListOfProducts = (searchScreen as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts
         let productsPresenter = ListOfProductsPrensenter(with: productListHolder!,
-                                     and: searchScreen!)
+                                     and: viewWithPresentableListOfProducts!)
         productListHolder!.observer = productsPresenter
         
-        searcherService.delegate = searchScreen
+        searcherService.delegate = viewWithPresentableListOfProducts
         
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
@@ -51,10 +51,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         .searchController(for: .normalWith(text: nil, andDelegate: searchResultsUpdatingDelegate!))
     }
     
-    func createASearchScreenWith(with searchController: UISearchController) -> ScreenViewControllerSearchAListOfDataProducts? {
+    func createASearchScreenWith(with searchController: UISearchController) -> UIViewController? {
         return ViewControllerWithSearchFactory
         .viewController(for:
-            .tableViewControllerForVisibleProducts(withSearchController: searchController)) as? ScreenViewControllerSearchAListOfDataProducts
+            .tableViewControllerForVisibleProducts(withSearchController: searchController))
     }
     
     func createASearchBarUpdatingDelegate(with searcherService: SearcherProtocol) -> UISearchResultsUpdating {
