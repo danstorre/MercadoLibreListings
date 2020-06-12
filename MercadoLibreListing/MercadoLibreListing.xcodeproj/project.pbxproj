@@ -497,6 +497,7 @@
 				FBE5C2102493EF1D00525C8E /* ViewDataProductProtocol.swift */,
 				FBE5C2122493EF2D00525C8E /* ListsOfViewProducts.swift */,
 				FBE5C2162493EF5A00525C8E /* ListOfProductsPrensenterModelProtocol.swift */,
+				FBE5C2182493EF6C00525C8E /* ListOfProductsPrensenterProtocol.swift */,
 			);
 			path = OpenApis;
 			sourceTree = "<group>";
@@ -504,7 +505,6 @@
 		FBF58A532492B01600B0073A /* Internals */ = {
 			isa = PBXGroup;
 			children = (
-				FBE5C2182493EF6C00525C8E /* ListOfProductsPrensenterProtocol.swift */,
 				FBF58A542492B07B00B0073A /* ProductListPresenter.swift */,
 				FBE5C2142493EF4800525C8E /* ProductCellViewData.swift */,
 				FBE5C21A2493EFBD00525C8E /* ListOfProductsPrensenter+IObserver.swift */,
