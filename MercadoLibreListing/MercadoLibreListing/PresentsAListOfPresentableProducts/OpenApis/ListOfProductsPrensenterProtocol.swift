@@ -10,5 +10,5 @@ import Foundation
 
 //PRODUCT LIST PRESENTER PROTOCOL
 protocol ListOfProductsPrensenterProtocol {
-    func setArrayOfProducts(with: [ProductProtocol])
+    func prepareListOfProductsViewData(with: [ProductProtocol])
 }

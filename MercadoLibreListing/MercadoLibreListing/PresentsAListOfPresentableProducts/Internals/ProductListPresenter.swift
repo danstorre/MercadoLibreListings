@@ -18,7 +18,7 @@ class ListOfProductsPrensenter: ListOfProductsPrensenterProtocol{
         self.presentableView = presentableView
     }
     
-    func setArrayOfProducts(with dataProducts: [ProductProtocol]) {
+    func prepareListOfProductsViewData(with dataProducts: [ProductProtocol]) {
         //PREPARE VIEW DATA
         DispatchQueue.global().async { [weak self] in
             //create an array of ViewDataProductProtocol

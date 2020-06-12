@@ -80,7 +80,7 @@ class MockProductProtocol: ProductProtocol {
 
 extension MockObservableModel: ListOfProductsPrensenterModelProtocol {
     func getArrayOfProducts(with presenter: ListOfProductsPrensenterProtocol) {
-        presenter.setArrayOfProducts(with: [MockProductProtocol()])
+        presenter.prepareListOfProductsViewData(with: [MockProductProtocol()])
     }
 }
 

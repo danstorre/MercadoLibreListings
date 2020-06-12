@@ -298,7 +298,6 @@
 		FB99917F2491CD0900F83DFB /* OpenApis */ = {
 			isa = PBXGroup;
 			children = (
-				FB99917D2491CCF600F83DFB /* ProductProtocol.swift */,
 			);
 			path = OpenApis;
 			sourceTree = "<group>";
@@ -494,6 +493,7 @@
 		FBF58A522492B01100B0073A /* OpenApis */ = {
 			isa = PBXGroup;
 			children = (
+				FB99917D2491CCF600F83DFB /* ProductProtocol.swift */,
 				FBE5C2102493EF1D00525C8E /* ViewDataProductProtocol.swift */,
 				FBE5C2122493EF2D00525C8E /* ListsOfViewProducts.swift */,
 				FBE5C2162493EF5A00525C8E /* ListOfProductsPrensenterModelProtocol.swift */,
