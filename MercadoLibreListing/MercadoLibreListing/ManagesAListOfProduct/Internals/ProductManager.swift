@@ -8,8 +8,10 @@
 
 import Foundation
 
-class ProductHolder<T: ProductProtocol>: ItemHolder{
+class ProductHolder<T: ProductProtocol>: ItemHolder, Observable{
     var products: [T]
+    
+    weak var observer: IObserver?
     
     init(products: [T]) {
         self.products = products

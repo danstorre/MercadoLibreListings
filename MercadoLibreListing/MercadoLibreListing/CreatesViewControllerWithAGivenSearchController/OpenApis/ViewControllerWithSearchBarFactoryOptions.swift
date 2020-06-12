@@ -11,4 +11,5 @@ import UIKit
 enum ViewControllerWithSearchBarFactoryOptions{
     case viewcontroller(withSearchController: UISearchController)
     case tableViewcontroller(withSearchController: UISearchController)
+    case tableViewControllerForVisibleProducts(withSearchController: UISearchController)
 }

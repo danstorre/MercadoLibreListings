@@ -14,8 +14,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var productListHolder: ProductHolder<MercadoLibreListingProduct>?
     var searchResultsUpdatingDelegate: UISearchResultsUpdating?
     
+    typealias ScreenViewControllerShowsAListOfDataProducts = UIViewController & ListsOfViewDataProducts
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         productListHolder = createAMercadoLibreListingProductHolder()
+        
     
         let searcherNetworkService = createATermSearcherMercadoLibreNeworkService()
         //TODO:- Assign searcherNetworkService delegate
@@ -29,6 +32,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let searchScreen = createASearchScreenWith(with: searchController)
         
+        
+        //create a presenter
+        let productsPresenter = ListOfProductsPrensenter(with: productListHolder!,
+                                     and: searchScreen!)
+        productListHolder!.observer = productsPresenter
+        
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = searchScreen
@@ -40,10 +49,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         .searchController(for: .normalWith(text: nil, andDelegate: searchResultsUpdatingDelegate!))
     }
     
-    func createASearchScreenWith(with searchController: UISearchController) -> UIViewController {
+    func createASearchScreenWith(with searchController: UISearchController) -> ScreenViewControllerShowsAListOfDataProducts? {
         return ViewControllerWithSearchFactory
         .viewController(for:
-            .tableViewcontroller(withSearchController: searchController))
+            .tableViewControllerForVisibleProducts(withSearchController: searchController)) as? ScreenViewControllerShowsAListOfDataProducts
     }
     
     func createASearchBarUpdatingDelegate(with searcherService: SearcherProtocol) -> UISearchResultsUpdating {

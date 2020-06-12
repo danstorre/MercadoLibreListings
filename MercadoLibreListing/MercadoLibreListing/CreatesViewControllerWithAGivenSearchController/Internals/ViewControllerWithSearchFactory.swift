@@ -17,6 +17,9 @@ enum ViewControllerWithSearchFactory {
         case .tableViewcontroller(withSearchController: let searchController):
             return TableWithSearchViewControllerMaker(searchController: searchController)
             .makeViewController()
+        case .tableViewControllerForVisibleProducts(withSearchController: let searchController):
+            return ProductsTableWithSearchViewControllerMaker(searchController: searchController)
+            .makeViewController()
         }
     }
 }
@@ -64,4 +67,25 @@ fileprivate struct TableWithSearchViewControllerMaker: ViewControllerMaker {
     }
 }
 
+fileprivate struct ProductsTableWithSearchViewControllerMaker: ViewControllerMaker {
+    let searchController: UISearchController
 
+    func makeViewController() -> UIViewController {
+        let storyBoard = UIStoryboard(name: "Search", bundle: nil)
+        guard let nav = storyBoard.instantiateViewController(withIdentifier: "NavigationTableViewSearchBarEmbededViewController")
+            as? UINavigationController,
+            let vc = nav.topViewController as? PresentableProductsTableViewController else {
+                return UIViewController()
+        }
+        nav.navigationBar.prefersLargeTitles = true
+        nav.navigationItem.hidesSearchBarWhenScrolling = false
+        vc.navigationItem.largeTitleDisplayMode = .always
+        vc.navigationItem.title = "Discover"
+        vc.navigationItem.searchController = searchController
+        vc.definesPresentationContext = true
+        
+        vc.tableView.register(ImageViewWithTitleTableViewCell.self,
+                              forCellReuseIdentifier: "ImageViewWithTitleTableViewCell")
+        return nav
+    }
+}
