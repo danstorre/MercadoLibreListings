@@ -11,8 +11,6 @@ import UIKit
 class PresentableProductsTableViewController: UITableViewController, ListsOfViewDataProducts {
     var arrayOfViewDataProducts: [ViewDataProductProtocol] = [] 
     
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
