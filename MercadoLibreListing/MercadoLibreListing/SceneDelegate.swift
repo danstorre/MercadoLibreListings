@@ -14,12 +14,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var productListHolder: ProductHolder<MercadoLibreListingProduct>?
     var searchResultsUpdatingDelegate: UISearchResultsUpdating?
     var presenterProductList: ListOfProductsPrensenter!
+    var searchBroadCaster: BroadcastSearcherTermDelegateMessages!
     
     typealias ScreenViewControllerSearchAListOfDataProducts = UIViewController & ListsOfViewDataProducts & SearcherTermDelegate
     
     typealias MercadoLibreSearcher = SearcherTerm<ProductHolder<MercadoLibreListingProduct>,SearchItemsFromNetworkGivenASearchTerm<MercadoLibreListingProduct, MercadolibreGetParser>>
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+            
         productListHolder = createAMercadoLibreListingProductHolder()
         
         let searcherNetworkService = createATermSearcherMercadoLibreNeworkService()
@@ -39,11 +42,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                      and: viewWithPresentableListOfProducts!)
         productListHolder!.observer = presenterProductList
         
-        let searchBroadcast = BroadcastSearcherTermDelegateMessages()
-        searchBroadcast.recipients.append(viewWithPresentableListOfProducts!)
-        searchBroadcast.recipients.append(presenterProductList!)
+        searchBroadCaster = BroadcastSearcherTermDelegateMessages()
+        searchBroadCaster.recipients.append(viewWithPresentableListOfProducts!)
+        searchBroadCaster.recipients.append(presenterProductList!)
         
-        searcherService.delegate = searchBroadcast
+        searcherService.delegate = searchBroadCaster
         
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)

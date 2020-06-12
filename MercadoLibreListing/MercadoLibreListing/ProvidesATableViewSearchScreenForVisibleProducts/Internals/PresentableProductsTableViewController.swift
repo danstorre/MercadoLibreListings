@@ -48,6 +48,10 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
     }
     
     func present(imageViewData: UIImage, at row: Int) {
+        guard  !arrayOfViewDataProducts.isEmpty,
+            arrayOfViewDataProducts.indices.contains(row) else {
+            return
+        }
         arrayOfViewDataProducts[row].imageThumnail = imageViewData
         
         let indexPath = IndexPath(row: row, section: 0)

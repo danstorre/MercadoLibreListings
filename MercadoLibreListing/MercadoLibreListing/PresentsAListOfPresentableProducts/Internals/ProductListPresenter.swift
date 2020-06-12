@@ -12,6 +12,8 @@ class ListOfProductsPrensenter: ListOfProductsPrensenterProtocol{
     var modelList: ListOfProductsPrensenterModelProtocol
     var presentableView: ListsOfViewDataProducts
     
+    var imagetasks: [URLSessionDataTask] = []
+    
     init(with prensentableModel: ListOfProductsPrensenterModelProtocol,
          and presentableView: ListsOfViewDataProducts){
         self.modelList = prensentableModel
@@ -23,11 +25,8 @@ class ListOfProductsPrensenter: ListOfProductsPrensenterProtocol{
         DispatchQueue.global().async { [weak self] in
             //create an array of ViewDataProductProtocol
             var viewDataProducts = [ProductCellViewData]()
-    
-            for (index, productData) in dataProducts.enumerated(){
-                //search for image if needed
-                self?.getImage(from: productData, at: index)
-                
+            
+            for (productData) in dataProducts{
                 //prepare an attributed string.
                 let viewDataTile = ListOfProductsPrensenter.attributedTitle(with: productData.title)
                 
@@ -38,26 +37,47 @@ class ListOfProductsPrensenter: ListOfProductsPrensenterProtocol{
             DispatchQueue.main.async {
                 //present it to the view.
                 self?.presentableView.prensent(viewData: viewDataProducts)
+                
+                //search for images if needed
+                self?.getImages(with: dataProducts)
             }
         }
     }
     
-    func getImage(from productData: ProductProtocol, at: Int) {
-        DispatchQueue.global().async { [weak self] in
-            let viewDataImage: UIImage? = ListOfProductsPrensenter.getImage(from: productData.imagetThumbnailUrl)
-            if let viewDataImage = viewDataImage {
+    private func getImages(with products: [ProductProtocol]) {
+        for imagetask in imagetasks {
+            imagetask.suspend()
+            imagetask.cancel()
+        }
+        imagetasks.removeAll()
+        
+        var newImagetasks = [URLSessionDataTask]()
+        for (index, product) in products.enumerated() {
+            guard let url = product.imagetThumbnailUrl else {return }
+            let task =  URLSession.shared.dataTask(with: url) { (data, response, error) in
+                guard error == nil, let imageData = data, let image = UIImage(data: imageData) else {
+                    return
+                }
+                
                 DispatchQueue.main.async {
-                    self?.presentableView.present(imageViewData: viewDataImage, at: at)
+                    self.presentableView.present(imageViewData: image, at: index)
                 }
             }
+            newImagetasks.append(task)
+        }
+        
+        imagetasks = newImagetasks
+        
+        for imagetask in imagetasks {
+            imagetask.resume()
         }
     }
     
     fileprivate static func getImage(from url: URL?) -> UIImage? {
         if let urlThumnailProduct = url {
             return DownSamplerMethods.downsample(imageAt: urlThumnailProduct,
-                                                  to: CGSize(width: 100.0, height: 100.0),
-                                                  scale: 3)
+                                                 to: CGSize(width: 100.0, height: 100.0),
+                                                 scale: 3)
         } else {
             return nil
         }
