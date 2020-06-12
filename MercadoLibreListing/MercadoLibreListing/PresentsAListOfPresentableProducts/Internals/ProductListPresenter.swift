@@ -22,27 +22,23 @@ class ListOfProductsPrensenter: ListOfProductsPrensenterProtocol{
     
     func prepareListOfProductsViewData(with dataProducts: [ProductProtocol]) {
         //PREPARE VIEW DATA
-        DispatchQueue.global().async { [weak self] in
-            //create an array of ViewDataProductProtocol
-            var viewDataProducts = [ProductCellViewData]()
+        //create an array of ViewDataProductProtocol
+        var viewDataProducts = [ProductCellViewData]()
+        
+        for (productData) in dataProducts{
+            //prepare an attributed string.
+            let viewDataTile = ListOfProductsPrensenter.attributedTitle(with: productData.title)
             
-            for (productData) in dataProducts{
-                //prepare an attributed string.
-                let viewDataTile = ListOfProductsPrensenter.attributedTitle(with: productData.title)
-                
-                let viewData = ProductCellViewData(imageThumnail: nil,
-                                                   attributeTitleProduct: viewDataTile)
-                viewDataProducts.append(viewData)
-            }
-            DispatchQueue.main.async {
-                //present it to the view.
-                self?.presentableView.prensent(viewData: viewDataProducts)
-                
-                //search for images if needed
-                self?.cancelAnyimagetasks()
-                self?.getImages(with: dataProducts)
-            }
+            let viewData = ProductCellViewData(imageThumnail: nil,
+                                               attributeTitleProduct: viewDataTile)
+            viewDataProducts.append(viewData)
         }
+        //present it to the view.
+        presentableView.prensent(viewData: viewDataProducts)
+        
+        //search for images if needed
+        cancelAnyimagetasks()
+        getImages(with: dataProducts)
     }
     
     private func cancelAnyimagetasks(){

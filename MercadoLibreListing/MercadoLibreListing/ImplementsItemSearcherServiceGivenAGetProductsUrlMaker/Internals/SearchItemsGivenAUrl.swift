@@ -33,25 +33,26 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
         }
         
         let task = session.dataTask(with: url) {[weak self] (data, response, error) in
-            
-            guard error == nil else {
-                completion(nil)
-                self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError.ResponseError)
-                return
-            }
-            
-            guard let data = data else {
-                completion(nil)
-                self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError.DataEmptyError)
-                return
-            }
-            
-            do {
-                let items = try self?.parser?.decode(data: data)
-                completion(items)
-            }catch let error {
-                completion(nil)
-                self?.delegate?.errorWhenMakingANetworkRequest(error)
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    completion(nil)
+                    self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError.ResponseError)
+                    return
+                }
+                
+                guard let data = data else {
+                    completion(nil)
+                    self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError.DataEmptyError)
+                    return
+                }
+                
+                do {
+                    let items = try self?.parser?.decode(data: data)
+                    completion(items)
+                }catch let error {
+                    completion(nil)
+                    self?.delegate?.errorWhenMakingANetworkRequest(error)
+                }
             }
         }
         currentTasks.append(task)

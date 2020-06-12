@@ -10,10 +10,9 @@ import Foundation
 
 extension ListOfProductsPrensenter: IObserver {
     func willChange() {
-        modelList.getArrayOfProducts(with: self)
     }
     
     func didChange() {
-        // do some work after data model has finished changing
+        modelList.getArrayOfProducts(with: self)
     }
 }
