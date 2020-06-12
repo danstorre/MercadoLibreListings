@@ -13,6 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var productListHolder: ProductHolder<MercadoLibreListingProduct>?
     var searchResultsUpdatingDelegate: UISearchResultsUpdating?
+    var presenterProductList: ListOfProductsPrensenter!
     
     typealias ScreenViewControllerSearchAListOfDataProducts = UIViewController & ListsOfViewDataProducts & SearcherTermDelegate
     
@@ -34,9 +35,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         //create a presenter
         let viewWithPresentableListOfProducts = (searchScreen as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts
-        let productsPresenter = ListOfProductsPrensenter(with: productListHolder!,
+        presenterProductList = ListOfProductsPrensenter(with: productListHolder!,
                                      and: viewWithPresentableListOfProducts!)
-        productListHolder!.observer = productsPresenter
+        productListHolder!.observer = presenterProductList
         
         searcherService.delegate = viewWithPresentableListOfProducts
         

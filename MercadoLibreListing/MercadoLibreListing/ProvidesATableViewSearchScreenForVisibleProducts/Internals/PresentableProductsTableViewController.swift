@@ -25,16 +25,16 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ImageViewWithTitleTableViewCell",
                                                        for: indexPath) as? ImageViewWithTitleTableViewCell else {
                                                         return UITableViewCell()
         }
-        
+
         let productViewData = arrayOfViewDataProducts[indexPath.row]
-        
+
         cell.titleLabel.attributedText = productViewData.attributeTitleProduct
-        cell.thumnailImageview.image = productViewData.imageThumnail
+        cell.thumbnailImageView.image = productViewData.imageThumnail
 
         return cell
     }

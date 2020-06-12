@@ -10,18 +10,26 @@ import UIKit
 
 class ImageViewWithTitleTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var thumnailImageview: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var thumbnailImageView: UIImageView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet var cellContentView: UIView!
+   
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        commonInit()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    func commonInit(){
+        Bundle.main.loadNibNamed("ImageViewWithTitleTableViewCell", owner: self, options: nil)
+        addSubview(cellContentView)
+        cellContentView.frame = self.bounds
+        cellContentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
 
 }
