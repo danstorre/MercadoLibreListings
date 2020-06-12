@@ -23,6 +23,35 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="109.82142857142857"/>
         </scene>
+        <!--Presentable Products Table View Controller-->
+        <scene sceneID="Qao-YM-jGY">
+            <objects>
+                <tableViewController storyboardIdentifier="TableViewSearchBarEmbededViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ghr-pU-Ztr" customClass="PresentableProductsTableViewController" customModule="MercadoLibreListing" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Rt-UH-cEG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JG7-zI-aRg">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JG7-zI-aRg" id="nsJ-QL-sMK">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ghr-pU-Ztr" id="0hs-Fo-O2H"/>
+                            <outlet property="delegate" destination="ghr-pU-Ztr" id="R3S-6Y-34g"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="j2h-IP-Y9n"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="grc-W9-bym" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="-570.53571428571422"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="e2a-tK-X24">
             <objects>
@@ -40,6 +69,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1h-x1-bcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tss-oV-cSg">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationTableViewSearchBarEmbededViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t3h-KJ-hZP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pbA-qf-h47">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ghr-pU-Ztr" kind="relationship" relationship="rootViewController" id="yWf-fO-Inp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lgh-40-NUI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="-571.20535714285711"/>
         </scene>
     </scenes>
 </document>

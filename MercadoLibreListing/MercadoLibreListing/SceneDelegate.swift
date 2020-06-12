@@ -43,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func createASearchScreenWith(with searchController: UISearchController) -> UIViewController {
         return ViewControllerWithSearchFactory
         .viewController(for:
-            .viewcontroller(withSearchController: searchController))
+            .tableViewcontroller(withSearchController: searchController))
     }
     
     func createASearchBarUpdatingDelegate(with searcherService: SearcherProtocol) -> UISearchResultsUpdating {
