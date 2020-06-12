@@ -43,6 +43,14 @@
 		FBDCB92A24927FB800A9B85B /* MercadoLibreGetServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB92924927FB800A9B85B /* MercadoLibreGetServiceModel.swift */; };
 		FBDCB92C2492800200A9B85B /* MercadoLibreGetServiceModel+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB92B2492800200A9B85B /* MercadoLibreGetServiceModel+Decodable.swift */; };
 		FBE5C2082493DF0800525C8E /* DownSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5C2072493DF0700525C8E /* DownSampler.swift */; };
+		FBE5C20D2493EECD00525C8E /* ObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5C20C2493EECD00525C8E /* ObserverProtocol.swift */; };
+		FBE5C20F2493EEED00525C8E /* ObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5C20E2493EEED00525C8E /* ObservableProtocol.swift */; };
+		FBE5C2112493EF1D00525C8E /* ViewDataProductProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5C2102493EF1D00525C8E /* ViewDataProductProtocol.swift */; };
+		FBE5C2132493EF2D00525C8E /* ListsOfViewProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5C2122493EF2D00525C8E /* ListsOfViewProducts.swift */; };
+		FBE5C2152493EF4800525C8E /* ProductCellViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5C2142493EF4800525C8E /* ProductCellViewData.swift */; };
+		FBE5C2172493EF5A00525C8E /* ListOfProductsPrensenterModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5C2162493EF5A00525C8E /* ListOfProductsPrensenterModelProtocol.swift */; };
+		FBE5C2192493EF6C00525C8E /* ListOfProductsPrensenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5C2182493EF6C00525C8E /* ListOfProductsPrensenterProtocol.swift */; };
+		FBE5C21B2493EFBD00525C8E /* ListOfProductsPrensenter+IObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5C21A2493EFBD00525C8E /* ListOfProductsPrensenter+IObserver.swift */; };
 		FBF58A502492AF0300B0073A /* ItemsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF58A4F2492AF0300B0073A /* ItemsPresenterTests.swift */; };
 		FBF58A552492B07B00B0073A /* ProductListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF58A542492B07B00B0073A /* ProductListPresenter.swift */; };
 /* End PBXBuildFile section */
@@ -98,6 +106,14 @@
 		FBDCB92924927FB800A9B85B /* MercadoLibreGetServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLibreGetServiceModel.swift; sourceTree = "<group>"; };
 		FBDCB92B2492800200A9B85B /* MercadoLibreGetServiceModel+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MercadoLibreGetServiceModel+Decodable.swift"; sourceTree = "<group>"; };
 		FBE5C2072493DF0700525C8E /* DownSampler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownSampler.swift; sourceTree = "<group>"; };
+		FBE5C20C2493EECD00525C8E /* ObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverProtocol.swift; sourceTree = "<group>"; };
+		FBE5C20E2493EEED00525C8E /* ObservableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProtocol.swift; sourceTree = "<group>"; };
+		FBE5C2102493EF1D00525C8E /* ViewDataProductProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDataProductProtocol.swift; sourceTree = "<group>"; };
+		FBE5C2122493EF2D00525C8E /* ListsOfViewProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsOfViewProducts.swift; sourceTree = "<group>"; };
+		FBE5C2142493EF4800525C8E /* ProductCellViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewData.swift; sourceTree = "<group>"; };
+		FBE5C2162493EF5A00525C8E /* ListOfProductsPrensenterModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfProductsPrensenterModelProtocol.swift; sourceTree = "<group>"; };
+		FBE5C2182493EF6C00525C8E /* ListOfProductsPrensenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfProductsPrensenterProtocol.swift; sourceTree = "<group>"; };
+		FBE5C21A2493EFBD00525C8E /* ListOfProductsPrensenter+IObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListOfProductsPrensenter+IObserver.swift"; sourceTree = "<group>"; };
 		FBF58A4F2492AF0300B0073A /* ItemsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsPresenterTests.swift; sourceTree = "<group>"; };
 		FBF58A542492B07B00B0073A /* ProductListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +157,7 @@
 		FB22225E24918F18007FF2E8 /* MercadoLibreListing */ = {
 			isa = PBXGroup;
 			children = (
+				FBE5C2092493EEAA00525C8E /* ProvidesObservers */,
 				FBE5C2052493DF0700525C8E /* ProvidesADownSampleGivenAUrlImage */,
 				FBF58A512492AFFE00B0073A /* PresentsAListOfPresentableProducts */,
 				FBDCB92524927A5A00A9B85B /* ParsesDataFromMercadoLibreServiceToAnArrayOfMercadoLibreListingProduct */,
@@ -440,6 +457,31 @@
 			path = Internals;
 			sourceTree = "<group>";
 		};
+		FBE5C2092493EEAA00525C8E /* ProvidesObservers */ = {
+			isa = PBXGroup;
+			children = (
+				FBE5C20A2493EEB200525C8E /* OpenApis */,
+				FBE5C20B2493EEB800525C8E /* Internals */,
+			);
+			path = ProvidesObservers;
+			sourceTree = "<group>";
+		};
+		FBE5C20A2493EEB200525C8E /* OpenApis */ = {
+			isa = PBXGroup;
+			children = (
+				FBE5C20C2493EECD00525C8E /* ObserverProtocol.swift */,
+				FBE5C20E2493EEED00525C8E /* ObservableProtocol.swift */,
+			);
+			path = OpenApis;
+			sourceTree = "<group>";
+		};
+		FBE5C20B2493EEB800525C8E /* Internals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Internals;
+			sourceTree = "<group>";
+		};
 		FBF58A512492AFFE00B0073A /* PresentsAListOfPresentableProducts */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +494,9 @@
 		FBF58A522492B01100B0073A /* OpenApis */ = {
 			isa = PBXGroup;
 			children = (
+				FBE5C2102493EF1D00525C8E /* ViewDataProductProtocol.swift */,
+				FBE5C2122493EF2D00525C8E /* ListsOfViewProducts.swift */,
+				FBE5C2162493EF5A00525C8E /* ListOfProductsPrensenterModelProtocol.swift */,
 			);
 			path = OpenApis;
 			sourceTree = "<group>";
@@ -459,7 +504,10 @@
 		FBF58A532492B01600B0073A /* Internals */ = {
 			isa = PBXGroup;
 			children = (
+				FBE5C2182493EF6C00525C8E /* ListOfProductsPrensenterProtocol.swift */,
 				FBF58A542492B07B00B0073A /* ProductListPresenter.swift */,
+				FBE5C2142493EF4800525C8E /* ProductCellViewData.swift */,
+				FBE5C21A2493EFBD00525C8E /* ListOfProductsPrensenter+IObserver.swift */,
 			);
 			path = Internals;
 			sourceTree = "<group>";
@@ -569,27 +617,35 @@
 				FBDCB92C2492800200A9B85B /* MercadoLibreGetServiceModel+Decodable.swift in Sources */,
 				FB99918F2491D0EE00F83DFB /* GetProductsUrlMaker.swift in Sources */,
 				FB9991892491CED000F83DFB /* SearchBarEmbededViewController+SearcherTermDelegate.swift in Sources */,
+				FBE5C21B2493EFBD00525C8E /* ListOfProductsPrensenter+IObserver.swift in Sources */,
 				FB99918D2491D05A00F83DFB /* SearchItemsGivenAUrl.swift in Sources */,
 				FB9991672491AF0E00F83DFB /* SearcherTermDelegate.swift in Sources */,
+				FBE5C2172493EF5A00525C8E /* ListOfProductsPrensenterModelProtocol.swift in Sources */,
 				FBDCB91C2491E2D200A9B85B /* MercadoLibreUrlError.swift in Sources */,
 				FB9991792491C7E400F83DFB /* ViewControllerWithSearchBarFactoryOptions.swift in Sources */,
 				FB9991992491D50300F83DFB /* SearchItemsFromNetworkGivenASearchTermDelegate.swift in Sources */,
 				FB9991962491D40500F83DFB /* JsonParser.swift in Sources */,
 				FB99917E2491CCF600F83DFB /* ProductProtocol.swift in Sources */,
+				FBE5C2152493EF4800525C8E /* ProductCellViewData.swift in Sources */,
 				FBF58A552492B07B00B0073A /* ProductListPresenter.swift in Sources */,
+				FBE5C20D2493EECD00525C8E /* ObserverProtocol.swift in Sources */,
 				FBDCB92424926E4300A9B85B /* MercadoLibreListingProduct+ProductProtocol.swift in Sources */,
 				FB2222842491918A007FF2E8 /* SearchTask.swift in Sources */,
 				FB99917B2491C99400F83DFB /* ViewControllerWithSearchFactory.swift in Sources */,
 				FBDCB91E2491E3CE00A9B85B /* MercadoLibreListingProduct.swift in Sources */,
+				FBE5C2132493EF2D00525C8E /* ListsOfViewProducts.swift in Sources */,
 				FB9991602491ACB100F83DFB /* ItemSearcherService.swift in Sources */,
 				FB9991972491D40500F83DFB /* ParserProtocol.swift in Sources */,
 				FBDCB92824927ED300A9B85B /* MercadolibreGetParser.swift in Sources */,
 				FBDCB92224926CF400A9B85B /* MercadoLibreListingProduct+Decodable.swift in Sources */,
+				FBE5C2112493EF1D00525C8E /* ViewDataProductProtocol.swift in Sources */,
 				FB9991652491AEFA00F83DFB /* ItemHolderProtocol.swift in Sources */,
 				FB99916C2491C3FB00F83DFB /* SearchBarResultsUpdating.swift in Sources */,
 				FB99915E2491AC5E00F83DFB /* SearcherProtocol.swift in Sources */,
 				FB9991742491C56800F83DFB /* SearchControllerFactory.swift in Sources */,
+				FBE5C20F2493EEED00525C8E /* ObservableProtocol.swift in Sources */,
 				FB9991862491CD7700F83DFB /* ProductManager.swift in Sources */,
+				FBE5C2192493EF6C00525C8E /* ListOfProductsPrensenterProtocol.swift in Sources */,
 				FB9991692491AF1D00F83DFB /* SearcherTermError.swift in Sources */,
 				FBDCB92A24927FB800A9B85B /* MercadoLibreGetServiceModel.swift in Sources */,
 				FB22226424918F18007FF2E8 /* SearchBarEmbededViewController.swift in Sources */,

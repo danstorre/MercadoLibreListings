@@ -8,44 +8,6 @@
 
 import UIKit
 
-
-//OBSERVERS
-protocol IObserver: class {
-    func willChange()
-    func didChange()
-}
-
-protocol Observable: class {
-    var observer: IObserver? { get set }
-}
-
-//PRODUCT VIEW DATA PROTOCOL
-protocol ViewDataProductProtocol {
-    var imageThumnail: UIImage? {get set}
-    var attributeTitleProduct: NSAttributedString? {get set}
-}
-
-//PRODUCT LIST VIEW PROTOCOL
-protocol ListsOfViewProducts {
-    var arrayOfViewDataProducts: [ViewDataProductProtocol] { get set }
-    func prensent(viewData: [ViewDataProductProtocol])
-}
-
-//MODEL PRODUCT PRESENTER PROTOCOL
-protocol ListOfProductsPrensenterModelProtocol {
-    func getArrayOfProducts(with: ListOfProductsPrensenterProtocol)
-}
-
-//PRODUCT LIST PRESENTER PROTOCOL
-protocol ListOfProductsPrensenterProtocol {
-    func setArrayOfProducts(with: [ProductProtocol])
-}
-
-struct ProductCellViewData: ViewDataProductProtocol {
-    var imageThumnail: UIImage?
-    var attributeTitleProduct: NSAttributedString?
-}
-
 class ListOfProductsPrensenter: ListOfProductsPrensenterProtocol{
     var modelList: ListOfProductsPrensenterModelProtocol
     var presentableView: ListsOfViewProducts
@@ -105,14 +67,3 @@ class ListOfProductsPrensenter: ListOfProductsPrensenterProtocol{
         return mutuableAttString
     }
 }
-
-extension ListOfProductsPrensenter: IObserver {
-    func willChange() {
-        modelList.getArrayOfProducts(with: self)
-    }
-    
-    func didChange() {
-        // do some work after data model has finished changing
-    }
-}
-
