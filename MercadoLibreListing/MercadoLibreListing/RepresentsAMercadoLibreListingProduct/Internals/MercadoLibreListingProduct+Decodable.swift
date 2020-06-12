@@ -11,12 +11,15 @@ import Foundation
 extension MercadoLibreListingProduct: Decodable{
     enum ProductCodingKeys: String, CodingKey {
         case title
+        case thumbnail
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: ProductCodingKeys.self)
         
         title = try values.decode(String.self, forKey: .title)
+        let urlthumbnailString = try values.decode(String.self, forKey: .thumbnail)
+        thumbnailURL = URL(string: urlthumbnailString)
     }
     
 }

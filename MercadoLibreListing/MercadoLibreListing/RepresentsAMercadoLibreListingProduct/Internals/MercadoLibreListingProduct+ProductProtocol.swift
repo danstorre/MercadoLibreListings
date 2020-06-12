@@ -12,10 +12,9 @@ extension MercadoLibreListingProduct: ProductProtocol {
     
     var imagetThumbnailUrl: URL? {
         get {
-            return nil
+            return self.thumbnailURL
         }
         set {
-            
         }
     }
 }
