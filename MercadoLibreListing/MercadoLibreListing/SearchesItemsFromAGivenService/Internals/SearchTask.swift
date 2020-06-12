@@ -27,6 +27,7 @@ class SearcherTerm<RepoType: ItemHolder, ItemSearcherType: ItemSearcherService>:
     }
     
     func search(term: String) {
+        delegate?.willSearch()
         service.getItems(with: term) {[weak self] (items) in
             guard let items = items, !items.isEmpty else {
                 self?.delegate?.didFinish(with: SearcherTermError.serviceReturnNilItems)

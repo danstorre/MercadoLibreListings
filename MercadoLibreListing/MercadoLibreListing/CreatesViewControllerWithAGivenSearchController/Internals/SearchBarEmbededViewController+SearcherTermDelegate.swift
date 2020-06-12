@@ -9,6 +9,10 @@
 import Foundation
 
 extension SearchBarEmbededViewController: SearcherTermDelegate{
+    func willSearch() {
+        
+    }
+    
     func didFinish(with: SearcherTermError) {
         //presents alert
     }

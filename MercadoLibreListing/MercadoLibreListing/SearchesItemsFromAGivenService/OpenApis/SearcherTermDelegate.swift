@@ -9,6 +9,7 @@
 import Foundation
 
 protocol SearcherTermDelegate: class{
+    func willSearch()
     func didFinish(with: SearcherTermError)
     func didFinish()
 }
