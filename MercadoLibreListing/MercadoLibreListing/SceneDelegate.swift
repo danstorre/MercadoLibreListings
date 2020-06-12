@@ -21,7 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         productListHolder = createAMercadoLibreListingProductHolder()
         
-    
         let searcherNetworkService = createATermSearcherMercadoLibreNeworkService()
         //TODO:- Assign searcherNetworkService delegate
         
