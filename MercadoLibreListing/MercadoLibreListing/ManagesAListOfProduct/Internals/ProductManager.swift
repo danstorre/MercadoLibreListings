@@ -9,7 +9,14 @@
 import Foundation
 
 class ProductHolder<T: ProductProtocol>: ItemHolder, Observable{
-    var products: [T]
+    var products: [T] {
+        willSet{
+            observer?.willChange()
+        }
+        didSet{
+            observer?.didChange()
+        }
+    }
     
     weak var observer: IObserver?
     
