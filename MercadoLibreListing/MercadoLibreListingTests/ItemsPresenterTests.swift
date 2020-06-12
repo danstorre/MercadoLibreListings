@@ -67,6 +67,9 @@ class MockListsOfViewProducts: ListsOfViewDataProducts, NeedsExcpectation {
         self.arrayOfViewDataProducts = viewData
         expectation?.fulfill()
     }
+    func present(imageViewData: UIImage, at: Int) {
+     
+    }
 }
 
 class MockObservableModel: Observable{

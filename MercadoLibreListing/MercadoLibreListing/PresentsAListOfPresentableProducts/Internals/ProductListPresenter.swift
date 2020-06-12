@@ -23,14 +23,15 @@ class ListOfProductsPrensenter: ListOfProductsPrensenterProtocol{
         DispatchQueue.global().async { [weak self] in
             //create an array of ViewDataProductProtocol
             var viewDataProducts = [ProductCellViewData]()
-            for productData in dataProducts{
+    
+            for (index, productData) in dataProducts.enumerated(){
                 //search for image if needed
-                let viewDataImage: UIImage? = ListOfProductsPrensenter.getImage(from: productData.imagetThumbnailUrl)
+                self?.getImage(from: productData, at: index)
                 
                 //prepare an attributed string.
                 let viewDataTile = ListOfProductsPrensenter.attributedTitle(with: productData.title)
                 
-                let viewData = ProductCellViewData(imageThumnail: viewDataImage,
+                let viewData = ProductCellViewData(imageThumnail: nil,
                                                    attributeTitleProduct: viewDataTile)
                 viewDataProducts.append(viewData)
             }
@@ -41,11 +42,22 @@ class ListOfProductsPrensenter: ListOfProductsPrensenterProtocol{
         }
     }
     
+    func getImage(from productData: ProductProtocol, at: Int) {
+        DispatchQueue.global().async { [weak self] in
+            let viewDataImage: UIImage? = ListOfProductsPrensenter.getImage(from: productData.imagetThumbnailUrl)
+            if let viewDataImage = viewDataImage {
+                DispatchQueue.main.async {
+                    self?.presentableView.present(imageViewData: viewDataImage, at: at)
+                }
+            }
+        }
+    }
+    
     fileprivate static func getImage(from url: URL?) -> UIImage? {
         if let urlThumnailProduct = url {
             return DownSamplerMethods.downsample(imageAt: urlThumnailProduct,
-                                                          to: CGSize(width: 100.0, height: 100.0),
-                                                          scale: 3)
+                                                  to: CGSize(width: 100.0, height: 100.0),
+                                                  scale: 3)
         } else {
             return nil
         }
