@@ -11,6 +11,7 @@ import UIKit
 class PresentableProductsTableViewController: UITableViewController, ListsOfViewDataProducts {
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var header: UIView!
     var alerPresented: UIAlertController?
     
     var arrayOfViewDataProducts: [ViewDataProductProtocol] = []

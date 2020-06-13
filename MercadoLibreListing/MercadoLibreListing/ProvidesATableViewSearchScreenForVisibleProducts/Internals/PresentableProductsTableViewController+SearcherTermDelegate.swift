@@ -8,23 +8,69 @@
 
 import UIKit
 
-extension PresentableProductsTableViewController: SearcherTermDelegate{
+protocol SearchingTrafficDelegate: class {
+    func didStartSearching()
+    func didFinishSearching()
+}
+
+typealias NetworkSearchingTraffic = SearcherTermDelegate & SearchItemsFromNetworkGivenASearchTermDelegate
+
+class NetworkSearchingTrafficDelegate: NetworkSearchingTraffic {
+
+    weak var delegate: SearchingTrafficDelegate?
+    var keepSearching: Bool = false
+    
     func willSearch() {
-        toggleLoading(isHidden: false)
+        guard !keepSearching else { return }
+        keepSearching = true
+        delegate?.didStartSearching()
     }
     
     func didFinish(with: SearcherTermError) {
+        //log?
     }
     
     func didFinish() {
+        //log?
+    }
+    
+    func didFinishAllCurrentTasks() {
+        keepSearching = false
+        delegate?.didFinishSearching() 
+    }
+    
+    func errorWhenCreatingURL(_: Error) {
+        //log?
+    }
+    
+    func errorWhenMakingANetworkRequest(_: Error) {
+        //log?
+    }
+}
+
+extension PresentableProductsTableViewController: SearchingTrafficDelegate{
+    func didStartSearching() {
+        toggleLoading(isHidden: false)
+    }
+    
+    func didFinishSearching() {
+        toggleLoading(isHidden: true)
     }
     
     func toggleLoading(isHidden: Bool) {
-        UIView.animate(withDuration: 0.3, animations: { [weak self] in
-            self?.tableView.tableHeaderView?.bounds.size.height = isHidden ? 0 : 71
-            self?.tableView.tableHeaderView?.setNeedsLayout()
-            self?.tableView.tableHeaderView?.layoutIfNeeded()
-            isHidden ? self?.activityIndicator.stopAnimating() : self?.activityIndicator.startAnimating()
-        })
+        if isHidden {
+            activityIndicator.stopAnimating()
+        } else {
+            activityIndicator.startAnimating()
+        }
+        
+        tableView?.tableHeaderView?.frame.size.height = isHidden ? 0 : 71
+        
+        header?.setNeedsLayout()
+        header?.layoutIfNeeded()
+        
+        if let visibleIndexPaths = tableView.indexPathsForVisibleRows {
+            tableView.reloadRows(at: visibleIndexPaths, with: .none)
+        }
     }
 }

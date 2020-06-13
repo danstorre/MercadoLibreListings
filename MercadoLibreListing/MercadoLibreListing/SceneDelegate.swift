@@ -15,8 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var searchResultsUpdatingDelegate: UISearchResultsUpdating?
     var presenterProductList: ListOfProductsPrensenter!
     var searchBroadCaster: BroadcastSearcherTermDelegateMessages!
+    var searcherNetworkTrafficController: NetworkSearchingTrafficDelegate?
     
-    typealias ScreenViewControllerSearchAListOfDataProducts = UIViewController & ListsOfViewDataProducts & SearcherTermDelegate
+    typealias ScreenViewControllerSearchAListOfDataProducts = UIViewController & ListsOfViewDataProducts
     
     typealias MercadoLibreSearcher = SearcherTerm<ProductHolder<MercadoLibreListingProduct>,SearchItemsFromNetworkGivenASearchTerm<MercadoLibreListingProduct, MercadolibreGetParser>>
     
@@ -26,6 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         productListHolder = createAMercadoLibreListingProductHolder()
         
         let searcherNetworkService = createATermSearcherMercadoLibreNeworkService()
+        searcherNetworkTrafficController = NetworkSearchingTrafficDelegate()
+        searcherNetworkService.delegate = searcherNetworkTrafficController
         
         let searcherService: MercadoLibreSearcher = createASearcherObject(with: searcherNetworkService,
                                                                           and: productListHolder!) as! SceneDelegate.MercadoLibreSearcher
@@ -37,19 +40,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let searchScreenNav = createASearchScreenNavigationControllerWith(with: searchController)
         
         //Assign searcherNetworkService delegate
-        if let searchScreenNavDelegate  = (searchScreenNav as? UINavigationController)?.topViewController as? SearchItemsFromNetworkGivenASearchTermDelegate {
-            searcherNetworkService.delegate = searchScreenNavDelegate
+        if let searchScreenSearchingTrafficDelegate  = (searchScreenNav as? UINavigationController)?.topViewController as? SearchingTrafficDelegate {
+            searcherNetworkTrafficController?.delegate = searchScreenSearchingTrafficDelegate
         }
         
         searchBroadCaster = BroadcastSearcherTermDelegateMessages()
         searchBroadCaster.recipients.append(searcherNetworkService)
+        searchBroadCaster.recipients.append(searcherNetworkTrafficController!)
         
         //create a presenter
         if let viewWithPresentableListOfProducts = (searchScreenNav as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts {
             presenterProductList = ListOfProductsPrensenter(with: productListHolder!,
                                          and: viewWithPresentableListOfProducts)
             productListHolder!.observer = presenterProductList
-            searchBroadCaster.recipients.append(viewWithPresentableListOfProducts)
         }
         
         searcherService.delegate = searchBroadCaster

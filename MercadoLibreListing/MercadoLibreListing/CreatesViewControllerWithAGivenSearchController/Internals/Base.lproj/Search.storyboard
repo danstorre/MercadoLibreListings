@@ -35,17 +35,29 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="a7w-Ep-DLS">
-                                    <rect key="frame" x="197" y="25.5" width="20" height="20"/>
-                                </activityIndicatorView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6s-lC-c9r">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
+                                    <subviews>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="a7w-Ep-DLS">
+                                            <rect key="frame" x="197" y="25.5" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstItem="a7w-Ep-DLS" firstAttribute="centerY" secondItem="D6s-lC-c9r" secondAttribute="centerY" id="FHf-gH-ZGj"/>
+                                        <constraint firstItem="a7w-Ep-DLS" firstAttribute="centerX" secondItem="D6s-lC-c9r" secondAttribute="centerX" id="bmz-aj-yA0"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstItem="a7w-Ep-DLS" firstAttribute="centerX" secondItem="KTa-Qv-AG8" secondAttribute="centerX" id="D06-TO-7fd"/>
-                                <constraint firstItem="a7w-Ep-DLS" firstAttribute="centerY" secondItem="KTa-Qv-AG8" secondAttribute="centerY" id="plN-zO-MP9"/>
+                                <constraint firstItem="D6s-lC-c9r" firstAttribute="centerX" secondItem="KTa-Qv-AG8" secondAttribute="centerX" id="1KJ-h5-qGm"/>
+                                <constraint firstItem="D6s-lC-c9r" firstAttribute="centerY" secondItem="KTa-Qv-AG8" secondAttribute="centerY" id="U7s-7y-8Ar"/>
+                                <constraint firstItem="D6s-lC-c9r" firstAttribute="height" secondItem="KTa-Qv-AG8" secondAttribute="height" id="bac-4n-bBX"/>
+                                <constraint firstItem="D6s-lC-c9r" firstAttribute="width" secondItem="KTa-Qv-AG8" secondAttribute="width" id="oNc-pV-hbg"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="IaE-m4-8eo">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="I1I-wG-9Eb">
                             <rect key="frame" x="0.0" y="71" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -58,6 +70,7 @@
                     <navigationItem key="navigationItem" id="j2h-IP-Y9n"/>
                     <connections>
                         <outlet property="activityIndicator" destination="a7w-Ep-DLS" id="NuW-tS-D1i"/>
+                        <outlet property="header" destination="D6s-lC-c9r" id="Jy8-39-4Kw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grc-W9-bym" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

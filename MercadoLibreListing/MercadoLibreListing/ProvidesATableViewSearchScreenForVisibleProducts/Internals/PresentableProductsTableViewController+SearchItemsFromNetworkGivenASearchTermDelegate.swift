@@ -10,7 +10,6 @@ import Foundation
 
 extension PresentableProductsTableViewController: SearchItemsFromNetworkGivenASearchTermDelegate {
     func didFinishAllCurrentTasks() {
-        toggleLoading(isHidden: true)
     }
     
     func errorWhenCreatingURL(_: Error) {
