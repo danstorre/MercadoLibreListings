@@ -10,6 +10,8 @@ import UIKit
 
 class PresentableProductsTableViewController: UITableViewController, ListsOfViewDataProducts {
     
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     var arrayOfViewDataProducts: [ViewDataProductProtocol] = [] 
     
     override func viewDidLoad() {

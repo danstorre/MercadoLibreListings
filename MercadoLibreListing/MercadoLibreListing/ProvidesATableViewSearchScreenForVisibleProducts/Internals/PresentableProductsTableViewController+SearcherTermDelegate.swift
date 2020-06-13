@@ -6,22 +6,38 @@
 //  Copyright © 2020 dansTeam. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension PresentableProductsTableViewController: SearcherTermDelegate{
     func willSearch() {
-        //add loading.
-        //hide tableview if you will.
-        //do some clean up maybe cancel all requests of the array view data?.
+        toggleLoading(isHidden: false)
     }
     
     func didFinish(with: SearcherTermError) {
-        //present an alert
+        toggleLoading(isHidden: true)
+        let message = "no values returned from service"
+        let title = "Search error."
+        presentAlert(with: title, and: message)
     }
     
     func didFinish() {
-        //show tableview if you will.
-        //remove loading.
-        //remove any alerts.
+        toggleLoading(isHidden: true)
+        self.presentedViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func toggleLoading(isHidden: Bool) {
+        tableView.tableHeaderView?.isHidden = isHidden
+        isHidden ? activityIndicator.stopAnimating() : activityIndicator.startAnimating()
+    }
+    
+    func presentAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { (_) in }
+        
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

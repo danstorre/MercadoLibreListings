@@ -31,12 +31,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="wns-tQ-b5l">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <connections>
                             <outlet property="dataSource" destination="ghr-pU-Ztr" id="0hs-Fo-O2H"/>
                             <outlet property="delegate" destination="ghr-pU-Ztr" id="R3S-6Y-34g"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="j2h-IP-Y9n"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="wns-tQ-b5l" id="kTx-C9-Jcm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grc-W9-bym" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
