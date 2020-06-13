@@ -35,10 +35,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let searchController = createASearchcontroller(with: searchResultsUpdatingDelegate!)
         
-        let searchScreen = createASearchScreenWith(with: searchController)
+        let searchScreenNav = createASearchScreenNavigationControllerWith(with: searchController)
         
         //create a presenter
-        let viewWithPresentableListOfProducts = (searchScreen as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts
+        let viewWithPresentableListOfProducts = (searchScreenNav as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts
         presenterProductList = ListOfProductsPrensenter(with: productListHolder!,
                                      and: viewWithPresentableListOfProducts!)
         productListHolder!.observer = presenterProductList
@@ -51,7 +51,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = searchScreen
+        window?.rootViewController = searchScreenNav
         window?.makeKeyAndVisible()
     }
     
@@ -60,7 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         .searchController(for: .normalWith(text: nil, andDelegate: searchResultsUpdatingDelegate!))
     }
     
-    func createASearchScreenWith(with searchController: UISearchController) -> UIViewController? {
+    func createASearchScreenNavigationControllerWith(with searchController: UISearchController) -> UIViewController? {
         return ViewControllerWithSearchFactory
         .viewController(for:
             .tableViewControllerForVisibleProducts(withSearchController: searchController))
