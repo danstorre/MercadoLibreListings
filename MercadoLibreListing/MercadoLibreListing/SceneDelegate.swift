@@ -26,7 +26,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         productListHolder = createAMercadoLibreListingProductHolder()
         
         let searcherNetworkService = createATermSearcherMercadoLibreNeworkService()
-        //TODO:- Assign searcherNetworkService delegate
         
         let searcherService: MercadoLibreSearcher = createASearcherObject(with: searcherNetworkService,
                                                                           and: productListHolder!) as! SceneDelegate.MercadoLibreSearcher
@@ -37,6 +36,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let searchScreenNav = createASearchScreenNavigationControllerWith(with: searchController)
         
+        //Assign searcherNetworkService delegate
+        if let searchScreenNavDelegate  = (searchScreenNav as? UINavigationController)?.topViewController as? SearchItemsFromNetworkGivenASearchTermDelegate {
+            searcherNetworkService.delegate = searchScreenNavDelegate
+        }
         
         searchBroadCaster = BroadcastSearcherTermDelegateMessages()
         searchBroadCaster.recipients.append(searcherNetworkService)
