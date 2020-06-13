@@ -10,6 +10,7 @@ import UIKit
 
 class SearchBarResultsUpdating: NSObject, UISearchResultsUpdating {
     var searcher: SearcherProtocol
+    var termInSearchBar: String? = ""
     
     init(searcher: SearcherProtocol) {
        self.searcher = searcher
@@ -17,9 +18,16 @@ class SearchBarResultsUpdating: NSObject, UISearchResultsUpdating {
    }
     
     func updateSearchResults(for searchController: UISearchController) {
+        
         guard let text = searchController.searchBar.text else{
             fatalError()
         }
+        
+        guard let termInSearchBar = termInSearchBar,
+            termInSearchBar != text else {
+                return
+        }
+        self.termInSearchBar = text
         if searchController.searchBar.text != "" {
             searcher.search(term: text)
         }
