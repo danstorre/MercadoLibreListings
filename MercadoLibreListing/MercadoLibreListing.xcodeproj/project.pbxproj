@@ -41,7 +41,6 @@
 		FB9E6F3E24942D9300996BEA /* SearcherTermMediator+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E6F3D24942D9300996BEA /* SearcherTermMediator+Extension.swift */; };
 		FB9E6F4024942D9B00996BEA /* SearcherTermMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E6F3F24942D9B00996BEA /* SearcherTermMediator.swift */; };
 		FB9E6F4224942DD600996BEA /* BroadcastSearcherTermDelegateMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E6F4124942DD600996BEA /* BroadcastSearcherTermDelegateMessages.swift */; };
-		FB9E6F4424942E1E00996BEA /* ProductListPresenter+SearcherTermDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E6F4324942E1E00996BEA /* ProductListPresenter+SearcherTermDelegate.swift */; };
 		FB9E6F462494420400996BEA /* SearchItemsGivenAUrl+SearcherTermDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E6F452494420400996BEA /* SearchItemsGivenAUrl+SearcherTermDelegate.swift */; };
 		FBDCB90B2491DAC000A9B85B /* WebServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB90A2491DAC000A9B85B /* WebServiceErrors.swift */; };
 		FBDCB9182491DED700A9B85B /* MercadoLibreURLFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB9172491DED700A9B85B /* MercadoLibreURLFactory.swift */; };
@@ -114,7 +113,6 @@
 		FB9E6F3D24942D9300996BEA /* SearcherTermMediator+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearcherTermMediator+Extension.swift"; sourceTree = "<group>"; };
 		FB9E6F3F24942D9B00996BEA /* SearcherTermMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcherTermMediator.swift; sourceTree = "<group>"; };
 		FB9E6F4124942DD600996BEA /* BroadcastSearcherTermDelegateMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearcherTermDelegateMessages.swift; sourceTree = "<group>"; };
-		FB9E6F4324942E1E00996BEA /* ProductListPresenter+SearcherTermDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductListPresenter+SearcherTermDelegate.swift"; sourceTree = "<group>"; };
 		FB9E6F452494420400996BEA /* SearchItemsGivenAUrl+SearcherTermDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchItemsGivenAUrl+SearcherTermDelegate.swift"; sourceTree = "<group>"; };
 		FBDCB90A2491DAC000A9B85B /* WebServiceErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceErrors.swift; sourceTree = "<group>"; };
 		FBDCB9172491DED700A9B85B /* MercadoLibreURLFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLibreURLFactory.swift; sourceTree = "<group>"; };
@@ -180,12 +178,12 @@
 				FB9E6F3A24942D4A00996BEA /* BroadCastsDelegateSearchTermMessageToSearcherTermDelegates */,
 				FB9E6F292493F52B00996BEA /* ProvidesTableViewCellWithAnImageAndATitleLabel */,
 				FB9E6F272493F4C400996BEA /* ProvidesATableViewSearchScreenForVisibleProducts */,
-				FBE5C2092493EEAA00525C8E /* ProvidesObservers */,
+				FBE5C2092493EEAA00525C8E /* ProvidesObserversAndObservableProtocols */,
 				FBE5C2052493DF0700525C8E /* ProvidesADownSampleGivenAUrlImage */,
 				FBF58A512492AFFE00B0073A /* PresentsAListOfPresentableProducts */,
 				FBDCB92524927A5A00A9B85B /* ParsesDataFromMercadoLibreServiceToAnArrayOfMercadoLibreListingProduct */,
 				FBDCB9192491DF0E00A9B85B /* RepresentsAMercadoLibreListingProduct */,
-				FBDCB9152491DE9100A9B85B /* CreatesMercadoLibreUrls */,
+				FBDCB9152491DE9100A9B85B /* CreatesMercadoLibreUrlsToImplementGetProductsUrlMaker */,
 				FB9991912491D40400F83DFB /* ParsersAnyObjectToJsonIfDecodable */,
 				FB9991872491CE7B00F83DFB /* ImplementsItemSearcherServiceGivenAGetProductsUrlMaker */,
 				FB9991832491CD5C00F83DFB /* ManagesAListOfProduct */,
@@ -456,13 +454,13 @@
 			path = Internals;
 			sourceTree = "<group>";
 		};
-		FBDCB9152491DE9100A9B85B /* CreatesMercadoLibreUrls */ = {
+		FBDCB9152491DE9100A9B85B /* CreatesMercadoLibreUrlsToImplementGetProductsUrlMaker */ = {
 			isa = PBXGroup;
 			children = (
 				FBDCB91A2491E2C400A9B85B /* OpenApis */,
 				FBDCB9162491DEAD00A9B85B /* Internals */,
 			);
-			path = CreatesMercadoLibreUrls;
+			path = CreatesMercadoLibreUrlsToImplementGetProductsUrlMaker;
 			sourceTree = "<group>";
 		};
 		FBDCB9162491DEAD00A9B85B /* Internals */ = {
@@ -541,13 +539,13 @@
 			path = Internals;
 			sourceTree = "<group>";
 		};
-		FBE5C2092493EEAA00525C8E /* ProvidesObservers */ = {
+		FBE5C2092493EEAA00525C8E /* ProvidesObserversAndObservableProtocols */ = {
 			isa = PBXGroup;
 			children = (
 				FBE5C20A2493EEB200525C8E /* OpenApis */,
 				FBE5C20B2493EEB800525C8E /* Internals */,
 			);
-			path = ProvidesObservers;
+			path = ProvidesObserversAndObservableProtocols;
 			sourceTree = "<group>";
 		};
 		FBE5C20A2493EEB200525C8E /* OpenApis */ = {
@@ -593,7 +591,6 @@
 				FBF58A542492B07B00B0073A /* ProductListPresenter.swift */,
 				FBE5C2142493EF4800525C8E /* ProductCellViewData.swift */,
 				FBE5C21A2493EFBD00525C8E /* ListOfProductsPrensenter+IObserver.swift */,
-				FB9E6F4324942E1E00996BEA /* ProductListPresenter+SearcherTermDelegate.swift */,
 			);
 			path = Internals;
 			sourceTree = "<group>";
@@ -726,7 +723,6 @@
 				FBE5C2132493EF2D00525C8E /* ListsOfViewDataProducts.swift in Sources */,
 				FB9991602491ACB100F83DFB /* ItemSearcherService.swift in Sources */,
 				FB9E6F32249407A600996BEA /* ProductManager+ListOfProductsPrensenterModelProtocol.swift in Sources */,
-				FB9E6F4424942E1E00996BEA /* ProductListPresenter+SearcherTermDelegate.swift in Sources */,
 				FB9991972491D40500F83DFB /* ParserProtocol.swift in Sources */,
 				FBDCB92824927ED300A9B85B /* MercadolibreGetParser.swift in Sources */,
 				FB9E6F462494420400996BEA /* SearchItemsGivenAUrl+SearcherTermDelegate.swift in Sources */,

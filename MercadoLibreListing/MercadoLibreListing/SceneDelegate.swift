@@ -44,7 +44,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         searchBroadCaster = BroadcastSearcherTermDelegateMessages()
         searchBroadCaster.recipients.append(viewWithPresentableListOfProducts!)
-        searchBroadCaster.recipients.append(presenterProductList!)
         searchBroadCaster.recipients.append(searcherNetworkService)
         
         searcherService.delegate = searchBroadCaster
