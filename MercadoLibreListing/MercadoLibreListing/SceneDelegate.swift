@@ -28,7 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let searcherNetworkService = createATermSearcherMercadoLibreNeworkService()
         //TODO:- Assign searcherNetworkService delegate
         
-        let searcherService: MercadoLibreSearcher = createASearcherObject(with: searcherNetworkService, and: productListHolder!) as! SceneDelegate.MercadoLibreSearcher
+        let searcherService: MercadoLibreSearcher = createASearcherObject(with: searcherNetworkService,
+                                                                          and: productListHolder!) as! SceneDelegate.MercadoLibreSearcher
         
         searchResultsUpdatingDelegate = createASearchBarUpdatingDelegate(with: searcherService)
         
