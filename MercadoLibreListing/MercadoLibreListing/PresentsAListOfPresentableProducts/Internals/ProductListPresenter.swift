@@ -90,7 +90,7 @@ class ListOfProductsPrensenter: ListOfProductsPrensenterProtocol{
         
         let attributes = [NSAttributedString.Key.kern: 0.41,
                           NSAttributedString.Key.paragraphStyle: paragraphStyle,
-                          NSAttributedString.Key.foregroundColor: UIColor.black.cgColor,
+                          NSAttributedString.Key.foregroundColor: UIColor(named: "Text")!,
                           NSAttributedString.Key.font: UIFont(name: "DINAlternate-Bold", size: 17)!] as [NSAttributedString.Key : Any]
         
         mutuableAttString.addAttributes(attributes, range: NSRange(location: 0,
