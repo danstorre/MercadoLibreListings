@@ -37,12 +37,14 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
                 guard error == nil else {
                     completion(nil)
                     self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError.ResponseError)
+                    self?.lastStepAfterFinishingATask()
                     return
                 }
                 
                 guard let data = data else {
                     completion(nil)
                     self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError.DataEmptyError)
+                    self?.lastStepAfterFinishingATask()
                     return
                 }
                 
@@ -53,9 +55,33 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
                     completion(nil)
                     self?.delegate?.errorWhenMakingANetworkRequest(error)
                 }
+                self?.lastStepAfterFinishingATask()
             }
         }
         currentTasks.append(task)
         task.resume()
+    }
+    
+    fileprivate func lastStepAfterFinishingATask(){
+        if hasTasksRunning() {
+            reset()
+            sendMessageAllTasksFinished()
+        }
+    }
+    
+    fileprivate func hasTasksRunning() -> Bool {
+        let runningTasks = currentTasks.filter { (task) -> Bool in
+            return task.state == .running
+        }
+        
+        return runningTasks.isEmpty
+    }
+    
+    fileprivate func reset() {
+        currentTasks = []
+    }
+    
+    fileprivate func sendMessageAllTasksFinished() {
+        delegate?.didFinishAllCurrentTasks()
     }
 }

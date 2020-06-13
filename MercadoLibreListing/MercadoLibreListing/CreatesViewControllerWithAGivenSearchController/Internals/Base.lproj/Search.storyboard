@@ -31,10 +31,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="wns-tQ-b5l">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="KTa-Qv-AG8">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </activityIndicatorView>
+                            <subviews>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="a7w-Ep-DLS">
+                                    <rect key="frame" x="197" y="25.5" width="20" height="20"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="a7w-Ep-DLS" firstAttribute="centerX" secondItem="KTa-Qv-AG8" secondAttribute="centerX" id="D06-TO-7fd"/>
+                                <constraint firstItem="a7w-Ep-DLS" firstAttribute="centerY" secondItem="KTa-Qv-AG8" secondAttribute="centerY" id="plN-zO-MP9"/>
+                            </constraints>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="IaE-m4-8eo">
+                            <rect key="frame" x="0.0" y="71" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
                         <connections>
                             <outlet property="dataSource" destination="ghr-pU-Ztr" id="0hs-Fo-O2H"/>
                             <outlet property="delegate" destination="ghr-pU-Ztr" id="R3S-6Y-34g"/>
@@ -42,7 +57,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="j2h-IP-Y9n"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="wns-tQ-b5l" id="kTx-C9-Jcm"/>
+                        <outlet property="activityIndicator" destination="a7w-Ep-DLS" id="NuW-tS-D1i"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grc-W9-bym" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

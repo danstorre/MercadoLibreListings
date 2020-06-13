@@ -14,7 +14,6 @@ extension SearchItemsFromNetworkGivenASearchTerm: SearcherTermDelegate {
             currentTask.suspend()
             currentTask.cancel()
         }
-        currentTasks = []
     }
     
     func didFinish(with: SearcherTermError) {

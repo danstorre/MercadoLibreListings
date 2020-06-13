@@ -11,8 +11,9 @@ import UIKit
 class PresentableProductsTableViewController: UITableViewController, ListsOfViewDataProducts {
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    var alerPresented: UIAlertController?
     
-    var arrayOfViewDataProducts: [ViewDataProductProtocol] = [] 
+    var arrayOfViewDataProducts: [ViewDataProductProtocol] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
