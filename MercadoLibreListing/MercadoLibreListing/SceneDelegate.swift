@@ -37,15 +37,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let searchScreenNav = createASearchScreenNavigationControllerWith(with: searchController)
         
-        //create a presenter
-        let viewWithPresentableListOfProducts = (searchScreenNav as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts
-        presenterProductList = ListOfProductsPrensenter(with: productListHolder!,
-                                     and: viewWithPresentableListOfProducts!)
-        productListHolder!.observer = presenterProductList
         
         searchBroadCaster = BroadcastSearcherTermDelegateMessages()
-        searchBroadCaster.recipients.append(viewWithPresentableListOfProducts!)
         searchBroadCaster.recipients.append(searcherNetworkService)
+        
+        //create a presenter
+        if let viewWithPresentableListOfProducts = (searchScreenNav as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts {
+            presenterProductList = ListOfProductsPrensenter(with: productListHolder!,
+                                         and: viewWithPresentableListOfProducts)
+            productListHolder!.observer = presenterProductList
+            searchBroadCaster.recipients.append(viewWithPresentableListOfProducts)
+        }
         
         searcherService.delegate = searchBroadCaster
         
