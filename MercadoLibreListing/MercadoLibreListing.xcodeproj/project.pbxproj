@@ -186,11 +186,11 @@
 				FBDCB9152491DE9100A9B85B /* CreatesMercadoLibreUrlsToImplementGetProductsUrlMaker */,
 				FB9991912491D40400F83DFB /* ParsersAnyObjectToJsonIfDecodable */,
 				FB9991872491CE7B00F83DFB /* ImplementsItemSearcherServiceGivenAGetProductsUrlMaker */,
-				FB9991832491CD5C00F83DFB /* ManagesAListOfProduct */,
+				FB9991832491CD5C00F83DFB /* ManagesAObservableListOfProductsImplementsItemHolder */,
 				FB9991752491C6F000F83DFB /* CreatesViewControllerWithAGivenSearchController */,
 				FB99916D2491C51000F83DFB /* CreatesASearchControllerGivenSomeOptions */,
 				FB99915B2491AC2F00F83DFB /* ControlsChangesInSarchbarsTextAndDelegatesTheSearch */,
-				FB2222852491918D007FF2E8 /* SearchesItemsFromAGivenService */,
+				FB2222852491918D007FF2E8 /* SearchesItemsFromAGivenServiceImplementsSearcherProtocol */,
 				FB22225F24918F18007FF2E8 /* AppDelegate.swift */,
 				FB22226124918F18007FF2E8 /* SceneDelegate.swift */,
 				FB22226824918F22007FF2E8 /* Assets.xcassets */,
@@ -210,13 +210,13 @@
 			path = MercadoLibreListingTests;
 			sourceTree = "<group>";
 		};
-		FB2222852491918D007FF2E8 /* SearchesItemsFromAGivenService */ = {
+		FB2222852491918D007FF2E8 /* SearchesItemsFromAGivenServiceImplementsSearcherProtocol */ = {
 			isa = PBXGroup;
 			children = (
 				FB222287249191A0007FF2E8 /* OpenApis */,
 				FB2222862491919B007FF2E8 /* Internals */,
 			);
-			path = SearchesItemsFromAGivenService;
+			path = SearchesItemsFromAGivenServiceImplementsSearcherProtocol;
 			sourceTree = "<group>";
 		};
 		FB2222862491919B007FF2E8 /* Internals */ = {
@@ -323,13 +323,13 @@
 			path = OpenApis;
 			sourceTree = "<group>";
 		};
-		FB9991832491CD5C00F83DFB /* ManagesAListOfProduct */ = {
+		FB9991832491CD5C00F83DFB /* ManagesAObservableListOfProductsImplementsItemHolder */ = {
 			isa = PBXGroup;
 			children = (
 				FB99917F2491CD0900F83DFB /* OpenApis */,
 				FB9991842491CD6B00F83DFB /* Internals */,
 			);
-			path = ManagesAListOfProduct;
+			path = ManagesAObservableListOfProductsImplementsItemHolder;
 			sourceTree = "<group>";
 		};
 		FB9991842491CD6B00F83DFB /* Internals */ = {
