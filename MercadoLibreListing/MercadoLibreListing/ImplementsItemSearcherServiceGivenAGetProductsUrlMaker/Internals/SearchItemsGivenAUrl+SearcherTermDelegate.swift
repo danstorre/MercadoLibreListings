@@ -30,7 +30,7 @@ class ThrotleSearch: SearcherProtocol{
             return
         }
         
-        throtle = Timer.scheduledTimer(timeInterval: 0.6,
+        throtle = Timer.scheduledTimer(timeInterval: 0.3,
                                        target: self,
                                        selector: #selector(fireSearch),
                                        userInfo: nil,
