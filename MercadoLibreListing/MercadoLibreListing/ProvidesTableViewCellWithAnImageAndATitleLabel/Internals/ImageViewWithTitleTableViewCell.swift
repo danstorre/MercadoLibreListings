@@ -39,8 +39,6 @@ class ImageViewWithTitleTableViewCell: UITableViewCell {
         cellContentView.frame = self.bounds
         cellContentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        
-        
         gradientLayer = CAGradientLayer()
         
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
