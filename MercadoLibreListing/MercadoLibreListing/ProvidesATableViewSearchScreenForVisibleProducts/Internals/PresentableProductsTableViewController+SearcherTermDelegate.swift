@@ -56,22 +56,4 @@ extension PresentableProductsTableViewController: SearchingTrafficDelegate{
     func didFinishSearching() {
         toggleLoading(isHidden: true)
     }
-    
-    func toggleLoading(isHidden: Bool) {
-        
-        self.tableView?.tableHeaderView?.frame.size.height = isHidden ? 0 : 71
-        self.tableView?.tableHeaderView?.alpha = isHidden ? 0 : 1
-        
-        UIView.animate(withDuration: 0.3) {
-            
-            if isHidden {
-                self.activityIndicator.stopAnimating()
-            } else {
-                self.activityIndicator.startAnimating()
-            }
-            
-            self.header?.setNeedsLayout()
-            self.header?.layoutIfNeeded()
-        }
-    }
 }

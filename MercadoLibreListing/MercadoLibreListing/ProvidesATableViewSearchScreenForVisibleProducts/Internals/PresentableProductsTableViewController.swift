@@ -15,6 +15,7 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
     var alerPresented: UIAlertController?
     
     var arrayOfViewDataProducts: [ViewDataProductProtocol] = []
+    var topLayconstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,7 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
     func present(imageViewData: UIImage, at row: Int) {
         guard  !arrayOfViewDataProducts.isEmpty,
             arrayOfViewDataProducts.indices.contains(row) else {
-            return
+                return
         }
         arrayOfViewDataProducts[row].imageThumnail = imageViewData
         
@@ -68,4 +69,22 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
+    func toggleLoading(isHidden: Bool) {
+        UIView.animate(withDuration: 0.3, animations: {
+            if isHidden {
+                self.activityIndicator.stopAnimating()
+            } else {
+                self.activityIndicator.startAnimating()
+            }
+            self.additionalSafeAreaInsets.top = isHidden ? -71 : 0
+            self.header?.alpha = isHidden ? 0 : 1
+            
+            self.tableView?.setNeedsLayout()
+            self.tableView?.layoutIfNeeded()
+        }) { (terminated) in
+            if terminated {
+                self.header?.isHidden = isHidden
+            }
+        }
+    }
 }
