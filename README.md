@@ -1,2 +1,2 @@
 # MercadoLibreListings
-A simple App showing a list of items from Mercado Libre.
+A simple App with a searcher to find items from Mercado Libre.
