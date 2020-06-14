@@ -10,10 +10,6 @@ import Foundation
 
 extension SearchItemsFromNetworkGivenASearchTerm: SearcherTermDelegate {
     func willSearch() {
-        for currentTask in currentTasks {
-            currentTask.suspend()
-            currentTask.cancel()
-        }
     }
     
     func didFinish(with: SearcherTermError) {

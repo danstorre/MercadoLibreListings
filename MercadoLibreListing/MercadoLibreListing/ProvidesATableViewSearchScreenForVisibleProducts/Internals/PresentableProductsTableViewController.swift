@@ -10,8 +10,6 @@ import UIKit
 
 class PresentableProductsTableViewController: UITableViewController, ListsOfViewDataProducts {
     
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet var header: UIView!
     var alerPresented: UIAlertController?
     
     var arrayOfViewDataProducts: [ViewDataProductProtocol] = []
@@ -70,21 +68,6 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
     }
     
     func toggleLoading(isHidden: Bool) {
-        UIView.animate(withDuration: 0.3, animations: {
-            if isHidden {
-                self.activityIndicator.stopAnimating()
-            } else {
-                self.activityIndicator.startAnimating()
-            }
-            self.additionalSafeAreaInsets.top = isHidden ? -71 : 0
-            self.header?.alpha = isHidden ? 0 : 1
-            
-            self.tableView?.setNeedsLayout()
-            self.tableView?.layoutIfNeeded()
-        }) { (terminated) in
-            if terminated {
-                self.header?.isHidden = isHidden
-            }
-        }
+        
     }
 }
