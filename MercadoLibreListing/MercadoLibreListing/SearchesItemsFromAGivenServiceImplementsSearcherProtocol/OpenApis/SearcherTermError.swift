@@ -11,3 +11,7 @@ import Foundation
 enum SearcherTermError: Error {
     case serviceReturnNilItems(withTerm: String)
 }
+
+extension SearcherTermError: Equatable {
+    
+}

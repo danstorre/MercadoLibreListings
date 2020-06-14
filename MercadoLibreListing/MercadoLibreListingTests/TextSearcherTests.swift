@@ -42,7 +42,7 @@ class TextSearcherTests: XCTestCase {
         searcher.search(term: "cama")
         
         //delegate gets an error that service is down.
-        check(searcherDelegate, gets: SearcherTermError.serviceReturnNilItems)
+        check(searcherDelegate, gets: SearcherTermError.serviceReturnNilItems(withTerm: "cama"))
     }
     
     func testSearchTerm_GivenAText_WhenServiceReturns_ShouldNotifyDelegate(){
@@ -131,8 +131,9 @@ class TextSearcherTests: XCTestCase {
     
     struct MockService: ItemSearcherService {
         var fails: Bool = false
-        func getItems(with: String, completion: @escaping (([TypeTest]?) -> ())) {
-            fails ? completion(nil) : completion([TypeTest()])
+        
+        func getItems(with termSearched: String, completion: @escaping (([TypeTest]?, String) -> ())) {
+            fails ? completion(nil, termSearched) : completion([TypeTest()], termSearched)
         }
     }
     
