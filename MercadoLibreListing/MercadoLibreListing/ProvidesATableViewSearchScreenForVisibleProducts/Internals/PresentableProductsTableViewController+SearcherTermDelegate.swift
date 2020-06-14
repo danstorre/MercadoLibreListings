@@ -8,46 +8,6 @@
 
 import UIKit
 
-protocol SearchingTrafficDelegate: class {
-    func didStartSearching()
-    func didFinishSearching()
-}
-
-typealias NetworkSearchingTraffic = SearcherTermDelegate & SearchItemsFromNetworkGivenASearchTermDelegate
-
-class NetworkSearchingTrafficDelegate: NetworkSearchingTraffic {
-
-    weak var delegate: SearchingTrafficDelegate?
-    var keepSearching: Bool = false
-    
-    func willSearch() {
-        guard !keepSearching else { return }
-        keepSearching = true
-        delegate?.didStartSearching()
-    }
-    
-    func didFinish(with: SearcherTermError) {
-        //log?
-    }
-    
-    func didFinish() {
-        //log?
-    }
-    
-    func didFinishAllCurrentTasks() {
-        keepSearching = false
-        delegate?.didFinishSearching() 
-    }
-    
-    func errorWhenCreatingURL(_: Error) {
-        //log?
-    }
-    
-    func errorWhenMakingANetworkRequest(_: Error) {
-        //log?
-    }
-}
-
 extension PresentableProductsTableViewController: SearchingTrafficDelegate{
     func didStartSearching() {
         toggleLoading(isHidden: false)
