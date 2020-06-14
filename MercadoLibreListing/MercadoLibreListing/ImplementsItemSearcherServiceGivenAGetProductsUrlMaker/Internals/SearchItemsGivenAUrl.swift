@@ -36,11 +36,8 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
             DispatchQueue.main.async {
                 guard error == nil else {
                     completion(nil, term)
-                    if let httpResponse = response as? HTTPURLResponse {
-                        //any web service error.
-                        self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError
-                            .ResponseError(with: error!, andCode: httpResponse.statusCode))
-                    }
+                    self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError
+                    .ResponseError(with: error!, andCode: -1009))
                     self?.lastStepAfterFinishingATask()
                     return
                 }
@@ -48,7 +45,11 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
                 guard let data = data else {
                     completion(nil, term)
                     //no data returned by the server.
-                    self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError.DataEmptyError)
+                    if let httpResponse = response as? HTTPURLResponse {
+                        //any web service error.
+                        self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError
+                            .ResponseError(with: error!, andCode: httpResponse.statusCode))
+                    }
                     self?.lastStepAfterFinishingATask()
                     return
                 }

@@ -64,7 +64,10 @@ class NetworkSearchingTrafficDelegate: NetworkSearchingTraffic {
     private func getErrorFromCode(statusCode: Int) -> NetworkSearchingTrafficDelegateError {
         //TODO:- map status code to an error.
         //check if its is a network error or a data empty error.
-        return .appError
+        switch statusCode {
+            case -1009: return .noconnectivityError
+            default: return .serverError
+        }
     }
     
     //MARK: Search delegate methods
