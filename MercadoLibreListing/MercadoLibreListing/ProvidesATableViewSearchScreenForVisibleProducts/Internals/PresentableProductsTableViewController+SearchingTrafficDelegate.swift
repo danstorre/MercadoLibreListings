@@ -13,12 +13,12 @@ extension PresentableProductsTableViewController: SearchingTrafficDelegate{
         switch errorToDisplay {
             case .appError:
                 let appErrorMessage = "There was something wrong with the app, please try another search term."
-                let emptyImage = UIImage(systemName: "exclamationmark.bubble")!
+                let emptyImage = UIImage(systemName: "ant.circle")!
                 setMessage(appErrorMessage, with: emptyImage)
             
             case .noconnectivityError:
                 let noconnectivityErrorMessage = "Please check your internet connection first"
-                let emptyImage = UIImage(systemName: "exclamationmark.bubble")!
+                let emptyImage = UIImage(systemName: "wifi.slash")!
                 setMessage(noconnectivityErrorMessage, with: emptyImage)
             
             case .searchNotFound(with: let searchedTermNotFound):
@@ -28,7 +28,7 @@ extension PresentableProductsTableViewController: SearchingTrafficDelegate{
             
             case .serverError:
                 let serverErrorMessage = "There is something wrong with the servers, please try again later."
-                let emptyImage = UIImage(systemName: "exclamationmark.bubble")!
+                let emptyImage = UIImage(systemName: "cloud.bolt.rain")!
                 setMessage(serverErrorMessage, with: emptyImage)
         }
             
