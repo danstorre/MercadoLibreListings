@@ -37,8 +37,9 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
             DispatchQueue.main.async {
                 guard error == nil else {
                     completion(nil, term)
+                    let code = (error! as NSError).code
                     self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError
-                    .ResponseError(with: error!, andCode: -1009))
+                    .ResponseError(with: error!, andCode: code))
                     self?.lastStepAfterFinishingATask()
                     return
                 }
@@ -61,16 +62,19 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
                     let items = try self?.parser?.decode(data: data)
                     completion(items, term)
                 }catch let parsingError {
-                    completion(nil, term)
                     //app error when parsing.
                     self?.delegate?.errorWhenParsingNerworkRequest(WebserviceError
                         .ParsingError(with: parsingError))
+                    completion(nil, term)
+                    self?.lastStepAfterFinishingATask()
+                    return
                 }
                 self?.delegate?.didFinishWithoutErrors()
                 self?.lastStepAfterFinishingATask()
             }
         }
         currentTasks.append(task)
+        
         task.resume()
     }
     

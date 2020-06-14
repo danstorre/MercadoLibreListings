@@ -67,8 +67,13 @@ class NetworkSearchingTrafficDelegate: NetworkSearchingTraffic {
         //TODO:- map status code to an error.
         //check if its is a network error or a data empty error.
         switch statusCode {
-            case -1009: return .noconnectivityError
-            default: return .serverError
+            case NSURLErrorCannotLoadFromNetwork, NSURLErrorNetworkConnectionLost,
+                 NSURLErrorNotConnectedToInternet, NSURLErrorCannotConnectToHost:
+                return .noconnectivityError
+            case NSURLErrorBadURL:
+                return .appError
+            default:
+                return .serverError
         }
     }
     

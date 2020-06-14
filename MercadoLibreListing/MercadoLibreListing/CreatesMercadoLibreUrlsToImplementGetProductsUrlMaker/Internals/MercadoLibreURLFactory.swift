@@ -14,7 +14,7 @@ struct MercadoLibreURLFactory: GetProductsUrlMaker{
         var components = URLComponents()
         components.scheme = "https"
         components.host = "api.mercadolibre.com"
-        components.path = "/sites/MLA/search"
+        components.path = "/sites/MLA~ search"
         
         let queryItem = URLQueryItem(name: "q", value: searchterm)
         
