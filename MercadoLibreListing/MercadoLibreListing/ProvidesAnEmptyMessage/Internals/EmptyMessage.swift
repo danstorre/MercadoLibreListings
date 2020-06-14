@@ -37,6 +37,7 @@ class EmptyMessage: UIView, EmptyMessageProtocol{
     func setMessage(with message: String) {
         //attributed title
         messageLabel.attributedText = attributedTitle(with: message)
+        messageLabel.textAlignment = .center
     }
     
     
