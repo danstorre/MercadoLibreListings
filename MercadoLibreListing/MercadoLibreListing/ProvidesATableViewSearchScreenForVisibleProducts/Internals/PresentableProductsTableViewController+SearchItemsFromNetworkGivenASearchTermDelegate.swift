@@ -8,6 +8,20 @@
 
 import Foundation
 
+extension PresentableProductsTableViewController: SearcherTermDelegate {
+    func willSearch() {
+        
+    }
+    
+    func didFinish(with: SearcherTermError) {
+        
+    }
+    
+    func didFinish() {
+        
+    }
+}
+
 extension PresentableProductsTableViewController: SearchItemsFromNetworkGivenASearchTermDelegate {
     func didFinishAllCurrentTasks() {
     }

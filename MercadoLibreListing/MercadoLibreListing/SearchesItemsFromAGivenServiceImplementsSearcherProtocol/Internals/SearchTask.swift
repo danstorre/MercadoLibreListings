@@ -29,9 +29,9 @@ class SearcherTerm<RepoType: ItemHolder, ItemSearcherType: ItemSearcherService>:
     
     func search(term: String) {
         delegate?.willSearch()
-        service.getItems(with: term) {[weak self] (items) in
+        service.getItems(with: term) {[weak self] (items, termUsed) in
             guard let items = items, !items.isEmpty else {
-                self?.delegate?.didFinish(with: SearcherTermError.serviceReturnNilItems)
+                self?.delegate?.didFinish(with: SearcherTermError.serviceReturnNilItems(withTerm: termUsed))
                 return
             }
             self?.repository.save(items: items)

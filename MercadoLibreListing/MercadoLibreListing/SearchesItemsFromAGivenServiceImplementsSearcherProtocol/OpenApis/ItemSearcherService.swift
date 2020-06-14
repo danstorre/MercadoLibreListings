@@ -10,5 +10,5 @@ import Foundation
 
 protocol ItemSearcherService{
     associatedtype T
-    func getItems(with: String, completion: @escaping(([T]?) -> ()))
+    func getItems(with: String, completion: @escaping(([T]?, String) -> ()))
 }

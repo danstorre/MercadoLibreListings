@@ -22,27 +22,27 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
         self.urlMaker = urlMaker
     }
     
-    func getItems(with term: String, completion: @escaping (([ProductType]?) -> ())) {
+    func getItems(with term: String, completion: @escaping (([ProductType]?, String) -> ())) {
         let url: URL!
         do {
             url = try urlMaker.makeGetProductsUrl(searchterm: term)
         } catch let error{
             delegate?.errorWhenMakingANetworkRequest(error)
-            completion(nil)
+            completion(nil, term)
             return
         }
         
         let task = session.dataTask(with: url) {[weak self] (data, response, error) in
             DispatchQueue.main.async {
                 guard error == nil else {
-                    completion(nil)
+                    completion(nil, term)
                     self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError.ResponseError)
                     self?.lastStepAfterFinishingATask()
                     return
                 }
                 
                 guard let data = data else {
-                    completion(nil)
+                    completion(nil, term)
                     self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError.DataEmptyError)
                     self?.lastStepAfterFinishingATask()
                     return
@@ -50,9 +50,9 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
                 
                 do {
                     let items = try self?.parser?.decode(data: data)
-                    completion(items)
+                    completion(items, term)
                 }catch let error {
-                    completion(nil)
+                    completion(nil, term)
                     self?.delegate?.errorWhenMakingANetworkRequest(error)
                 }
                 self?.lastStepAfterFinishingATask()

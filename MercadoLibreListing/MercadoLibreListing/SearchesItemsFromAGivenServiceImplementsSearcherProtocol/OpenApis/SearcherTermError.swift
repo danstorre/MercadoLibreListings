@@ -9,5 +9,5 @@
 import Foundation
 
 enum SearcherTermError: Error {
-    case serviceReturnNilItems
+    case serviceReturnNilItems(withTerm: String)
 }
