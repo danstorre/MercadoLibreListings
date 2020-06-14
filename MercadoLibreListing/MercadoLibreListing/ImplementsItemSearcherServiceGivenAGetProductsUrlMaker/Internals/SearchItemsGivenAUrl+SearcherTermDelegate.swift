@@ -30,7 +30,7 @@ class ThrotleSearch: SearcherProtocol{
             return
         }
         
-        throtle = Timer.scheduledTimer(timeInterval: 0.3,
+        throtle = Timer.scheduledTimer(timeInterval: 0.2,
                                        target: self,
                                        selector: #selector(fireSearch),
                                        userInfo: nil,
@@ -50,10 +50,13 @@ class ThrotleSearch: SearcherProtocol{
 
 extension SearchItemsFromNetworkGivenASearchTerm: SearcherTermDelegate {
     func willSearch() {
+        for currentTask in currentTasks {
+            currentTask.suspend()
+            currentTask.cancel()
+        }
     }
     
     func didFinish(with: SearcherTermError) {
-        
     }
     
     func didFinish() {
