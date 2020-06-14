@@ -25,7 +25,7 @@ extension PresentableProductsTableViewController: SearcherTermDelegate {
     }
     
     func didFinish() {
-        
+        (tableView.backgroundView as? EmptyMessage)?.toggle(on: false)
     }
     
     fileprivate func showMessage(_ message: String, with image: UIImage) {
