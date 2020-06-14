@@ -13,7 +13,6 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
     var alerPresented: UIAlertController?
     
     var arrayOfViewDataProducts: [ViewDataProductProtocol] = []
-    var topLayconstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
