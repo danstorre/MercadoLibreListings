@@ -9,7 +9,9 @@
 import Foundation
 
 protocol SearchItemsFromNetworkGivenASearchTermDelegate: class {
+    func didFinishWithoutErrors()
     func didFinishAllCurrentTasks()
     func errorWhenCreatingURL(_: Error)
     func errorWhenMakingANetworkRequest(_: Error)
+    func errorWhenParsingNerworkRequest(_: Error)
 }

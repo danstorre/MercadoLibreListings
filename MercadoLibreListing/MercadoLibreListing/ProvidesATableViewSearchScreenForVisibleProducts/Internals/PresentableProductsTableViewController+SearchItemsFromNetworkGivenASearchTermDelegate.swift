@@ -34,14 +34,3 @@ extension PresentableProductsTableViewController: SearcherTermDelegate {
                         and: image)
     }
 }
-
-extension PresentableProductsTableViewController: SearchItemsFromNetworkGivenASearchTermDelegate {
-    func didFinishAllCurrentTasks() {
-    }
-    
-    func errorWhenCreatingURL(_: Error) {
-    }
-    
-    func errorWhenMakingANetworkRequest(_: Error) {
-    }
-}

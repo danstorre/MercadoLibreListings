@@ -42,7 +42,7 @@
 		FB9991992491D50300F83DFB /* SearchItemsFromNetworkGivenASearchTermDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9991982491D50300F83DFB /* SearchItemsFromNetworkGivenASearchTermDelegate.swift */; };
 		FB9E6F2C2493F5C300996BEA /* PresentableProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E6F2B2493F5C300996BEA /* PresentableProductsTableViewController.swift */; };
 		FB9E6F32249407A600996BEA /* ProductManager+ListOfProductsPrensenterModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E6F31249407A600996BEA /* ProductManager+ListOfProductsPrensenterModelProtocol.swift */; };
-		FB9E6F34249411D300996BEA /* PresentableProductsTableViewController+SearcherTermDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E6F33249411D300996BEA /* PresentableProductsTableViewController+SearcherTermDelegate.swift */; };
+		FB9E6F34249411D300996BEA /* PresentableProductsTableViewController+SearchingTrafficDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E6F33249411D300996BEA /* PresentableProductsTableViewController+SearchingTrafficDelegate.swift */; };
 		FB9E6F3724941DD500996BEA /* ImageViewWithTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9E6F3524941DD500996BEA /* ImageViewWithTitleTableViewCell.xib */; };
 		FB9E6F3924941E2300996BEA /* ImageViewWithTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E6F3824941E2300996BEA /* ImageViewWithTitleTableViewCell.swift */; };
 		FB9E6F3E24942D9300996BEA /* SearcherTermMediator+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E6F3D24942D9300996BEA /* SearcherTermMediator+Extension.swift */; };
@@ -121,7 +121,7 @@
 		FB9991982491D50300F83DFB /* SearchItemsFromNetworkGivenASearchTermDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemsFromNetworkGivenASearchTermDelegate.swift; sourceTree = "<group>"; };
 		FB9E6F2B2493F5C300996BEA /* PresentableProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableProductsTableViewController.swift; sourceTree = "<group>"; };
 		FB9E6F31249407A600996BEA /* ProductManager+ListOfProductsPrensenterModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductManager+ListOfProductsPrensenterModelProtocol.swift"; sourceTree = "<group>"; };
-		FB9E6F33249411D300996BEA /* PresentableProductsTableViewController+SearcherTermDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableProductsTableViewController+SearcherTermDelegate.swift"; sourceTree = "<group>"; };
+		FB9E6F33249411D300996BEA /* PresentableProductsTableViewController+SearchingTrafficDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableProductsTableViewController+SearchingTrafficDelegate.swift"; sourceTree = "<group>"; };
 		FB9E6F3624941DD500996BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = MercadoLibreListing/Base.lproj/ImageViewWithTitleTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		FB9E6F3824941E2300996BEA /* ImageViewWithTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewWithTitleTableViewCell.swift; sourceTree = "<group>"; };
 		FB9E6F3D24942D9300996BEA /* SearcherTermMediator+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearcherTermMediator+Extension.swift"; sourceTree = "<group>"; };
@@ -482,7 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				FB9E6F2B2493F5C300996BEA /* PresentableProductsTableViewController.swift */,
-				FB9E6F33249411D300996BEA /* PresentableProductsTableViewController+SearcherTermDelegate.swift */,
+				FB9E6F33249411D300996BEA /* PresentableProductsTableViewController+SearchingTrafficDelegate.swift */,
 				FB30C3AA24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift */,
 			);
 			path = Internals;
@@ -788,7 +788,7 @@
 				FB9991992491D50300F83DFB /* SearchItemsFromNetworkGivenASearchTermDelegate.swift in Sources */,
 				FB88B71A2495B88200C63E9E /* EmptyMessage.swift in Sources */,
 				FB9991962491D40500F83DFB /* JsonParser.swift in Sources */,
-				FB9E6F34249411D300996BEA /* PresentableProductsTableViewController+SearcherTermDelegate.swift in Sources */,
+				FB9E6F34249411D300996BEA /* PresentableProductsTableViewController+SearchingTrafficDelegate.swift in Sources */,
 				FB99917E2491CCF600F83DFB /* ProductProtocol.swift in Sources */,
 				FBE5C2152493EF4800525C8E /* ProductCellViewData.swift in Sources */,
 				FBF58A552492B07B00B0073A /* ProductListPresenter.swift in Sources */,

@@ -36,13 +36,18 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
             DispatchQueue.main.async {
                 guard error == nil else {
                     completion(nil, term)
-                    self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError.ResponseError)
+                    if let httpResponse = response as? HTTPURLResponse {
+                        //any web service error.
+                        self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError
+                            .ResponseError(with: error!, andCode: httpResponse.statusCode))
+                    }
                     self?.lastStepAfterFinishingATask()
                     return
                 }
                 
                 guard let data = data else {
                     completion(nil, term)
+                    //no data returned by the server.
                     self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError.DataEmptyError)
                     self?.lastStepAfterFinishingATask()
                     return
@@ -51,10 +56,13 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
                 do {
                     let items = try self?.parser?.decode(data: data)
                     completion(items, term)
-                }catch let error {
+                }catch let parsingError {
                     completion(nil, term)
-                    self?.delegate?.errorWhenMakingANetworkRequest(error)
+                    //app error when parsing.
+                    self?.delegate?.errorWhenParsingNerworkRequest(WebserviceError
+                        .ParsingError(with: parsingError))
                 }
+                self?.delegate?.didFinishWithoutErrors()
                 self?.lastStepAfterFinishingATask()
             }
         }

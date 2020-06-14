@@ -11,4 +11,5 @@ import Foundation
 protocol SearchingTrafficDelegate: class {
     func didStartSearching()
     func didFinishSearching()
+    func didFinishSearching(with: NetworkSearchingTrafficDelegateError)
 }
