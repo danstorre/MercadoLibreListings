@@ -10,13 +10,18 @@ import UIKit
 
 class PresentableProductsTableViewController: UITableViewController, ListsOfViewDataProducts {
     
-    var alerPresented: UIAlertController?
-    
     var arrayOfViewDataProducts: [ViewDataProductProtocol] = []
+    var activity: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableView.automaticDimension
+        activity = UIActivityIndicatorView()
+        activity.stopAnimating()
+        activity.hidesWhenStopped = true
+        
+        let barbuttonitem = UIBarButtonItem(customView: activity)
+        navigationItem.rightBarButtonItem = barbuttonitem
     }
     
     // MARK: - Table view data source
@@ -67,6 +72,6 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
     }
     
     func toggleLoading(isHidden: Bool) {
-        
+        isHidden ? activity.stopAnimating() : activity.startAnimating()
     }
 }
