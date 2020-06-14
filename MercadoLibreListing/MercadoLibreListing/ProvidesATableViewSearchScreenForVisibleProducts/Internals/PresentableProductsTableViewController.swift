@@ -45,7 +45,14 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
         let productViewData = arrayOfViewDataProducts[indexPath.row]
         
         cell.titleLabel.attributedText = productViewData.attributeTitleProduct
+    
         cell.thumbnailImageView.image = productViewData.imageThumnail
+        if cell.thumbnailImageView.image == nil {
+            cell.animate()
+        }else {
+            cell.stopAnimating()
+        }
+        
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         return cell
@@ -69,7 +76,7 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
         }
         let cell = tableView(tableView,
                              cellForRowAt: indexPath) as! ImageViewWithTitleTableViewCell
-        cell.thumbnailImageView.image = imageViewData
+        cell.setUpImageView(with: imageViewData)
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
