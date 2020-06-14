@@ -84,7 +84,7 @@ fileprivate struct ProductsTableWithSearchViewControllerMaker: ViewControllerMak
         vc.navigationItem.searchController = searchController
         vc.definesPresentationContext = true
         
-        
+        vc.tableView.backgroundView = EmptyMessage(frame: .zero)
         vc.tableView.register(ImageViewWithTitleTableViewCell.self, forCellReuseIdentifier: "ImageViewWithTitleTableViewCell")
         return nav
     }

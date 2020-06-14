@@ -49,6 +49,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         searchBroadCaster.recipients.append(searcherNetworkService)
         searchBroadCaster.recipients.append(searcherNetworkTrafficController!)
         
+        
+        if let aScreenThatsSearcherTermDelegate = (searchScreenNav as? UINavigationController)?.topViewController as? SearcherTermDelegate {
+            searchBroadCaster.recipients.append(aScreenThatsSearcherTermDelegate)
+        }
+        
         //create a presenter
         if let viewWithPresentableListOfProducts = (searchScreenNav as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts {
             presenterProductList = ListOfProductsPrensenter(with: productListHolder!,

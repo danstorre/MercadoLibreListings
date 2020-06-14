@@ -20,6 +20,8 @@
 		FB88B70E2495B5D200C63E9E /* NetworkSearchingTrafficDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88B70D2495B5D200C63E9E /* NetworkSearchingTrafficDelegate.swift */; };
 		FB88B7132495B60F00C63E9E /* SearchingTrafficDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88B7122495B60F00C63E9E /* SearchingTrafficDelegate.swift */; };
 		FB88B7162495B67100C63E9E /* NetworkSearchingTraffic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88B7152495B67100C63E9E /* NetworkSearchingTraffic.swift */; };
+		FB88B7182495B82400C63E9E /* EmptyMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB88B7172495B82300C63E9E /* EmptyMessage.xib */; };
+		FB88B71A2495B88200C63E9E /* EmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88B7192495B88200C63E9E /* EmptyMessage.swift */; };
 		FB99915E2491AC5E00F83DFB /* SearcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99915D2491AC5E00F83DFB /* SearcherProtocol.swift */; };
 		FB9991602491ACB100F83DFB /* ItemSearcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99915F2491ACB100F83DFB /* ItemSearcherService.swift */; };
 		FB9991652491AEFA00F83DFB /* ItemHolderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9991642491AEFA00F83DFB /* ItemHolderProtocol.swift */; };
@@ -97,6 +99,8 @@
 		FB88B70D2495B5D200C63E9E /* NetworkSearchingTrafficDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSearchingTrafficDelegate.swift; sourceTree = "<group>"; };
 		FB88B7122495B60F00C63E9E /* SearchingTrafficDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingTrafficDelegate.swift; sourceTree = "<group>"; };
 		FB88B7152495B67100C63E9E /* NetworkSearchingTraffic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSearchingTraffic.swift; sourceTree = "<group>"; };
+		FB88B7172495B82300C63E9E /* EmptyMessage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyMessage.xib; sourceTree = "<group>"; };
+		FB88B7192495B88200C63E9E /* EmptyMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMessage.swift; sourceTree = "<group>"; };
 		FB99915D2491AC5E00F83DFB /* SearcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcherProtocol.swift; sourceTree = "<group>"; };
 		FB99915F2491ACB100F83DFB /* ItemSearcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearcherService.swift; sourceTree = "<group>"; };
 		FB9991642491AEFA00F83DFB /* ItemHolderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemHolderProtocol.swift; sourceTree = "<group>"; };
@@ -462,6 +466,8 @@
 				FB9E6F2B2493F5C300996BEA /* PresentableProductsTableViewController.swift */,
 				FB9E6F33249411D300996BEA /* PresentableProductsTableViewController+SearcherTermDelegate.swift */,
 				FB30C3AA24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift */,
+				FB88B7172495B82300C63E9E /* EmptyMessage.xib */,
+				FB88B7192495B88200C63E9E /* EmptyMessage.swift */,
 			);
 			path = Internals;
 			sourceTree = "<group>";
@@ -732,6 +738,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB88B7182495B82400C63E9E /* EmptyMessage.xib in Resources */,
 				FB9E6F3724941DD500996BEA /* ImageViewWithTitleTableViewCell.xib in Resources */,
 				FB22226C24918F22007FF2E8 /* LaunchScreen.storyboard in Resources */,
 				FB22226924918F22007FF2E8 /* Assets.xcassets in Resources */,
@@ -763,6 +770,7 @@
 				FBDCB91C2491E2D200A9B85B /* MercadoLibreUrlError.swift in Sources */,
 				FB9991792491C7E400F83DFB /* ViewControllerWithSearchBarFactoryOptions.swift in Sources */,
 				FB9991992491D50300F83DFB /* SearchItemsFromNetworkGivenASearchTermDelegate.swift in Sources */,
+				FB88B71A2495B88200C63E9E /* EmptyMessage.swift in Sources */,
 				FB9991962491D40500F83DFB /* JsonParser.swift in Sources */,
 				FB9E6F34249411D300996BEA /* PresentableProductsTableViewController+SearcherTermDelegate.swift in Sources */,
 				FB99917E2491CCF600F83DFB /* ProductProtocol.swift in Sources */,

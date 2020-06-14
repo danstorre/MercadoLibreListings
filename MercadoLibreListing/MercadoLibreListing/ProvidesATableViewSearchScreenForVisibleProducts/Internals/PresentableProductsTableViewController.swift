@@ -22,6 +22,8 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
         
         let barbuttonitem = UIBarButtonItem(customView: activity)
         navigationItem.rightBarButtonItem = barbuttonitem
+        
+        tableView.tableFooterView = UIView()
     }
     
     // MARK: - Table view data source

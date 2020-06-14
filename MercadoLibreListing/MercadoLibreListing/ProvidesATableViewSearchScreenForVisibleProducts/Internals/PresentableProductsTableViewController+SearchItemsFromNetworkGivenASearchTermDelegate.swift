@@ -10,11 +10,18 @@ import Foundation
 
 extension PresentableProductsTableViewController: SearcherTermDelegate {
     func willSearch() {
-        
+        (tableView.backgroundView as? EmptyMessage)?.isHidden = true
     }
     
-    func didFinish(with: SearcherTermError) {
+    func didFinish(with searchError: SearcherTermError) {
         
+        if case .serviceReturnNilItems(let searchedTermNotFound) = searchError {
+            let emptyMessage = "No results found with: " + searchedTermNotFound
+            (tableView.backgroundView as? EmptyMessage)?.setMessage(with: emptyMessage )
+        }
+        (tableView.backgroundView as? EmptyMessage)?.isHidden = false
+        arrayOfViewDataProducts.removeAll()
+        tableView.reloadData()
     }
     
     func didFinish() {
