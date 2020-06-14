@@ -189,6 +189,7 @@
 		FB22225E24918F18007FF2E8 /* MercadoLibreListing */ = {
 			isa = PBXGroup;
 			children = (
+				FB88B71B2495BE8800C63E9E /* ProvidesAnEmptyMessage */,
 				FB88B70C2495B5A500C63E9E /* ManagesNetworkSearchingTrafficDelegate */,
 				FB88B7092495B56F00C63E9E /* ThrotlesASearch */,
 				FB9E6F3A24942D4A00996BEA /* BroadCastsDelegateSearchTermMessageToSearcherTermDelegates */,
@@ -292,6 +293,23 @@
 			isa = PBXGroup;
 			children = (
 				FB88B70A2495B58700C63E9E /* ThrotleSearch.swift */,
+			);
+			path = Internals;
+			sourceTree = "<group>";
+		};
+		FB88B71B2495BE8800C63E9E /* ProvidesAnEmptyMessage */ = {
+			isa = PBXGroup;
+			children = (
+				FB88B71C2495BE9600C63E9E /* Internals */,
+			);
+			path = ProvidesAnEmptyMessage;
+			sourceTree = "<group>";
+		};
+		FB88B71C2495BE9600C63E9E /* Internals */ = {
+			isa = PBXGroup;
+			children = (
+				FB88B7172495B82300C63E9E /* EmptyMessage.xib */,
+				FB88B7192495B88200C63E9E /* EmptyMessage.swift */,
 			);
 			path = Internals;
 			sourceTree = "<group>";
@@ -466,8 +484,6 @@
 				FB9E6F2B2493F5C300996BEA /* PresentableProductsTableViewController.swift */,
 				FB9E6F33249411D300996BEA /* PresentableProductsTableViewController+SearcherTermDelegate.swift */,
 				FB30C3AA24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift */,
-				FB88B7172495B82300C63E9E /* EmptyMessage.xib */,
-				FB88B7192495B88200C63E9E /* EmptyMessage.swift */,
 			);
 			path = Internals;
 			sourceTree = "<group>";
