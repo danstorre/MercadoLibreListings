@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="330" height="503"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnM-cs-bGC">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnM-cs-bGC">
                     <rect key="frame" x="165" y="251.5" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -26,6 +26,8 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lnM-cs-bGC" secondAttribute="trailing" constant="20" id="LcR-eZ-gZ9"/>
+                <constraint firstItem="lnM-cs-bGC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="nKU-4a-O8S"/>
                 <constraint firstItem="lnM-cs-bGC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rW4-QD-0Tn"/>
                 <constraint firstItem="lnM-cs-bGC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="uDK-kE-n4N"/>
             </constraints>
