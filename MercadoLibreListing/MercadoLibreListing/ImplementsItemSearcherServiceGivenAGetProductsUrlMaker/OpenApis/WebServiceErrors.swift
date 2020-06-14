@@ -9,6 +9,7 @@
 import Foundation
 
 enum WebserviceError : Error {
+    case URLInvalidError(with: Error)
     case DataEmptyError
     case ParsingError(with: Error)
     case ResponseError(with:Error, andCode: Int)

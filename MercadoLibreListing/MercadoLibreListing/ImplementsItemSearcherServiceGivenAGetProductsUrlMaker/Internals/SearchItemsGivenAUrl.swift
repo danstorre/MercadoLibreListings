@@ -27,8 +27,9 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
         do {
             url = try urlMaker.makeGetProductsUrl(searchterm: term)
         } catch let error{
-            delegate?.errorWhenMakingANetworkRequest(error)
+            delegate?.errorWhenMakingANetworkRequest(WebserviceError.URLInvalidError(with: error))
             completion(nil, term)
+            lastStepAfterFinishingATask()
             return
         }
         
@@ -49,6 +50,8 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
                         //any web service error.
                         self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError
                             .ResponseError(with: error!, andCode: httpResponse.statusCode))
+                    } else {
+                        self?.delegate?.errorWhenMakingANetworkRequest(WebserviceError.DataEmptyError)
                     }
                     self?.lastStepAfterFinishingATask()
                     return

@@ -58,6 +58,8 @@ class NetworkSearchingTrafficDelegate: NetworkSearchingTraffic {
             return .serverError
         case .ParsingError(with: _):
             return .appError
+        case .URLInvalidError(with: _):
+            return .appError
         }
     }
     
