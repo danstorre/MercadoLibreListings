@@ -24,6 +24,7 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
         navigationItem.rightBarButtonItem = barbuttonitem
         
         tableView.tableFooterView = UIView()
+        tableView.estimatedRowHeight = 70
     }
     
     // MARK: - Table view data source

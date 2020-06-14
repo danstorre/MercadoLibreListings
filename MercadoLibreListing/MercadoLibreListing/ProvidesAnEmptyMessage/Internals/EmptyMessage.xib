@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyMessage" customModule="MercadoLibreListing" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Ump-BS-7fQ"/>
+                <outlet property="iconImageView" destination="Gfv-VV-ewZ" id="20s-xW-v0I"/>
                 <outlet property="messageLabel" destination="lnM-cs-bGC" id="tGe-Xt-Iqv"/>
             </connections>
         </placeholder>

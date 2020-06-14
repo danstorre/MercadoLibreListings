@@ -9,12 +9,13 @@
 import UIKit
 
 protocol EmptyMessageProtocol {
-    func setMessage(with: String)
+    func setMessage(with: String, and: UIImage?)
 }
 
 class EmptyMessage: UIView, EmptyMessageProtocol{
     
     @IBOutlet var messageLabel: UILabel!
+    @IBOutlet var iconImageView: UIImageView!
     @IBOutlet var contentView: UIView!
     
     override init(frame: CGRect) {
@@ -34,10 +35,22 @@ class EmptyMessage: UIView, EmptyMessageProtocol{
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
-    func setMessage(with message: String) {
+    ///only admits images from sf symbols.
+    func setMessage(with message: String, and image: UIImage? = nil) {
         //attributed title
         messageLabel.attributedText = attributedTitle(with: message)
         messageLabel.textAlignment = .center
+        
+        if let image = image {
+            setImage(with: image)
+        }
+    }
+    
+    private func setImage(with image: UIImage){
+        let config = UIImage.SymbolConfiguration(pointSize: UIFont.systemFontSize, weight: .medium, scale: .small)
+        iconImageView.image = image
+        iconImageView.preferredSymbolConfiguration = config
+        iconImageView.tintColor = UIColor.lightGray
     }
     
     
@@ -55,5 +68,10 @@ class EmptyMessage: UIView, EmptyMessageProtocol{
         mutuableAttString.addAttributes(attributes, range: NSRange(location: 0,
                                                                    length: text.count))
         return mutuableAttString
+    }
+    
+    func toggle(on: Bool){
+        messageLabel.isHidden = !on
+        iconImageView.isHidden = !on
     }
 }

@@ -6,26 +6,32 @@
 //  Copyright © 2020 dansTeam. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension PresentableProductsTableViewController: SearcherTermDelegate {
     func willSearch() {
-        (tableView.backgroundView as? EmptyMessage)?.isHidden = true
+        (tableView.backgroundView as? EmptyMessage)?.toggle(on: false)
     }
     
     func didFinish(with searchError: SearcherTermError) {
-        
         if case .serviceReturnNilItems(let searchedTermNotFound) = searchError {
-            let emptyMessage = "No results found with: " + searchedTermNotFound
-            (tableView.backgroundView as? EmptyMessage)?.setMessage(with: emptyMessage )
+            let emptyMessage = "No results found on search term: " + searchedTermNotFound
+            let emptyImage = UIImage(systemName: "exclamationmark.bubble")!
+            showMessage(emptyMessage, with: emptyImage)
         }
-        (tableView.backgroundView as? EmptyMessage)?.isHidden = false
+        (tableView.backgroundView as? EmptyMessage)?.toggle(on: true)
         arrayOfViewDataProducts.removeAll()
         tableView.reloadData()
     }
     
     func didFinish() {
         
+    }
+    
+    fileprivate func showMessage(_ message: String, with image: UIImage) {
+        (tableView.backgroundView as? EmptyMessage)?
+            .setMessage(with: message,
+                        and: image)
     }
 }
 
