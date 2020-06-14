@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var presenterProductList: ListOfProductsPrensenter!
     var searchBroadCaster: BroadcastSearcherTermDelegateMessages!
     var searcherNetworkTrafficController: NetworkSearchingTrafficDelegate?
+    var throtleSearch: SearcherProtocol!
     
     typealias ScreenViewControllerSearchAListOfDataProducts = UIViewController & ListsOfViewDataProducts
     
@@ -32,8 +33,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let searcherService: MercadoLibreSearcher = createASearcherObject(with: searcherNetworkService,
                                                                           and: productListHolder!) as! SceneDelegate.MercadoLibreSearcher
-        
-        searchResultsUpdatingDelegate = createASearchBarUpdatingDelegate(with: searcherService)
+        throtleSearch = createAsearcherThrotle(with: searcherService)
+        searchResultsUpdatingDelegate = createASearchBarUpdatingDelegate(with: throtleSearch)
         
         let searchController = createASearchcontroller(with: searchResultsUpdatingDelegate!)
         
@@ -61,6 +62,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = searchScreenNav
         window?.makeKeyAndVisible()
+    }
+    
+    func createAsearcherThrotle(with searcher: SearcherProtocol) -> SearcherProtocol {
+        return ThrotleSearch(searcher: searcher)
     }
     
     func createASearchcontroller(with delegate: UISearchResultsUpdating) -> UISearchController {
