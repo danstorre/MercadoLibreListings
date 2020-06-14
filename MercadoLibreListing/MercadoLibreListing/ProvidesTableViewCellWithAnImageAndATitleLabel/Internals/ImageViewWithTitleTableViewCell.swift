@@ -88,7 +88,6 @@ class ImageViewWithTitleTableViewCell: UITableViewCell {
     }
     
     func stopAnimating() {
-        gradientLayer.frame = .zero
         self.gradientLayer.removeAllAnimations()
         self.gradientLayer.removeFromSuperlayer()
     }
