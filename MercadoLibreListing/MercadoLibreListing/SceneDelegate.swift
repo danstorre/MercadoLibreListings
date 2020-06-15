@@ -38,6 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //assign network service delegate to the network traffic controller
         searcherNetworkService.delegate = searcherNetworkTrafficController
         
+        //create the mercado Libre searcher object.
         let searcherService: MercadoLibreSearcher = createASearcherObject(with: searcherNetworkService,
                                                                           and: productListHolder!) as! SceneDelegate.MercadoLibreSearcher
         //middle object to throtleSearch search events.
