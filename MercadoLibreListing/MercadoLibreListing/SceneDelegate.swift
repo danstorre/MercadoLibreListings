@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let searcherService: MercadoLibreSearcher = createASearcherObject(with: searcherNetworkService,
                                                                           and: productListHolder!) as! SceneDelegate.MercadoLibreSearcher
-        //middle object to throtleSearch network traffic.
+        //middle object to throtleSearch search events.
         throtleSearch = createAsearcherThrotle(with: searcherService)
         
         searchResultsUpdatingDelegate = createASearchBarUpdatingDelegate(with: throtleSearch)
