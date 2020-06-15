@@ -53,16 +53,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let searchScreenNav = createATableViewSearchScreenNavigationControllerWith(with: searchController,
                                                                                    andTableViewDelegate: tableViewDelegate)
         //Assign router delegate and its navigation controller so it can control the navigation.
-        if let nav = searchScreenNav as? UINavigationController,
-            let routerDelegate = nav.topViewController as? RoutesToDetailItemViewControllerDelegate {
-            routerToDetail.routerDelegate = routerDelegate
-            routerToDetail.navigationController = nav
-        }
+        assignRouterDelegate(vc: searchScreenNav!, to: routerToDetail)
         
         //Assign searcherNetworkTrafficController delegate
-        if let searchScreenSearchingTrafficDelegate  = (searchScreenNav as? UINavigationController)?.topViewController as? SearchingTrafficDelegate {
-            searcherNetworkTrafficController?.delegate = searchScreenSearchingTrafficDelegate
-        }
+        assignSearcherNetworkTrafficController(with: searchScreenNav!, to: searcherNetworkTrafficController!)
         
         //listen to any search events.
         searchBroadCaster = BroadcastSearcherTermDelegateMessages()
@@ -83,6 +77,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = searchScreenNav
         window?.makeKeyAndVisible()
+    }
+    
+    func assignRouterDelegate(vc: UIViewController, to router: RoutesToDetailItemViewController<ViewDataItemDetail>){
+        if let nav = vc as? UINavigationController,
+            let routerDelegate = nav.topViewController as? RoutesToDetailItemViewControllerDelegate {
+            router.routerDelegate = routerDelegate
+            router.navigationController = nav
+        }
+    }
+    
+    func assignSearcherNetworkTrafficController(with vc: UIViewController,
+                                                to searcherNetworkTrafficController: NetworkSearchingTrafficDelegate) {
+        if let searchScreenSearchingTrafficDelegate  = (vc as? UINavigationController)?.topViewController as? SearchingTrafficDelegate {
+            searcherNetworkTrafficController.delegate = searchScreenSearchingTrafficDelegate
+        }
     }
     
     func createAsearcherThrotle(with searcher: SearcherProtocol) -> SearcherProtocol {
