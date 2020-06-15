@@ -8,6 +8,51 @@
 
 import UIKit
 
+protocol PresentaAProductDetailDelegate: class {
+    func presentItemAt(indexPath: IndexPath)
+}
+
+class PresentaAProductDetail: NSObject, UITableViewDelegate {
+    weak var delegate: PresentaAProductDetailDelegate?
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.presentItemAt(indexPath: indexPath)
+    }
+}
+
+protocol ModelProductDetail {
+    var title: String {get}
+    var image: UIImage? {get}
+}
+
+protocol RoutesToDetailItemViewControllerDelegate: class {
+    func getItem(at: IndexPath) -> ModelProductDetail
+}
+
+class RoutesToDetailItemViewController<ModelProductDetail>: NavigationDetailsUseCase {
+    var navigationController: UINavigationController?
+    
+    weak var routerDelegate: RoutesToDetailItemViewControllerDelegate?
+    
+    func gotoDetail(withItem anItem: ModelProductDetail) {
+        //create a service with that model. (searches the needed thing about this model and mofies de model.)
+        //create screen that conforms to presenter view data.
+        //create a presenter with both presenter's model delegate an presenter's view data delegate.
+        //presenter listen to model changes.
+        //present the screen.
+        
+        
+        
+    }
+}
+
+extension RoutesToDetailItemViewController: PresentaAProductDetailDelegate {
+    func presentItemAt(indexPath: IndexPath) {
+        guard let productDetailModel = routerDelegate?.getItem(at: indexPath) as? ModelProductDetail else {return }
+        gotoDetail(withItem: productDetailModel)
+    }
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -17,7 +62,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var searchBroadCaster: BroadcastSearcherTermDelegateMessages!
     var searcherNetworkTrafficController: NetworkSearchingTrafficDelegate?
     var throtleSearch: SearcherProtocol!
-    var router: RoutesToDetailItemViewController<ProductCellViewData>!
     
     typealias ScreenViewControllerSearchAListOfDataProducts = UIViewController & ListsOfViewDataProducts
     
@@ -57,11 +101,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         //create a presenter
         if let viewWithPresentableListOfProducts = (searchScreenNav as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts {
-            router = RoutesToDetailItemViewController()
-            let selectableViewPresenterListOfProducts = SelectableItemsPresenter(router: router,
-                                                                                 delegate: viewWithPresentableListOfProducts)
             presenterProductList = ListOfProductsPrensenter(with: productListHolder!,
-                                         and: selectableViewPresenterListOfProducts)
+                                         and: viewWithPresentableListOfProducts)
             productListHolder!.observer = presenterProductList
         }
         

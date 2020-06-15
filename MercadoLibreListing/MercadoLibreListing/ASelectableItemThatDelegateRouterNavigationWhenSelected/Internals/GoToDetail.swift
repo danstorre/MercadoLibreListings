@@ -40,9 +40,3 @@ struct NavigatesToItemDetails<T: ViewDataProductProtocol, E: NavigationDetailsUs
         router.gotoDetail(withItem: item)
     }
 }
-
-class RoutesToDetailItemViewController<ViewDataProductProtocol>: NavigationDetailsUseCase {
-    var navigationController: UINavigationController?
-    func gotoDetail(withItem selectedItem: ViewDataProductProtocol) {
-    }
-}

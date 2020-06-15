@@ -199,6 +199,7 @@
 		FB22225E24918F18007FF2E8 /* MercadoLibreListing */ = {
 			isa = PBXGroup;
 			children = (
+				FB6FE9982497F63200B7C986 /* CreatesADetailScreenWithSomeOptions */,
 				FB93DEAD2496F06B0026D32E /* ASelectableItemThatDelegateRouterNavigationWhenSelected */,
 				FB93DEAA2496F00F0026D32E /* Router */,
 				FB93DEA92496EFEC0026D32E /* FirstScreen */,
@@ -246,6 +247,29 @@
 				FB9991642491AEFA00F83DFB /* ItemHolderProtocol.swift */,
 				FB9991662491AF0E00F83DFB /* SearcherTermDelegate.swift */,
 				FB9991682491AF1D00F83DFB /* SearcherTermError.swift */,
+			);
+			path = OpenApis;
+			sourceTree = "<group>";
+		};
+		FB6FE9982497F63200B7C986 /* CreatesADetailScreenWithSomeOptions */ = {
+			isa = PBXGroup;
+			children = (
+				FB6FE99A2497F65000B7C986 /* OpenApis */,
+				FB6FE9992497F64C00B7C986 /* Internals */,
+			);
+			path = CreatesADetailScreenWithSomeOptions;
+			sourceTree = "<group>";
+		};
+		FB6FE9992497F64C00B7C986 /* Internals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Internals;
+			sourceTree = "<group>";
+		};
+		FB6FE99A2497F65000B7C986 /* OpenApis */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = OpenApis;
 			sourceTree = "<group>";
