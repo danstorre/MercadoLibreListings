@@ -52,14 +52,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         //create a tableview delegate to be assigned to the search table view screen.
         tableViewDelegate = PresentaAProductDetail()
+        
+        //assign its delegate to the router just created.
         tableViewDelegate.delegate = routerToDetail
         
         let searchScreenNav = createATableViewSearchScreenNavigationControllerWith(with: searchController,
                                                                                    andTableViewDelegate: tableViewDelegate)
+        
         //Assign router delegate and its navigation controller so it can control the navigation.
         assignRouterDelegate(vc: searchScreenNav!, to: routerToDetail)
         
-        //Assign searcherNetworkTrafficController delegate
+        //Assign searcherNetworkTrafficController delegate so it can listen start and finished searching events.
         assignSearcherNetworkTrafficController(with: searchScreenNav!, to: searcherNetworkTrafficController!)
         
         //listen to any search events.
