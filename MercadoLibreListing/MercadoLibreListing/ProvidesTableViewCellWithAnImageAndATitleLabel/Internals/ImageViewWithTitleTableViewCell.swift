@@ -19,7 +19,7 @@ class ImageViewWithTitleTableViewCell: UITableViewCell {
     var startLocations : [NSNumber] = [-1.0,-0.5, 0.0]
     var endLocations : [NSNumber] = [1.0,1.5, 2.0]
     var gradientBackgroundColor : CGColor = UIColor.clear.cgColor
-    var gradientMovingColor : CGColor = UIColor(white: 0.35, alpha: 1.0).cgColor
+    var gradientMovingColor : CGColor = UIColor(white: 0.35, alpha: 0.6).cgColor
     var movingAnimationDuration : CFTimeInterval = 0.8
     var delayBetweenAnimationLoops : CFTimeInterval = 1.0
    
