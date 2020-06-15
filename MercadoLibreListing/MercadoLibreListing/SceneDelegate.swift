@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //prepare search objects
         let searcherNetworkService = createATermSearcherMercadoLibreNeworkService()
         
-        //create a network traffic contorller
+        //create a network traffic controller
         searcherNetworkTrafficController = NetworkSearchingTrafficDelegate()
         searcherNetworkService.delegate = searcherNetworkTrafficController
         
