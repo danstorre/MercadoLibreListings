@@ -64,9 +64,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         searchBroadCaster.recipients.append(searcherNetworkTrafficController!)
         
         //create a presenter to present the list of products from the model.
-        if let viewWithPresentableListOfProducts = (searchScreenNav as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts {
-            presenterProductList = ListOfProductsPrensenter(with: productListHolder!,
-                                         and: viewWithPresentableListOfProducts)
+        presenterProductList = createApresenter(from: searchScreenNav!, with: productListHolder!)
+        
+        //presenter listen to changes in the observer
+        if let presenterProductList = presenterProductList {
             productListHolder!.observer = presenterProductList
         }
         
@@ -77,6 +78,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = searchScreenNav
         window?.makeKeyAndVisible()
+    }
+    
+    func createApresenter(from vc: UIViewController,
+                          with: ListOfProductsPrensenterModelProtocol) -> ListOfProductsPrensenter? {
+
+        guard let viewWithPresentableListOfProducts = (vc as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts else {
+            return nil
+        }
+        
+        return ListOfProductsPrensenter(with: productListHolder!, and: viewWithPresentableListOfProducts)
     }
     
     func assignRouterDelegate(vc: UIViewController, to router: RoutesToDetailItemViewController<ViewDataItemDetail>){
