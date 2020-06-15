@@ -10,9 +10,6 @@ import XCTest
 @testable import MercadoLibreListing
 
 class RouterTests: XCTestCase {
-
-//    DetailsUseCase
-//    goToDetail(withItem: ItemProtocol)
     
     func testPresentItemDetail_GivenAListOfItem_WhenSelectingOneOfThem_ShouldPresentTheDetailOfTheItem(){
         let navigationUseCase: MockNaviationUseCase = MockNaviationUseCase()
