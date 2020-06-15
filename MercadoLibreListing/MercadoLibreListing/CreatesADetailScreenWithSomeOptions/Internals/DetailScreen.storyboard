@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detail Screen View Controller-->
+        <scene sceneID="Hn8-aL-aPb">
+            <objects>
+                <viewController storyboardIdentifier="DetailScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Npu-nx-uEU" customClass="DetailScreenViewController" customModule="MercadoLibreListing" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L6l-Oe-S8v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="12S-vS-Wal">
+                                <rect key="frame" x="157" y="70" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="12S-vS-Wal" secondAttribute="height" multiplier="1:1" id="H1l-CG-gfj"/>
+                                    <constraint firstAttribute="width" constant="100" id="bb2-IN-gP0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXU-wH-qlJ">
+                                <rect key="frame" x="20.5" y="180" width="373" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SXU-wH-qlJ" firstAttribute="width" secondItem="L6l-Oe-S8v" secondAttribute="width" multiplier="0.9" id="4Nv-IN-cP1"/>
+                            <constraint firstItem="12S-vS-Wal" firstAttribute="centerX" secondItem="NjR-lR-T9o" secondAttribute="centerX" id="aYW-o5-0Ex"/>
+                            <constraint firstItem="SXU-wH-qlJ" firstAttribute="centerX" secondItem="12S-vS-Wal" secondAttribute="centerX" id="gXb-vd-0Cg"/>
+                            <constraint firstItem="12S-vS-Wal" firstAttribute="top" secondItem="NjR-lR-T9o" secondAttribute="top" constant="26" id="u6g-ky-S27"/>
+                            <constraint firstItem="SXU-wH-qlJ" firstAttribute="top" secondItem="12S-vS-Wal" secondAttribute="bottom" constant="10" id="yvX-6K-CQF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NjR-lR-T9o"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2YD-MC-HTR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="217" y="68"/>
+        </scene>
+    </scenes>
+</document>

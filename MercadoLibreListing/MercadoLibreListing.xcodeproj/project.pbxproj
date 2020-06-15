@@ -16,6 +16,8 @@
 		FB22228224919099007FF2E8 /* TextSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22228124919099007FF2E8 /* TextSearcherTests.swift */; };
 		FB2222842491918A007FF2E8 /* SearchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2222832491918A007FF2E8 /* SearchTask.swift */; };
 		FB30C3AB24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB30C3AA24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift */; };
+		FB6FE99C2497F6C600B7C986 /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FE99B2497F6C600B7C986 /* DetailScreenViewController.swift */; };
+		FB6FE99E2497F73800B7C986 /* DetailScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6FE99D2497F73800B7C986 /* DetailScreen.storyboard */; };
 		FB88B70B2495B58700C63E9E /* ThrotleSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88B70A2495B58700C63E9E /* ThrotleSearch.swift */; };
 		FB88B70E2495B5D200C63E9E /* NetworkSearchingTrafficDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88B70D2495B5D200C63E9E /* NetworkSearchingTrafficDelegate.swift */; };
 		FB88B7132495B60F00C63E9E /* SearchingTrafficDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88B7122495B60F00C63E9E /* SearchingTrafficDelegate.swift */; };
@@ -100,6 +102,8 @@
 		FB22228124919099007FF2E8 /* TextSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSearcherTests.swift; sourceTree = "<group>"; };
 		FB2222832491918A007FF2E8 /* SearchTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTask.swift; sourceTree = "<group>"; };
 		FB30C3AA24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift"; sourceTree = "<group>"; };
+		FB6FE99B2497F6C600B7C986 /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
+		FB6FE99D2497F73800B7C986 /* DetailScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailScreen.storyboard; sourceTree = "<group>"; };
 		FB88B70A2495B58700C63E9E /* ThrotleSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrotleSearch.swift; sourceTree = "<group>"; };
 		FB88B70D2495B5D200C63E9E /* NetworkSearchingTrafficDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSearchingTrafficDelegate.swift; sourceTree = "<group>"; };
 		FB88B7122495B60F00C63E9E /* SearchingTrafficDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingTrafficDelegate.swift; sourceTree = "<group>"; };
@@ -263,6 +267,8 @@
 		FB6FE9992497F64C00B7C986 /* Internals */ = {
 			isa = PBXGroup;
 			children = (
+				FB6FE99B2497F6C600B7C986 /* DetailScreenViewController.swift */,
+				FB6FE99D2497F73800B7C986 /* DetailScreen.storyboard */,
 			);
 			path = Internals;
 			sourceTree = "<group>";
@@ -834,6 +840,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB88B7182495B82400C63E9E /* EmptyMessage.xib in Resources */,
+				FB6FE99E2497F73800B7C986 /* DetailScreen.storyboard in Resources */,
 				FB9E6F3724941DD500996BEA /* ImageViewWithTitleTableViewCell.xib in Resources */,
 				FB22226C24918F22007FF2E8 /* LaunchScreen.storyboard in Resources */,
 				FB22226924918F22007FF2E8 /* Assets.xcassets in Resources */,
@@ -885,6 +892,7 @@
 				FB30C3AB24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift in Sources */,
 				FB9E6F32249407A600996BEA /* ProductManager+ListOfProductsPrensenterModelProtocol.swift in Sources */,
 				FB9991972491D40500F83DFB /* ParserProtocol.swift in Sources */,
+				FB6FE99C2497F6C600B7C986 /* DetailScreenViewController.swift in Sources */,
 				FB93DEB32496F06B0026D32E /* GoToItemProtocol.swift in Sources */,
 				FBDCB92824927ED300A9B85B /* MercadolibreGetParser.swift in Sources */,
 				FB9E6F462494420400996BEA /* SearchItemsGivenAUrl+SearcherTermDelegate.swift in Sources */,
