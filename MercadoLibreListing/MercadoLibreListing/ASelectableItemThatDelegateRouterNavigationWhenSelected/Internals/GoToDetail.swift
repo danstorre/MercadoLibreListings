@@ -9,6 +9,15 @@
 import UIKit
 
 struct NavigatesToItemDetails<T: ViewDataProductProtocol, E: NavigationDetailsUseCase>: ISelectable, ViewDataProductProtocol where T == E.T{
+    
+    var item: T
+    var router: E
+    
+    init(with item: T, and router: E) {
+        self.item = item
+        self.router = router
+    }
+    
     var imageThumnail: UIImage? {
         get {
             return item.imageThumnail
@@ -25,14 +34,6 @@ struct NavigatesToItemDetails<T: ViewDataProductProtocol, E: NavigationDetailsUs
         set {
             item.attributeTitleProduct = newValue
         }
-    }
-    
-    var item: T
-    var router: E
-    
-    init(with item: T, and router: E) {
-        self.item = item
-        self.router = router
     }
     
     func select() {
