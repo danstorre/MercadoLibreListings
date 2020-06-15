@@ -46,12 +46,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //create a router to a detail to be used by the search screen.
         routerToDetail = RoutesToDetailItemViewController()
         
+        //create a tableview delegate to assign to the search table view screen.
         tableViewDelegate = PresentaAProductDetail()
         tableViewDelegate.delegate = routerToDetail
         
         let searchScreenNav = createATableViewSearchScreenNavigationControllerWith(with: searchController,
                                                                                    andTableViewDelegate: tableViewDelegate)
-        //Assign router delegate
+        //Assign router delegate and its navigation controller so it can control the navigation.
         if let nav = searchScreenNav as? UINavigationController,
             let routerDelegate = nav.topViewController as? RoutesToDetailItemViewControllerDelegate {
             routerToDetail.routerDelegate = routerDelegate
@@ -65,16 +66,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         //listen to any search events.
         searchBroadCaster = BroadcastSearcherTermDelegateMessages()
-        searchBroadCaster.recipients.append(searcherNetworkService)
+        searchBroadCaster.recipients.append(searcherNetworkService) // so It can cancel any tasks to be made.
         searchBroadCaster.recipients.append(searcherNetworkTrafficController!)
         
-        //create a presenter
+        //create a presenter to present the list of products from the model.
         if let viewWithPresentableListOfProducts = (searchScreenNav as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts {
             presenterProductList = ListOfProductsPrensenter(with: productListHolder!,
                                          and: viewWithPresentableListOfProducts)
             productListHolder!.observer = presenterProductList
         }
         
+        //assign the searchBroadCaster to the searcherService's delegate so it can broadcast the message.
         searcherService.delegate = searchBroadCaster
         
         guard let windowScene = scene as? UIWindowScene else { return }
