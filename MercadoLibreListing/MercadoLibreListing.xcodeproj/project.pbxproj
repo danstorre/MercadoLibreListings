@@ -22,6 +22,12 @@
 		FB88B7162495B67100C63E9E /* NetworkSearchingTraffic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88B7152495B67100C63E9E /* NetworkSearchingTraffic.swift */; };
 		FB88B7182495B82400C63E9E /* EmptyMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB88B7172495B82300C63E9E /* EmptyMessage.xib */; };
 		FB88B71A2495B88200C63E9E /* EmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88B7192495B88200C63E9E /* EmptyMessage.swift */; };
+		FB93DEAC2496F03D0026D32E /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEAB2496F03C0026D32E /* RouterTests.swift */; };
+		FB93DEB22496F06B0026D32E /* GoToDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEAF2496F06B0026D32E /* GoToDetail.swift */; };
+		FB93DEB32496F06B0026D32E /* GoToItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEB12496F06B0026D32E /* GoToItemProtocol.swift */; };
+		FB93DEB62496F0910026D32E /* GetSelectableObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEB42496F0900026D32E /* GetSelectableObjectProtocol.swift */; };
+		FB93DEB72496F0910026D32E /* SelectableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEB52496F0910026D32E /* SelectableProtocol.swift */; };
+		FB93DEBD2496F0A20026D32E /* NavigationDetailFlowSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEBB2496F0A20026D32E /* NavigationDetailFlowSelection.swift */; };
 		FB99915E2491AC5E00F83DFB /* SearcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99915D2491AC5E00F83DFB /* SearcherProtocol.swift */; };
 		FB9991602491ACB100F83DFB /* ItemSearcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99915F2491ACB100F83DFB /* ItemSearcherService.swift */; };
 		FB9991652491AEFA00F83DFB /* ItemHolderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9991642491AEFA00F83DFB /* ItemHolderProtocol.swift */; };
@@ -101,6 +107,12 @@
 		FB88B7152495B67100C63E9E /* NetworkSearchingTraffic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSearchingTraffic.swift; sourceTree = "<group>"; };
 		FB88B7172495B82300C63E9E /* EmptyMessage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyMessage.xib; sourceTree = "<group>"; };
 		FB88B7192495B88200C63E9E /* EmptyMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMessage.swift; sourceTree = "<group>"; };
+		FB93DEAB2496F03C0026D32E /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		FB93DEAF2496F06B0026D32E /* GoToDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToDetail.swift; sourceTree = "<group>"; };
+		FB93DEB12496F06B0026D32E /* GoToItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToItemProtocol.swift; sourceTree = "<group>"; };
+		FB93DEB42496F0900026D32E /* GetSelectableObjectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetSelectableObjectProtocol.swift; sourceTree = "<group>"; };
+		FB93DEB52496F0910026D32E /* SelectableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableProtocol.swift; sourceTree = "<group>"; };
+		FB93DEBB2496F0A20026D32E /* NavigationDetailFlowSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDetailFlowSelection.swift; sourceTree = "<group>"; };
 		FB99915D2491AC5E00F83DFB /* SearcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcherProtocol.swift; sourceTree = "<group>"; };
 		FB99915F2491ACB100F83DFB /* ItemSearcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearcherService.swift; sourceTree = "<group>"; };
 		FB9991642491AEFA00F83DFB /* ItemHolderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemHolderProtocol.swift; sourceTree = "<group>"; };
@@ -189,25 +201,10 @@
 		FB22225E24918F18007FF2E8 /* MercadoLibreListing */ = {
 			isa = PBXGroup;
 			children = (
-				FB88B71B2495BE8800C63E9E /* ProvidesAnEmptyMessage */,
-				FB88B70C2495B5A500C63E9E /* ManagesNetworkSearchingTrafficDelegate */,
-				FB88B7092495B56F00C63E9E /* ThrotlesASearch */,
-				FB9E6F3A24942D4A00996BEA /* BroadCastsDelegateSearchTermMessageToSearcherTermDelegates */,
-				FB9E6F292493F52B00996BEA /* ProvidesTableViewCellWithAnImageAndATitleLabel */,
-				FB9E6F272493F4C400996BEA /* ProvidesATableViewSearchScreenForVisibleProducts */,
-				FBE5C2092493EEAA00525C8E /* ProvidesObserversAndObservableProtocols */,
-				FBE5C2052493DF0700525C8E /* ProvidesADownSampleGivenAUrlImage */,
-				FBF58A512492AFFE00B0073A /* PresentsAListOfPresentableProducts */,
-				FBDCB92524927A5A00A9B85B /* ParsesDataFromMercadoLibreServiceToAnArrayOfMercadoLibreListingProduct */,
-				FBDCB9192491DF0E00A9B85B /* RepresentsAMercadoLibreListingProduct */,
-				FBDCB9152491DE9100A9B85B /* CreatesMercadoLibreUrlsToImplementGetProductsUrlMaker */,
-				FB9991912491D40400F83DFB /* ParsersAnyObjectToJsonIfDecodable */,
-				FB9991872491CE7B00F83DFB /* ImplementsItemSearcherServiceGivenAGetProductsUrlMaker */,
-				FB9991832491CD5C00F83DFB /* ManagesAObservableListOfProductsImplementsItemHolder */,
-				FB9991752491C6F000F83DFB /* CreatesViewControllerWithAGivenSearchController */,
-				FB99916D2491C51000F83DFB /* CreatesASearchControllerGivenSomeOptions */,
-				FB99915B2491AC2F00F83DFB /* ControlsChangesInSarchbarsTextAndDelegatesTheSearch */,
-				FB2222852491918D007FF2E8 /* SearchesItemsFromAGivenServiceImplementsSearcherProtocol */,
+				FB93DEB82496F0A20026D32E /* HoldsAListOfSelectableItems */,
+				FB93DEAD2496F06B0026D32E /* ASelectableItemThatDelegateRouterNavigationWhenSelected */,
+				FB93DEAA2496F00F0026D32E /* Router */,
+				FB93DEA92496EFEC0026D32E /* FirstScreen */,
 				FB22225F24918F18007FF2E8 /* AppDelegate.swift */,
 				FB22226124918F18007FF2E8 /* SceneDelegate.swift */,
 				FB22226824918F22007FF2E8 /* Assets.xcassets */,
@@ -221,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				FB22227824918F22007FF2E8 /* Info.plist */,
+				FB93DEAB2496F03C0026D32E /* RouterTests.swift */,
 				FB22228124919099007FF2E8 /* TextSearcherTests.swift */,
 				FBF58A4F2492AF0300B0073A /* ItemsPresenterTests.swift */,
 			);
@@ -310,6 +308,82 @@
 			children = (
 				FB88B7172495B82300C63E9E /* EmptyMessage.xib */,
 				FB88B7192495B88200C63E9E /* EmptyMessage.swift */,
+			);
+			path = Internals;
+			sourceTree = "<group>";
+		};
+		FB93DEA92496EFEC0026D32E /* FirstScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FB88B71B2495BE8800C63E9E /* ProvidesAnEmptyMessage */,
+				FB88B70C2495B5A500C63E9E /* ManagesNetworkSearchingTrafficDelegate */,
+				FB88B7092495B56F00C63E9E /* ThrotlesASearch */,
+				FB9E6F3A24942D4A00996BEA /* BroadCastsDelegateSearchTermMessageToSearcherTermDelegates */,
+				FB9E6F292493F52B00996BEA /* ProvidesTableViewCellWithAnImageAndATitleLabel */,
+				FB9E6F272493F4C400996BEA /* ProvidesATableViewSearchScreenForVisibleProducts */,
+				FBE5C2092493EEAA00525C8E /* ProvidesObserversAndObservableProtocols */,
+				FBE5C2052493DF0700525C8E /* ProvidesADownSampleGivenAUrlImage */,
+				FBF58A512492AFFE00B0073A /* PresentsAListOfPresentableProducts */,
+				FBDCB92524927A5A00A9B85B /* ParsesDataFromMercadoLibreServiceToAnArrayOfMercadoLibreListingProduct */,
+				FBDCB9192491DF0E00A9B85B /* RepresentsAMercadoLibreListingProduct */,
+				FBDCB9152491DE9100A9B85B /* CreatesMercadoLibreUrlsToImplementGetProductsUrlMaker */,
+				FB9991912491D40400F83DFB /* ParsersAnyObjectToJsonIfDecodable */,
+				FB9991872491CE7B00F83DFB /* ImplementsItemSearcherServiceGivenAGetProductsUrlMaker */,
+				FB9991832491CD5C00F83DFB /* ManagesAObservableListOfProductsImplementsItemHolder */,
+				FB9991752491C6F000F83DFB /* CreatesViewControllerWithAGivenSearchController */,
+				FB99916D2491C51000F83DFB /* CreatesASearchControllerGivenSomeOptions */,
+				FB99915B2491AC2F00F83DFB /* ControlsChangesInSarchbarsTextAndDelegatesTheSearch */,
+				FB2222852491918D007FF2E8 /* SearchesItemsFromAGivenServiceImplementsSearcherProtocol */,
+			);
+			path = FirstScreen;
+			sourceTree = "<group>";
+		};
+		FB93DEAA2496F00F0026D32E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				FB93DEB42496F0900026D32E /* GetSelectableObjectProtocol.swift */,
+				FB93DEB52496F0910026D32E /* SelectableProtocol.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		FB93DEAD2496F06B0026D32E /* ASelectableItemThatDelegateRouterNavigationWhenSelected */ = {
+			isa = PBXGroup;
+			children = (
+				FB93DEAE2496F06B0026D32E /* Internals */,
+				FB93DEB02496F06B0026D32E /* OpenApis */,
+			);
+			path = ASelectableItemThatDelegateRouterNavigationWhenSelected;
+			sourceTree = "<group>";
+		};
+		FB93DEAE2496F06B0026D32E /* Internals */ = {
+			isa = PBXGroup;
+			children = (
+				FB93DEAF2496F06B0026D32E /* GoToDetail.swift */,
+			);
+			path = Internals;
+			sourceTree = "<group>";
+		};
+		FB93DEB02496F06B0026D32E /* OpenApis */ = {
+			isa = PBXGroup;
+			children = (
+				FB93DEB12496F06B0026D32E /* GoToItemProtocol.swift */,
+			);
+			path = OpenApis;
+			sourceTree = "<group>";
+		};
+		FB93DEB82496F0A20026D32E /* HoldsAListOfSelectableItems */ = {
+			isa = PBXGroup;
+			children = (
+				FB93DEB92496F0A20026D32E /* Internals */,
+			);
+			path = HoldsAListOfSelectableItems;
+			sourceTree = "<group>";
+		};
+		FB93DEB92496F0A20026D32E /* Internals */ = {
+			isa = PBXGroup;
+			children = (
+				FB93DEBB2496F0A20026D32E /* NavigationDetailFlowSelection.swift */,
 			);
 			path = Internals;
 			sourceTree = "<group>";
@@ -789,6 +863,7 @@
 				FB88B71A2495B88200C63E9E /* EmptyMessage.swift in Sources */,
 				FB9991962491D40500F83DFB /* JsonParser.swift in Sources */,
 				FB9E6F34249411D300996BEA /* PresentableProductsTableViewController+SearchingTrafficDelegate.swift in Sources */,
+				FB93DEB72496F0910026D32E /* SelectableProtocol.swift in Sources */,
 				FB99917E2491CCF600F83DFB /* ProductProtocol.swift in Sources */,
 				FBE5C2152493EF4800525C8E /* ProductCellViewData.swift in Sources */,
 				FBF58A552492B07B00B0073A /* ProductListPresenter.swift in Sources */,
@@ -805,6 +880,7 @@
 				FB30C3AB24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift in Sources */,
 				FB9E6F32249407A600996BEA /* ProductManager+ListOfProductsPrensenterModelProtocol.swift in Sources */,
 				FB9991972491D40500F83DFB /* ParserProtocol.swift in Sources */,
+				FB93DEB32496F06B0026D32E /* GoToItemProtocol.swift in Sources */,
 				FBDCB92824927ED300A9B85B /* MercadolibreGetParser.swift in Sources */,
 				FB9E6F462494420400996BEA /* SearchItemsGivenAUrl+SearcherTermDelegate.swift in Sources */,
 				FBDCB92224926CF400A9B85B /* MercadoLibreListingProduct+Decodable.swift in Sources */,
@@ -818,11 +894,14 @@
 				FB88B70E2495B5D200C63E9E /* NetworkSearchingTrafficDelegate.swift in Sources */,
 				FB9E6F3E24942D9300996BEA /* SearcherTermMediator+Extension.swift in Sources */,
 				FB9991742491C56800F83DFB /* SearchControllerFactory.swift in Sources */,
+				FB93DEB62496F0910026D32E /* GetSelectableObjectProtocol.swift in Sources */,
 				FBE5C20F2493EEED00525C8E /* ObservableProtocol.swift in Sources */,
 				FB9991862491CD7700F83DFB /* ProductManager.swift in Sources */,
 				FBE5C2192493EF6C00525C8E /* ListOfProductsPrensenterProtocol.swift in Sources */,
 				FB9991692491AF1D00F83DFB /* SearcherTermError.swift in Sources */,
 				FBDCB92A24927FB800A9B85B /* MercadoLibreGetServiceModel.swift in Sources */,
+				FB93DEB22496F06B0026D32E /* GoToDetail.swift in Sources */,
+				FB93DEBD2496F0A20026D32E /* NavigationDetailFlowSelection.swift in Sources */,
 				FB22226424918F18007FF2E8 /* SearchBarEmbededViewController.swift in Sources */,
 				FBE5C2082493DF0800525C8E /* DownSampler.swift in Sources */,
 				FB9991722491C54D00F83DFB /* SearchControllerFactoryOptions.swift in Sources */,
@@ -839,6 +918,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB22228224919099007FF2E8 /* TextSearcherTests.swift in Sources */,
+				FB93DEAC2496F03D0026D32E /* RouterTests.swift in Sources */,
 				FBF58A502492AF0300B0073A /* ItemsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
