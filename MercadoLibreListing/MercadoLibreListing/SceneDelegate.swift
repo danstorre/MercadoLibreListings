@@ -47,7 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //create a searchController.
         let searchController = createASearchcontroller(with: searchResultsUpdatingDelegate!)
         
-        //create a router to a detail to be used by the search screen.
+        //create a "router to a detail" object to be used by the search screen.
         routerToDetail = RoutesToDetailItemViewController()
         
         //create a tableview delegate to assign to the search table view screen.
