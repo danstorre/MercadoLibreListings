@@ -211,8 +211,8 @@
 		FB22225E24918F18007FF2E8 /* MercadoLibreListing */ = {
 			isa = PBXGroup;
 			children = (
-				FB6FE9A22497F84100B7C986 /* ProvidesATableViewDelegateWithAdetailPresenter */,
 				FB6FE9982497F63200B7C986 /* CreatesADetailScreenWithSomeOptions */,
+				FB6FE9A22497F84100B7C986 /* ProvidesATableViewDelegateWithAdetailPresenter */,
 				FB93DEAD2496F06B0026D32E /* RoutesToADetailItem */,
 				FB93DEA92496EFEC0026D32E /* FirstScreen */,
 				FB22225F24918F18007FF2E8 /* AppDelegate.swift */,
