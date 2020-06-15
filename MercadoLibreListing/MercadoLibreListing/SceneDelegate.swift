@@ -41,11 +41,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //create the mercado Libre searcher object.
         let searcherService: MercadoLibreSearcher = createASearcherObject(with: searcherNetworkService,
                                                                           and: productListHolder!) as! SceneDelegate.MercadoLibreSearcher
+        
+        //listen to any search events.
+        searchBroadCaster = BroadcastSearcherTermDelegateMessages()
+        searchBroadCaster.recipients.append(searcherNetworkService) // so It can cancel any tasks to be made.
+        searchBroadCaster.recipients.append(searcherNetworkTrafficController!)
+        
+        //assign the searchBroadCaster to the searcherService's delegate so it can broadcast the message.
+        searcherService.delegate = searchBroadCaster
+        
         //middle object to throtleSearch search events.
         throtleSearch = createAsearcherThrotle(with: searcherService)
         
         //create a delegate UISearchResultsUpdating to be used in the search controller needed in the search screen.
         searchResultsUpdatingDelegate = createASearchBarUpdatingDelegate(with: throtleSearch)
+        
         
         //create a searchController.
         let searchController = createASearchcontroller(with: searchResultsUpdatingDelegate!)
@@ -65,16 +75,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //Assign router delegate and its navigation controller so it can control the navigation.
         assignRouterDelegate(vc: searchScreenNav!, to: routerToDetail)
         
-        //Assign searcherNetworkTrafficController delegate so it can listen start and finished searching events.
+        //Assign searcherNetworkTrafficController delegate so it can listen start and finished searching loading events.
         assignSearcherNetworkTrafficController(with: searchScreenNav!, to: searcherNetworkTrafficController!)
-        
-        //listen to any search events.
-        searchBroadCaster = BroadcastSearcherTermDelegateMessages()
-        searchBroadCaster.recipients.append(searcherNetworkService) // so It can cancel any tasks to be made.
-        searchBroadCaster.recipients.append(searcherNetworkTrafficController!)
-        
-        //assign the searchBroadCaster to the searcherService's delegate so it can broadcast the message.
-        searcherService.delegate = searchBroadCaster
         
         //create a presenter to present the list of products from the model.
         presenterProductList = createApresenter(from: searchScreenNav!, with: productListHolder!)
