@@ -25,15 +25,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
-            
+        
+        //create the model
         productListHolder = createAMercadoLibreListingProductHolder()
         
-        routerToDetail = RoutesToDetailItemViewController()
-        
-        tableViewDelegate = PresentaAProductDetail()
-        tableViewDelegate.delegate = routerToDetail
-        
+        //prepare search objects
         let searcherNetworkService = createATermSearcherMercadoLibreNeworkService()
+        //create a network traffic contorller
         searcherNetworkTrafficController = NetworkSearchingTrafficDelegate()
         searcherNetworkService.delegate = searcherNetworkTrafficController
         
@@ -42,7 +40,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         throtleSearch = createAsearcherThrotle(with: searcherService)
         searchResultsUpdatingDelegate = createASearchBarUpdatingDelegate(with: throtleSearch)
         
+        //create a searchController.
         let searchController = createASearchcontroller(with: searchResultsUpdatingDelegate!)
+        
+        //create a router to a detail to be used by the search screen.
+        routerToDetail = RoutesToDetailItemViewController()
+        
+        tableViewDelegate = PresentaAProductDetail()
+        tableViewDelegate.delegate = routerToDetail
         
         let searchScreenNav = createATableViewSearchScreenNavigationControllerWith(with: searchController,
                                                                                    andTableViewDelegate: tableViewDelegate)
@@ -53,19 +58,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             routerToDetail.navigationController = nav
         }
         
-        //Assign searcherNetworkService delegate
+        //Assign searcherNetworkTrafficController delegate
         if let searchScreenSearchingTrafficDelegate  = (searchScreenNav as? UINavigationController)?.topViewController as? SearchingTrafficDelegate {
             searcherNetworkTrafficController?.delegate = searchScreenSearchingTrafficDelegate
         }
         
+        //listen to any search events.
         searchBroadCaster = BroadcastSearcherTermDelegateMessages()
         searchBroadCaster.recipients.append(searcherNetworkService)
         searchBroadCaster.recipients.append(searcherNetworkTrafficController!)
-        
-        
-        if let aScreenThatsSearcherTermDelegate = (searchScreenNav as? UINavigationController)?.topViewController as? SearcherTermDelegate {
-            searchBroadCaster.recipients.append(aScreenThatsSearcherTermDelegate)
-        }
         
         //create a presenter
         if let viewWithPresentableListOfProducts = (searchScreenNav as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts {

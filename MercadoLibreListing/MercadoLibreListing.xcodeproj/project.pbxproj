@@ -15,7 +15,6 @@
 		FB22226C24918F22007FF2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB22226A24918F22007FF2E8 /* LaunchScreen.storyboard */; };
 		FB22228224919099007FF2E8 /* TextSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22228124919099007FF2E8 /* TextSearcherTests.swift */; };
 		FB2222842491918A007FF2E8 /* SearchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2222832491918A007FF2E8 /* SearchTask.swift */; };
-		FB30C3AB24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB30C3AA24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift */; };
 		FB6FE99C2497F6C600B7C986 /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FE99B2497F6C600B7C986 /* DetailScreenViewController.swift */; };
 		FB6FE99E2497F73800B7C986 /* DetailScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6FE99D2497F73800B7C986 /* DetailScreen.storyboard */; };
 		FB88B70B2495B58700C63E9E /* ThrotleSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88B70A2495B58700C63E9E /* ThrotleSearch.swift */; };
@@ -105,7 +104,6 @@
 		FB22227824918F22007FF2E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB22228124919099007FF2E8 /* TextSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSearcherTests.swift; sourceTree = "<group>"; };
 		FB2222832491918A007FF2E8 /* SearchTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTask.swift; sourceTree = "<group>"; };
-		FB30C3AA24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift"; sourceTree = "<group>"; };
 		FB6FE99B2497F6C600B7C986 /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
 		FB6FE99D2497F73800B7C986 /* DetailScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailScreen.storyboard; sourceTree = "<group>"; };
 		FB88B70A2495B58700C63E9E /* ThrotleSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrotleSearch.swift; sourceTree = "<group>"; };
@@ -586,7 +584,6 @@
 			children = (
 				FB9E6F2B2493F5C300996BEA /* PresentableProductsTableViewController.swift */,
 				FB9E6F33249411D300996BEA /* PresentableProductsTableViewController+SearchingTrafficDelegate.swift */,
-				FB30C3AA24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift */,
 				FBABF5F524980A2400FD2DCE /* PresentableProductsTableViewController+RoutesToDetailItemViewControllerDelegate.swift */,
 			);
 			path = Internals;
@@ -911,7 +908,6 @@
 				FBDCB91E2491E3CE00A9B85B /* MercadoLibreListingProduct.swift in Sources */,
 				FBE5C2132493EF2D00525C8E /* ListsOfViewDataProducts.swift in Sources */,
 				FB9991602491ACB100F83DFB /* ItemSearcherService.swift in Sources */,
-				FB30C3AB24954858006732BB /* PresentableProductsTableViewController+SearchItemsFromNetworkGivenASearchTermDelegate.swift in Sources */,
 				FB9E6F32249407A600996BEA /* ProductManager+ListOfProductsPrensenterModelProtocol.swift in Sources */,
 				FB9991972491D40500F83DFB /* ParserProtocol.swift in Sources */,
 				FB6FE99C2497F6C600B7C986 /* DetailScreenViewController.swift in Sources */,
