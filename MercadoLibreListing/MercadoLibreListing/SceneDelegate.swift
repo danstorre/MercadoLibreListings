@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var searchBroadCaster: BroadcastSearcherTermDelegateMessages!
     var searcherNetworkTrafficController: NetworkSearchingTrafficDelegate?
     var throtleSearch: SearcherProtocol!
+    var router: RoutesToDetailItemViewController<ProductCellViewData>!
     
     typealias ScreenViewControllerSearchAListOfDataProducts = UIViewController & ListsOfViewDataProducts
     
@@ -56,8 +57,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         //create a presenter
         if let viewWithPresentableListOfProducts = (searchScreenNav as? UINavigationController)?.topViewController as? ScreenViewControllerSearchAListOfDataProducts {
+            router = RoutesToDetailItemViewController()
+            let selectableViewPresenterListOfProducts = SelectableItemsPresenter(router: router,
+                                                                                 delegate: viewWithPresentableListOfProducts)
             presenterProductList = ListOfProductsPrensenter(with: productListHolder!,
-                                         and: viewWithPresentableListOfProducts)
+                                         and: selectableViewPresenterListOfProducts)
             productListHolder!.observer = presenterProductList
         }
         

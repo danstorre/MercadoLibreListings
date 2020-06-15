@@ -8,17 +8,40 @@
 
 import UIKit
 
-struct NavigatesToItemDetails<T: ProductProtocol, E: NavigationDetailsUseCase>: ISelectable where T == E.T{
+struct NavigatesToItemDetails<T: ViewDataProductProtocol, E: NavigationDetailsUseCase>: ISelectable, ViewDataProductProtocol where T == E.T{
+    var imageThumnail: UIImage? {
+        get {
+            return item.imageThumnail
+        }
+        set {
+            item.imageThumnail = newValue
+        }
+    }
+    
+    var attributeTitleProduct: NSAttributedString?{
+        get {
+            return item.attributeTitleProduct
+        }
+        set {
+            item.attributeTitleProduct = newValue
+        }
+    }
+    
     var item: T
     var router: E
+    
+    init(with item: T, and router: E) {
+        self.item = item
+        self.router = router
+    }
     
     func select() {
         router.gotoDetail(withItem: item)
     }
 }
 
-struct RoutesToDetailItemViewController<T: ProductProtocol>: NavigationDetailsUseCase {
+class RoutesToDetailItemViewController<ViewDataProductProtocol>: NavigationDetailsUseCase {
     var navigationController: UINavigationController?
-    func gotoDetail(withItem selectedItem: T) {
+    func gotoDetail(withItem selectedItem: ViewDataProductProtocol) {
     }
 }

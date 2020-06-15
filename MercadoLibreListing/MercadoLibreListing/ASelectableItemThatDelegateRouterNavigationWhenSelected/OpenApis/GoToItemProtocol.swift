@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol NavigationDetailsUseCase{
+protocol NavigationDetailsUseCase: class{
     associatedtype T
     func gotoDetail(withItem: T)
 }

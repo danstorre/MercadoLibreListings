@@ -23,10 +23,10 @@ class RouterTests: XCTestCase {
         XCTAssertTrue(navigationUseCase.gotoDetailWithItemGetsCalled)
     }
     
-    func GivenASelectableArrayOfItemsThatGoToDetail<T: ProductProtocol, E: NavigationDetailsUseCase>
+    func GivenASelectableArrayOfItemsThatGoToDetail<T: ViewDataProductProtocol, E: NavigationDetailsUseCase>
         (with navUseCase: E) -> [ISelectable] where T == E.T {
-        let items = [NavigatesToItemDetails(item: MockItem() as! T,
-                                            router: navUseCase)]
+        let items = [NavigatesToItemDetails<T,E>(with: MockItem() as! T,
+                                                 and: navUseCase) ]
         return items
     }
     
@@ -40,11 +40,8 @@ class RouterTests: XCTestCase {
         }
     }
     
-    class MockItem: ProductProtocol {
-        var imagetThumbnailUrl: URL?
-        var title: String
-        init(){
-            self.title = ""
-        }
+    class MockItem: ViewDataProductProtocol {
+        var imageThumnail: UIImage?
+        var attributeTitleProduct: NSAttributedString?
     }
 }

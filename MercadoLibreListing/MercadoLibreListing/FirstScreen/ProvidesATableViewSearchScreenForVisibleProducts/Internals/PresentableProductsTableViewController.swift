@@ -8,6 +8,24 @@
 
 import UIKit
 
+struct SelectableItemsPresenter<T: ViewDataProductProtocol, E: NavigationDetailsUseCase>: ListsOfViewDataProducts  where T == E.T{
+    var arrayOfViewDataProducts: [ViewDataProductProtocol] = []
+    var router: E
+    var delegate: ListsOfViewDataProducts
+    
+    func prensent(viewData: [ViewDataProductProtocol]) {
+        let selectableItems  = viewData.map { (viewData) -> ViewDataProductProtocol? in
+            guard let productViewData = viewData as? T else {return nil}
+            return  NavigatesToItemDetails(with: productViewData, and: router)
+        }.compactMap{ return $0 }
+        delegate.prensent(viewData: selectableItems)
+    }
+    
+    func present(imageViewData: UIImage, at index: Int) {
+        delegate.present(imageViewData: imageViewData, at: index)
+    }
+}
+
 class PresentableProductsTableViewController: UITableViewController, ListsOfViewDataProducts {
     
     var arrayOfViewDataProducts: [ViewDataProductProtocol] = []
@@ -77,7 +95,7 @@ class PresentableProductsTableViewController: UITableViewController, ListsOfView
         }
         let cell = tableView(tableView,
                              cellForRowAt: indexPath) as! ImageViewWithTitleTableViewCell
-        cell.setUpImageView(with: imageViewData)
+        cell.setUpImageView(with: arrayOfViewDataProducts[row].imageThumnail!)
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
     

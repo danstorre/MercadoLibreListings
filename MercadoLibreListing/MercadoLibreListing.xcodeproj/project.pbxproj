@@ -27,7 +27,6 @@
 		FB93DEB32496F06B0026D32E /* GoToItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEB12496F06B0026D32E /* GoToItemProtocol.swift */; };
 		FB93DEB62496F0910026D32E /* GetSelectableObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEB42496F0900026D32E /* GetSelectableObjectProtocol.swift */; };
 		FB93DEB72496F0910026D32E /* SelectableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEB52496F0910026D32E /* SelectableProtocol.swift */; };
-		FB93DEBD2496F0A20026D32E /* NavigationDetailFlowSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEBB2496F0A20026D32E /* NavigationDetailFlowSelection.swift */; };
 		FB99915E2491AC5E00F83DFB /* SearcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99915D2491AC5E00F83DFB /* SearcherProtocol.swift */; };
 		FB9991602491ACB100F83DFB /* ItemSearcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99915F2491ACB100F83DFB /* ItemSearcherService.swift */; };
 		FB9991652491AEFA00F83DFB /* ItemHolderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9991642491AEFA00F83DFB /* ItemHolderProtocol.swift */; };
@@ -112,7 +111,6 @@
 		FB93DEB12496F06B0026D32E /* GoToItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToItemProtocol.swift; sourceTree = "<group>"; };
 		FB93DEB42496F0900026D32E /* GetSelectableObjectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetSelectableObjectProtocol.swift; sourceTree = "<group>"; };
 		FB93DEB52496F0910026D32E /* SelectableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableProtocol.swift; sourceTree = "<group>"; };
-		FB93DEBB2496F0A20026D32E /* NavigationDetailFlowSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDetailFlowSelection.swift; sourceTree = "<group>"; };
 		FB99915D2491AC5E00F83DFB /* SearcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcherProtocol.swift; sourceTree = "<group>"; };
 		FB99915F2491ACB100F83DFB /* ItemSearcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearcherService.swift; sourceTree = "<group>"; };
 		FB9991642491AEFA00F83DFB /* ItemHolderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemHolderProtocol.swift; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 		FB22225E24918F18007FF2E8 /* MercadoLibreListing */ = {
 			isa = PBXGroup;
 			children = (
-				FB93DEB82496F0A20026D32E /* HoldsAListOfSelectableItems */,
 				FB93DEAD2496F06B0026D32E /* ASelectableItemThatDelegateRouterNavigationWhenSelected */,
 				FB93DEAA2496F00F0026D32E /* Router */,
 				FB93DEA92496EFEC0026D32E /* FirstScreen */,
@@ -370,22 +367,6 @@
 				FB93DEB12496F06B0026D32E /* GoToItemProtocol.swift */,
 			);
 			path = OpenApis;
-			sourceTree = "<group>";
-		};
-		FB93DEB82496F0A20026D32E /* HoldsAListOfSelectableItems */ = {
-			isa = PBXGroup;
-			children = (
-				FB93DEB92496F0A20026D32E /* Internals */,
-			);
-			path = HoldsAListOfSelectableItems;
-			sourceTree = "<group>";
-		};
-		FB93DEB92496F0A20026D32E /* Internals */ = {
-			isa = PBXGroup;
-			children = (
-				FB93DEBB2496F0A20026D32E /* NavigationDetailFlowSelection.swift */,
-			);
-			path = Internals;
 			sourceTree = "<group>";
 		};
 		FB99915B2491AC2F00F83DFB /* ControlsChangesInSarchbarsTextAndDelegatesTheSearch */ = {
@@ -901,7 +882,6 @@
 				FB9991692491AF1D00F83DFB /* SearcherTermError.swift in Sources */,
 				FBDCB92A24927FB800A9B85B /* MercadoLibreGetServiceModel.swift in Sources */,
 				FB93DEB22496F06B0026D32E /* GoToDetail.swift in Sources */,
-				FB93DEBD2496F0A20026D32E /* NavigationDetailFlowSelection.swift in Sources */,
 				FB22226424918F18007FF2E8 /* SearchBarEmbededViewController.swift in Sources */,
 				FBE5C2082493DF0800525C8E /* DownSampler.swift in Sources */,
 				FB9991722491C54D00F83DFB /* SearchControllerFactoryOptions.swift in Sources */,
