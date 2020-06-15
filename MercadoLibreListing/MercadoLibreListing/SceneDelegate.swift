@@ -41,6 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //middle object to throtleSearch search events.
         throtleSearch = createAsearcherThrotle(with: searcherService)
         
+        //create a delegate UISearchResultsUpdating to be used in the search controller needed in the search screen.
         searchResultsUpdatingDelegate = createASearchBarUpdatingDelegate(with: throtleSearch)
         
         //create a searchController.
