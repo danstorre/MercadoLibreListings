@@ -24,8 +24,6 @@
 		FB88B7162495B67100C63E9E /* NetworkSearchingTraffic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88B7152495B67100C63E9E /* NetworkSearchingTraffic.swift */; };
 		FB88B7182495B82400C63E9E /* EmptyMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB88B7172495B82300C63E9E /* EmptyMessage.xib */; };
 		FB88B71A2495B88200C63E9E /* EmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88B7192495B88200C63E9E /* EmptyMessage.swift */; };
-		FB93DEAC2496F03D0026D32E /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEAB2496F03C0026D32E /* RouterTests.swift */; };
-		FB93DEB22496F06B0026D32E /* GoToDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEAF2496F06B0026D32E /* GoToDetail.swift */; };
 		FB93DEB32496F06B0026D32E /* GoToItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEB12496F06B0026D32E /* GoToItemProtocol.swift */; };
 		FB93DEB62496F0910026D32E /* GetSelectableObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEB42496F0900026D32E /* GetSelectableObjectProtocol.swift */; };
 		FB93DEB72496F0910026D32E /* SelectableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93DEB52496F0910026D32E /* SelectableProtocol.swift */; };
@@ -110,8 +108,6 @@
 		FB88B7152495B67100C63E9E /* NetworkSearchingTraffic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSearchingTraffic.swift; sourceTree = "<group>"; };
 		FB88B7172495B82300C63E9E /* EmptyMessage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyMessage.xib; sourceTree = "<group>"; };
 		FB88B7192495B88200C63E9E /* EmptyMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMessage.swift; sourceTree = "<group>"; };
-		FB93DEAB2496F03C0026D32E /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
-		FB93DEAF2496F06B0026D32E /* GoToDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToDetail.swift; sourceTree = "<group>"; };
 		FB93DEB12496F06B0026D32E /* GoToItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToItemProtocol.swift; sourceTree = "<group>"; };
 		FB93DEB42496F0900026D32E /* GetSelectableObjectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetSelectableObjectProtocol.swift; sourceTree = "<group>"; };
 		FB93DEB52496F0910026D32E /* SelectableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableProtocol.swift; sourceTree = "<group>"; };
@@ -203,8 +199,10 @@
 		FB22225E24918F18007FF2E8 /* MercadoLibreListing */ = {
 			isa = PBXGroup;
 			children = (
+				FB6FE9A22497F84100B7C986 /* ProvidesATableViewDelegateWithAdetailPresenter */,
+				FB6FE99F2497F81D00B7C986 /* ProvidesARoutingMechanismToDetail */,
 				FB6FE9982497F63200B7C986 /* CreatesADetailScreenWithSomeOptions */,
-				FB93DEAD2496F06B0026D32E /* ASelectableItemThatDelegateRouterNavigationWhenSelected */,
+				FB93DEAD2496F06B0026D32E /* ProvidesNavigationProtocol */,
 				FB93DEAA2496F00F0026D32E /* Router */,
 				FB93DEA92496EFEC0026D32E /* FirstScreen */,
 				FB22225F24918F18007FF2E8 /* AppDelegate.swift */,
@@ -220,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				FB22227824918F22007FF2E8 /* Info.plist */,
-				FB93DEAB2496F03C0026D32E /* RouterTests.swift */,
 				FB22228124919099007FF2E8 /* TextSearcherTests.swift */,
 				FBF58A4F2492AF0300B0073A /* ItemsPresenterTests.swift */,
 			);
@@ -274,6 +271,52 @@
 			sourceTree = "<group>";
 		};
 		FB6FE99A2497F65000B7C986 /* OpenApis */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OpenApis;
+			sourceTree = "<group>";
+		};
+		FB6FE99F2497F81D00B7C986 /* ProvidesARoutingMechanismToDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FB6FE9A12497F83300B7C986 /* Internals */,
+				FB6FE9A02497F82C00B7C986 /* openApis */,
+			);
+			path = ProvidesARoutingMechanismToDetail;
+			sourceTree = "<group>";
+		};
+		FB6FE9A02497F82C00B7C986 /* openApis */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = openApis;
+			sourceTree = "<group>";
+		};
+		FB6FE9A12497F83300B7C986 /* Internals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Internals;
+			sourceTree = "<group>";
+		};
+		FB6FE9A22497F84100B7C986 /* ProvidesATableViewDelegateWithAdetailPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				FB6FE9A42497F85C00B7C986 /* OpenApis */,
+				FB6FE9A32497F85800B7C986 /* Internal */,
+			);
+			path = ProvidesATableViewDelegateWithAdetailPresenter;
+			sourceTree = "<group>";
+		};
+		FB6FE9A32497F85800B7C986 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		FB6FE9A42497F85C00B7C986 /* OpenApis */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -374,19 +417,18 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		FB93DEAD2496F06B0026D32E /* ASelectableItemThatDelegateRouterNavigationWhenSelected */ = {
+		FB93DEAD2496F06B0026D32E /* ProvidesNavigationProtocol */ = {
 			isa = PBXGroup;
 			children = (
 				FB93DEAE2496F06B0026D32E /* Internals */,
 				FB93DEB02496F06B0026D32E /* OpenApis */,
 			);
-			path = ASelectableItemThatDelegateRouterNavigationWhenSelected;
+			path = ProvidesNavigationProtocol;
 			sourceTree = "<group>";
 		};
 		FB93DEAE2496F06B0026D32E /* Internals */ = {
 			isa = PBXGroup;
 			children = (
-				FB93DEAF2496F06B0026D32E /* GoToDetail.swift */,
 			);
 			path = Internals;
 			sourceTree = "<group>";
@@ -913,7 +955,6 @@
 				FBE5C2192493EF6C00525C8E /* ListOfProductsPrensenterProtocol.swift in Sources */,
 				FB9991692491AF1D00F83DFB /* SearcherTermError.swift in Sources */,
 				FBDCB92A24927FB800A9B85B /* MercadoLibreGetServiceModel.swift in Sources */,
-				FB93DEB22496F06B0026D32E /* GoToDetail.swift in Sources */,
 				FB22226424918F18007FF2E8 /* SearchBarEmbededViewController.swift in Sources */,
 				FBE5C2082493DF0800525C8E /* DownSampler.swift in Sources */,
 				FB9991722491C54D00F83DFB /* SearchControllerFactoryOptions.swift in Sources */,
@@ -930,7 +971,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB22228224919099007FF2E8 /* TextSearcherTests.swift in Sources */,
-				FB93DEAC2496F03D0026D32E /* RouterTests.swift in Sources */,
 				FBF58A502492AF0300B0073A /* ItemsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

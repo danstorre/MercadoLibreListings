@@ -16,17 +16,39 @@ class PresentaAProductDetail: NSObject, UITableViewDelegate {
     weak var delegate: PresentaAProductDetailDelegate?
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         delegate?.presentItemAt(indexPath: indexPath)
     }
 }
 
-protocol ModelProductDetail {
-    var title: String {get}
+extension ProductCellViewData: ViewDataItemDetail{
+    var title: NSAttributedString? {
+        return self.attributeTitleProduct
+    }
+    
+    var image: UIImage? {
+        return self.imageThumnail
+    }
+}
+
+extension PresentableProductsTableViewController: RoutesToDetailItemViewControllerDelegate{
+    func getItem(at index: IndexPath) -> ViewDataItemDetail {
+        guard  !arrayOfViewDataProducts.isEmpty, arrayOfViewDataProducts.indices.contains(index.row),
+            let modeitemDetail = arrayOfViewDataProducts[index.row] as? ViewDataItemDetail else{
+                fatalError("a product should conform to ModelItemDetail")
+        }
+        
+        return modeitemDetail
+    }
+}
+
+protocol ViewDataItemDetail {
+    var title: NSAttributedString? {get}
     var image: UIImage? {get}
 }
 
 protocol RoutesToDetailItemViewControllerDelegate: class {
-    func getItem(at: IndexPath) -> ModelProductDetail
+    func getItem(at: IndexPath) -> ViewDataItemDetail
 }
 
 class RoutesToDetailItemViewController<ModelProductDetail>: NavigationDetailsUseCase {
@@ -34,21 +56,28 @@ class RoutesToDetailItemViewController<ModelProductDetail>: NavigationDetailsUse
     
     weak var routerDelegate: RoutesToDetailItemViewControllerDelegate?
     
-    func gotoDetail(withItem anItem: ModelProductDetail) {
+    func gotoDetail(withItem item: ViewDataItemDetail) {
+        
+        //TODO:- Plan
         //create a service with that model. (searches the needed thing about this model and mofies de model.)
         //create screen that conforms to presenter view data.
         //create a presenter with both presenter's model delegate an presenter's view data delegate.
         //presenter listen to model changes.
         //present the screen.
         
-        
-        
+        //For the Test purposes this app will show just the contents of the item given by this function.
+        let storyBoard = UIStoryboard(name: "DetailScreen", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "DetailScreenViewController") as? DetailScreenViewController, let imageOfItem = item.image {
+            vc.titleItem = item.title
+            vc.imageOfItem = imageOfItem
+            navigationController?.present(vc, animated: true, completion: nil)
+        }
     }
 }
 
 extension RoutesToDetailItemViewController: PresentaAProductDetailDelegate {
     func presentItemAt(indexPath: IndexPath) {
-        guard let productDetailModel = routerDelegate?.getItem(at: indexPath) as? ModelProductDetail else {return }
+        guard let productDetailModel = routerDelegate?.getItem(at: indexPath) else {return }
         gotoDetail(withItem: productDetailModel)
     }
 }
@@ -62,6 +91,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var searchBroadCaster: BroadcastSearcherTermDelegateMessages!
     var searcherNetworkTrafficController: NetworkSearchingTrafficDelegate?
     var throtleSearch: SearcherProtocol!
+    var routerToDetail: RoutesToDetailItemViewController<ViewDataItemDetail>!
+    var tableViewDelegate: PresentaAProductDetail!
     
     typealias ScreenViewControllerSearchAListOfDataProducts = UIViewController & ListsOfViewDataProducts
     
@@ -71,6 +102,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
             
         productListHolder = createAMercadoLibreListingProductHolder()
+        
+        routerToDetail = RoutesToDetailItemViewController()
+        
+        tableViewDelegate = PresentaAProductDetail()
+        tableViewDelegate.delegate = routerToDetail
         
         let searcherNetworkService = createATermSearcherMercadoLibreNeworkService()
         searcherNetworkTrafficController = NetworkSearchingTrafficDelegate()
@@ -83,7 +119,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let searchController = createASearchcontroller(with: searchResultsUpdatingDelegate!)
         
-        let searchScreenNav = createASearchScreenNavigationControllerWith(with: searchController)
+        let searchScreenNav = createATableViewSearchScreenNavigationControllerWith(with: searchController,
+                                                                                   andTableViewDelegate: tableViewDelegate)
+        //Assign router delegate
+        if let nav = searchScreenNav as? UINavigationController,
+            let routerDelegate = nav.topViewController as? RoutesToDetailItemViewControllerDelegate {
+            routerToDetail.routerDelegate = routerDelegate
+            routerToDetail.navigationController = nav
+        }
         
         //Assign searcherNetworkService delegate
         if let searchScreenSearchingTrafficDelegate  = (searchScreenNav as? UINavigationController)?.topViewController as? SearchingTrafficDelegate {
@@ -128,6 +171,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         .viewController(for:
             .tableViewControllerForVisibleProducts(withSearchController: searchController))
     }
+    
+    func createATableViewSearchScreenNavigationControllerWith(with searchController: UISearchController,
+                                                     andTableViewDelegate delegate: UITableViewDelegate) -> UIViewController? {
+        return ViewControllerWithSearchFactory
+        .viewController(for:
+            .tableViewControllerForVisibleProductsWith(searchController: searchController,
+                                                       andTableViewDelegate: delegate))
+    }
+    
     
     func createASearchBarUpdatingDelegate(with searcherService: SearcherProtocol) -> UISearchResultsUpdating {
         return SearchBarResultsUpdating(searcher: searcherService)

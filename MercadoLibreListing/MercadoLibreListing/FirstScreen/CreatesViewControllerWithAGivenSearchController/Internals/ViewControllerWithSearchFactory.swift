@@ -18,7 +18,13 @@ enum ViewControllerWithSearchFactory {
             return TableWithSearchViewControllerMaker(searchController: searchController)
             .makeViewController()
         case .tableViewControllerForVisibleProducts(withSearchController: let searchController):
-            return ProductsTableWithSearchViewControllerMaker(searchController: searchController)
+            return ProductsTableWithSearchViewControllerMaker(searchController: searchController,
+                                                              tableViewDelegate: nil)
+            .makeViewController()
+        case .tableViewControllerForVisibleProductsWith(searchController: let searchController,
+                                                        andTableViewDelegate: let tableViewDelegate):
+            return ProductsTableWithSearchViewControllerMaker(searchController: searchController,
+                                                              tableViewDelegate: tableViewDelegate)
             .makeViewController()
         }
     }
@@ -69,6 +75,7 @@ fileprivate struct TableWithSearchViewControllerMaker: ViewControllerMaker {
 
 fileprivate struct ProductsTableWithSearchViewControllerMaker: ViewControllerMaker {
     let searchController: UISearchController
+    let tableViewDelegate: UITableViewDelegate?
 
     func makeViewController() -> UIViewController {
         let storyBoard = UIStoryboard(name: "Search", bundle: nil)
@@ -83,6 +90,7 @@ fileprivate struct ProductsTableWithSearchViewControllerMaker: ViewControllerMak
         vc.navigationItem.title = "Discover"
         vc.navigationItem.searchController = searchController
         vc.definesPresentationContext = true
+        vc.tableView.delegate = tableViewDelegate
         
         let backgrounViewForTableView = EmptyMessage(frame: .zero)
         backgrounViewForTableView.toggle(on: false)

@@ -12,4 +12,6 @@ enum ViewControllerWithSearchBarFactoryOptions{
     case viewcontroller(withSearchController: UISearchController)
     case tableViewcontroller(withSearchController: UISearchController)
     case tableViewControllerForVisibleProducts(withSearchController: UISearchController)
+    case tableViewControllerForVisibleProductsWith(searchController: UISearchController,
+        andTableViewDelegate: UITableViewDelegate)
 }

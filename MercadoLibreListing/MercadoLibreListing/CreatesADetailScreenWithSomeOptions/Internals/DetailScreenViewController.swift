@@ -13,12 +13,12 @@ class DetailScreenViewController: UIViewController {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var titleItemLabel: UILabel!
     
-    var titleItem: String!
+    var titleItem: NSAttributedString!
     var imageOfItem: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleItemLabel.text = titleItem
+        titleItemLabel.attributedText = titleItem
         itemImageView.image = imageOfItem
         // Do any additional setup after loading the view.
     }
