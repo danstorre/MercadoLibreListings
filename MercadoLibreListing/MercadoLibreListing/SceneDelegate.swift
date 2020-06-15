@@ -70,6 +70,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         searchBroadCaster.recipients.append(searcherNetworkService) // so It can cancel any tasks to be made.
         searchBroadCaster.recipients.append(searcherNetworkTrafficController!)
         
+        //assign the searchBroadCaster to the searcherService's delegate so it can broadcast the message.
+        searcherService.delegate = searchBroadCaster
+        
         //create a presenter to present the list of products from the model.
         presenterProductList = createApresenter(from: searchScreenNav!, with: productListHolder!)
         
@@ -77,9 +80,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let presenterProductList = presenterProductList {
             productListHolder!.observer = presenterProductList
         }
-        
-        //assign the searchBroadCaster to the searcherService's delegate so it can broadcast the message.
-        searcherService.delegate = searchBroadCaster
         
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
