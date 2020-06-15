@@ -214,7 +214,25 @@
 				FB6FE9982497F63200B7C986 /* CreatesADetailScreenWithSomeOptions */,
 				FB6FE9A22497F84100B7C986 /* ProvidesATableViewDelegateWithAdetailPresenter */,
 				FB93DEAD2496F06B0026D32E /* RoutesToADetailItem */,
-				FB93DEA92496EFEC0026D32E /* FirstScreen */,
+				FB88B71B2495BE8800C63E9E /* ProvidesAnEmptyMessage */,
+				FB88B70C2495B5A500C63E9E /* ManagesNetworkSearchingTrafficDelegate */,
+				FB88B7092495B56F00C63E9E /* ThrotlesASearch */,
+				FB9E6F3A24942D4A00996BEA /* BroadCastsDelegateSearchTermMessageToSearcherTermDelegates */,
+				FB9E6F292493F52B00996BEA /* ProvidesTableViewCellWithAnImageAndATitleLabel */,
+				FB9E6F272493F4C400996BEA /* ProvidesATableViewSearchScreenForVisibleProducts */,
+				FBE5C2092493EEAA00525C8E /* ProvidesObserversAndObservableProtocols */,
+				FBE5C2052493DF0700525C8E /* ProvidesADownSampleGivenAUrlImage */,
+				FBF58A512492AFFE00B0073A /* PresentsAListOfPresentableProducts */,
+				FBDCB92524927A5A00A9B85B /* ParsesDataFromMercadoLibreServiceToAnArrayOfMercadoLibreListingProduct */,
+				FBDCB9192491DF0E00A9B85B /* RepresentsAMercadoLibreListingProduct */,
+				FBDCB9152491DE9100A9B85B /* CreatesMercadoLibreUrlsToImplementGetProductsUrlMaker */,
+				FB9991912491D40400F83DFB /* ParsersAnyObjectToJsonIfDecodable */,
+				FB9991872491CE7B00F83DFB /* ImplementsItemSearcherServiceGivenAGetProductsUrlMaker */,
+				FB9991832491CD5C00F83DFB /* ManagesAObservableListOfProductsImplementsItemHolder */,
+				FB9991752491C6F000F83DFB /* CreatesViewControllerWithAGivenSearchController */,
+				FB99916D2491C51000F83DFB /* CreatesASearchControllerGivenSomeOptions */,
+				FB99915B2491AC2F00F83DFB /* ControlsChangesInSarchbarsTextAndDelegatesTheSearch */,
+				FB2222852491918D007FF2E8 /* SearchesItemsFromAGivenServiceImplementsSearcherProtocol */,
 				FB22225F24918F18007FF2E8 /* AppDelegate.swift */,
 				FB22226124918F18007FF2E8 /* SceneDelegate.swift */,
 				FB22226824918F22007FF2E8 /* Assets.xcassets */,
@@ -369,32 +387,6 @@
 				FB88B7192495B88200C63E9E /* EmptyMessage.swift */,
 			);
 			path = Internals;
-			sourceTree = "<group>";
-		};
-		FB93DEA92496EFEC0026D32E /* FirstScreen */ = {
-			isa = PBXGroup;
-			children = (
-				FB88B71B2495BE8800C63E9E /* ProvidesAnEmptyMessage */,
-				FB88B70C2495B5A500C63E9E /* ManagesNetworkSearchingTrafficDelegate */,
-				FB88B7092495B56F00C63E9E /* ThrotlesASearch */,
-				FB9E6F3A24942D4A00996BEA /* BroadCastsDelegateSearchTermMessageToSearcherTermDelegates */,
-				FB9E6F292493F52B00996BEA /* ProvidesTableViewCellWithAnImageAndATitleLabel */,
-				FB9E6F272493F4C400996BEA /* ProvidesATableViewSearchScreenForVisibleProducts */,
-				FBE5C2092493EEAA00525C8E /* ProvidesObserversAndObservableProtocols */,
-				FBE5C2052493DF0700525C8E /* ProvidesADownSampleGivenAUrlImage */,
-				FBF58A512492AFFE00B0073A /* PresentsAListOfPresentableProducts */,
-				FBDCB92524927A5A00A9B85B /* ParsesDataFromMercadoLibreServiceToAnArrayOfMercadoLibreListingProduct */,
-				FBDCB9192491DF0E00A9B85B /* RepresentsAMercadoLibreListingProduct */,
-				FBDCB9152491DE9100A9B85B /* CreatesMercadoLibreUrlsToImplementGetProductsUrlMaker */,
-				FB9991912491D40400F83DFB /* ParsersAnyObjectToJsonIfDecodable */,
-				FB9991872491CE7B00F83DFB /* ImplementsItemSearcherServiceGivenAGetProductsUrlMaker */,
-				FB9991832491CD5C00F83DFB /* ManagesAObservableListOfProductsImplementsItemHolder */,
-				FB9991752491C6F000F83DFB /* CreatesViewControllerWithAGivenSearchController */,
-				FB99916D2491C51000F83DFB /* CreatesASearchControllerGivenSomeOptions */,
-				FB99915B2491AC2F00F83DFB /* ControlsChangesInSarchbarsTextAndDelegatesTheSearch */,
-				FB2222852491918D007FF2E8 /* SearchesItemsFromAGivenServiceImplementsSearcherProtocol */,
-			);
-			path = FirstScreen;
 			sourceTree = "<group>";
 		};
 		FB93DEAD2496F06B0026D32E /* RoutesToADetailItem */ = {
