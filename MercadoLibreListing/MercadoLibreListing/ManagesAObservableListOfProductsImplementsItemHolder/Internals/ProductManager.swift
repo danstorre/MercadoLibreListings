@@ -8,7 +8,8 @@
 
 import Foundation
 
-class ProductHolder<T: ProductProtocol>: ItemHolder, Observable{
+typealias ObservableItemHolder = ItemHolder & Observable
+class ProductHolder<T: ProductProtocol>: ObservableItemHolder{
     var products: [T] {
         willSet{
             observer?.willChange()
