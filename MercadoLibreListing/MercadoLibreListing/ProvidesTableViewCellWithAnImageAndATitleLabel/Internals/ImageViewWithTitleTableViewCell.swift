@@ -18,8 +18,8 @@ class ImageViewWithTitleTableViewCell: UITableViewCell {
     var gradientLayer : CAGradientLayer!
     var startLocations : [NSNumber] = [-1.0,-0.5, 0.0]
     var endLocations : [NSNumber] = [1.0,1.5, 2.0]
-    var gradientBackgroundColor : CGColor = UIColor(white: 0.85, alpha: 1.0).cgColor
-    var gradientMovingColor : CGColor = UIColor(white: 0.75, alpha: 1.0).cgColor
+    var gradientBackgroundColor : CGColor = UIColor.clear.cgColor
+    var gradientMovingColor : CGColor = UIColor(white: 0.35, alpha: 1.0).cgColor
     var movingAnimationDuration : CFTimeInterval = 0.8
     var delayBetweenAnimationLoops : CFTimeInterval = 1.0
    
@@ -41,20 +41,9 @@ class ImageViewWithTitleTableViewCell: UITableViewCell {
         
         gradientLayer = CAGradientLayer()
         
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradientLayer.colors = [UIColor.green.cgColor, UIColor.blue.cgColor]
-        
-        gradientLayer.colors = [UIColor.blue.cgColor, UIColor.green.cgColor, UIColor.blue.cgColor]
         gradientLayer.locations = self.startLocations
-        
-        let animation = CABasicAnimation(keyPath: "fadingImage")
-        animation.fromValue = self.startLocations
-        animation.toValue = self.endLocations
-        animation.duration = 0.6
-        animation.repeatCount = .infinity
-        
-        self.gradientLayer.add(animation, forKey: animation.keyPath)
         
         self.gradientLayer.colors = [
            self.gradientBackgroundColor,
