@@ -50,7 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //create a "router to a detail" object to be used by the search screen.
         routerToDetail = RoutesToDetailItemViewController()
         
-        //create a tableview delegate to assign to the search table view screen.
+        //create a tableview delegate to be assigned to the search table view screen.
         tableViewDelegate = PresentaAProductDetail()
         tableViewDelegate.delegate = routerToDetail
         
