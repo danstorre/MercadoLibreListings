@@ -8,10 +8,17 @@
 
 import Foundation
 
+protocol DataTaskMaker {
+    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+
+extension URLSession : DataTaskMaker {}
+
+
 class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProtocol>: SearcherGivenAUrlMakerItemSearcherService where ParserType.T ==  [ProductType]{
     typealias T = ProductType
     
-    lazy var session: URLSession = URLSession.shared
+    lazy var session: DataTaskMaker = URLSession.shared
     var urlMaker: GetProductsUrlMaker
     var parser: ParserType?
     var currentTasks: [URLSessionDataTask] = []

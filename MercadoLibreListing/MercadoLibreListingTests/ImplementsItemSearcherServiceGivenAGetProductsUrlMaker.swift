@@ -25,6 +25,40 @@ class ImplementsItemSearcherServiceGivenAGetProductsUrlMaker: XCTestCase {
         XCTAssertTrue(urlmaker.makeGetUrlCalled)
     }
     
+    func testGetItems_WhenServerReturnsItems_ShouldMakeADataTask(){
+        //given
+        let termToSearch = "casa"
+        let urlmaker = createProductsUrlMaker()
+        let itemSearcherService: SearcherType? = createAnItemSercherService(with: urlmaker)
+        let mockURLSession = MockURLSession()
+        itemSearcherService?.session = mockURLSession
+        
+        itemSearcherService?.getItems(with: termToSearch,
+        completion: { (_, _) in })
+        
+        XCTAssertNotNil(mockURLSession.completionHandler)
+    }
+    
+    class MockURLSession: DataTaskMaker {
+        typealias Handler = (Data?, URLResponse?, Error?) -> Void
+        var completionHandler: Handler?
+        var url: URL?
+        var dataTask = MockURLSessionDataTask()
+        func dataTask(with url: URL,
+                      completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+            self.url = url
+            self.completionHandler = completionHandler
+            return dataTask
+        }
+    }
+    
+    class MockURLSessionDataTask : URLSessionDataTask {
+        var resumeGotCalled = false
+        override func resume() {
+            resumeGotCalled = true
+        }
+    }
+    
     func createProductsUrlMaker() -> MockURLMaker {
         return MockURLMaker()
     }
