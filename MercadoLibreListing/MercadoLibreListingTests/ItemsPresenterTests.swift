@@ -16,9 +16,8 @@ class ItemsPresenterTests: XCTestCase {
     typealias ObservableListOfProductsPrensenterModelProtocol = ListOfProductsPrensenterModelProtocol & Observable
 
     typealias ObserverListOfProductsPrensenterProtocol = ListOfProductsPrensenterProtocol & IObserver
-
-    //buscador con imágenes, iconos y texto
-    func testPresentItems_WhenGivenAListOfProducts_ShouldSetATableview(){
+    
+    func testObserverListOfProductsPrensenterProtocol_WhenModeChanges_PresenterShouldProvideViewDataToTheView(){
         //given an observable object
         let observableObject = createObservableObjectThatConformsToListOfProductsPrensenterModelProtocol()
         var listOfProductsView = createAnExpectablePresentableTitleAndImageProductView()
