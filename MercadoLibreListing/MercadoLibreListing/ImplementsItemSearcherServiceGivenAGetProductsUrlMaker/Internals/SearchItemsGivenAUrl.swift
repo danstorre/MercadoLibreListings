@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProtocol>: ItemSearcherService where ParserType.T ==  [ProductType]{
+class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProtocol>: SearcherGivenAUrlMakerItemSearcherService where ParserType.T ==  [ProductType]{
     typealias T = ProductType
     
     lazy var session: URLSession = URLSession.shared
@@ -18,7 +18,7 @@ class SearchItemsFromNetworkGivenASearchTerm<ProductType, ParserType: ParserProt
     
     weak var delegate: SearchItemsFromNetworkGivenASearchTermDelegate?
     
-    init(urlMaker: GetProductsUrlMaker) {
+    required init(urlMaker: GetProductsUrlMaker) {
         self.urlMaker = urlMaker
     }
     
